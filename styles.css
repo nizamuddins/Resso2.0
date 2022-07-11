@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#home {
+    display: block;
+}
+.row1 {
+    height: 745px;
+    width: 100%;
+}
+
+.ul1 {
+    margin-top: 2rem;
+    padding-left: 1.2rem;
+
+}
+.navbar {
+    background-color: #121212;
+}
+.imgwidt {
+    width: 33px;
+}
+
+.li1 {
+    width: 100%;
+    list-style-type: none;
+    text-transform: capitalize;
+    line-height: 2;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    padding-left: 0.6rem;
+}
+.li1:hover {
+    background-color: white;
+    opacity: 1;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: auto;
+    width: 70%;
+    padding-right: 2.7rem;
+}
+.restxt {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* ul2********** */
+.ul2 {
+    margin-top: 4rem;
+    padding-left: 2rem;
+
+}
+.li2 {
+    text-align: left;
+    list-style-type: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+.restxt1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgb(195,200,215);
+}
+.restxt1:hover {
+    color: #fff;
+}
+.lib {
+    color: rgb(125, 125, 125);
+
+}
+.fm {
+    background-color: #121212;
+    height: 100%;
+    padding-top: 2rem;
+    position: fixed;
+
+}
+.fa1 {
+    font-size: 1.2rem;
+    color: rgb(195,200,215);
+    margin-right: 0.5rem;
+
+}
+.fa1:hover {
+    color: #fff;
+}
+
+@media (min-width:1200px) {
+
+    .col-lg-res {
+        flex: 0 0 auto;
+        width: 13%;
+        height: 100%;
+    }
+
+}
+/* fix ***********/
+@media (min-width:1200px) {
+    .fix1 {
+        flex: 0 0 auto;
+        width: 87%;
+        margin-left: 13%;
+    }
+}
+.fix1 {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5),rgba(0, 0, 0, .9),rgb(28, 23, 23),rgb(9, 8, 8)), url("images/mashup.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.fix {
+    background-color: transparent;
+    line-height: 0;
+
+}
+.fixed-top1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 13%;
+    z-index: 1030;
+}
+
+.d-flex {
+    padding: 3rem 0;
+}
+
+.form-control {
+    width: 20%;
+    height: 31%;
+    padding: 0.1rem 0.75rem;
+    margin-left: 70%;
+    font-size: 0.8rem;
+    border-radius: 30px;
+    transition: none;
+}
+.btn {
+    padding: 0 0.5rem;
+    line-height: 0;
+    font-size: 0.8rem;
+    border-radius: 30px;
+    color: #fff;
+    border-color: #FC573B;
+}
+.btn:hover {
+    background-color: #FC573B;
+
+}
+
+/* *******col */
+.cols {
+    display: inline-block;
+}
+.cols1 {
+    background-color: transparent;
+    background-image: linear-gradient(rgb(82, 70, 70),rgb(59, 51, 51),rgb(49, 44, 44),rgb(41, 35, 35),rgb(37, 31, 31),rgb(31, 26, 26),rgb(24, 21, 21),rgb(20, 17, 17),rgb(16, 14, 14),rgb(12, 11, 11),rgb(8, 7, 7),rgb(6, 5, 5));
+    border-radius: 23px;
+    position: relative;
+    margin: 0 2rem;
+    text-align: center;
+}
+.cols2 {
+    background-color: transparent;
+    background-image: linear-gradient(transparent,transparent,transparent,rgba(0, 0, 0, .1),rgb(74, 69, 69),rgb(62, 53, 53),rgb(56, 52, 52),rgb(43, 39, 39),rgb(29, 26, 26));
+
+    margin: 0;
+
+}
+
+.container {
+    height: 100%;
+    margin: 0;
+    padding: 7.5rem 0 0;
+    display: flex;
+}
+
+@media (min-width:1200px) {
+    .cols1 {
+        flex: 0 0 auto;
+        width: 54.55%;
+        height: 70%;
+    }
+    .cols2 {
+        flex: 0 0 auto;
+        width: 40%;
+        height: 70%;
+    }
+}
+
+/* songs******** */
+
+.songsgif {
+    height: 250px;
+    width: 250px;
+    background-image: url("images/mashup.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 17px;
+    position: absolute;
+    z-index: 1;
+    left: 33%;
+
+}
+
+.songsNames {
+    margin: 1.7rem auto;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.songName2 {
+    display: block;
+    max-width: 60%;
+    margin: auto;
+    line-height: 28px;
+    color: rgb(195,200,215);
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+
+}
+.disc {
+    font-size: 12rem;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    left: 32%;
+    top: 17.55%;
+    z-index: 0;
+    margin-left: 7.5rem;
+
+}
+
+/* cols2*********** */
+
+.songsList {
+    list-style-type: none;
+    padding: 0.6rem;
+    display: flex;
+    background-color: rgba(0, 0, 0, .3);
+}
+.songsList:hover {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 11px;
+
+}
+.images {
+    display: block;
+    width: 70px;
+    height: 68px;
+    position: relative;
+}
+.pngs {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+.names {
+    margin: 0.5rem 0 0 .8rem;
+}
+.RB {
+    color: rgb(248, 248, 248);
+    margin: 0;
+    letter-spacing: 0.6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Poppins',sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+.RB:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+.singer {
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: rgb(221, 218, 218);
+    cursor: pointer;
+}
+/* animation*** */
+
+.fa {
+    animation: spin 3s linear infinite;
+}
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ***range */
+
+.songplay {
+    width: 96%;
+    position: fixed;
+    bottom: 2%;
+    left: 2%;
+    padding:1.6rem 0.7rem 0.5rem;
+    background-color: black;
+    margin: auto;
+    border-radius: 16px;
+
+}
+.range {
+    width: 100%;
+    height: 0.2rem;
+}
+
+.play {
+    color: rgb(21, 18, 18);
+    opacity: 1;
+
+}
+.playgif {
+    padding: 0.5rem 0.9rem;
+    border-radius: 100%;
+    position: absolute;
+    left: 48%;
+    top: 48%;
+    z-index: 1;
+    background-color: #fff;
+    opacity: 0.7;
+    border: 1.2px solid rgb(0, 0, 0);
+
+}
+
+
+
+
+.play1 {
+    color: rgb(244, 244, 244);
+    opacity: 1;
+    font-size: 0.8rem;
+
+}
+.playgif2 {
+    position: absolute;
+    top: 30%;
+    left: 28%;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .9);
+    opacity: 0.7;
+    border: 1.2px solid rgb(0, 0, 0);
+}
+
+/* ForwardBackward********** */
+
+.forBac1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 10%;
+}
+.forBac2{
+    width: 100%;
+    
+}
+.fafb{
+    font-size: 1.3rem;
+    color: rgb(155, 153, 153);
+}
+.sideSong{
+    display: inline-flex;
+    align-items: baseline;
+    position: absolute;
+    top: 0%;
+    z-index: 10001;
+}
+.images2 {
+    display: block;
+    width: 70px;
+    height: 68px;
+    position: relative;
+    bottom:10px;
+
+}
