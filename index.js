@@ -58,16 +58,52 @@ $('.plays2').mouseover(() => {
 
 })
 
+const songsgif = $('.songsgif')
+
 play.click((e) => {
     start = true;
-  
+
     if ($(e.target).hasClass('fa-play')) {
         play.addClass('fa-pause fs-5')
-        play.removeClass('fa-play')
-    }
-    else{
+        play.removeClass('fa-play');
+        const split = songsgif
+            .attr('class')
+            .split(' ');
+        const name = split.pop();
+        const split2 = name
+            .split('s')
+            .shift();
+        playSound(split2);
+    } else {
         play.addClass('fa-play')
         play.removeClass('fa-pause fs-5')
 
     }
+
 })
+
+// playingsongs************
+
+$('.songsList').click((e) => {
+    const split = $(e.target)
+        .attr('class')
+        .split(' ');
+    const name = split.pop();
+    playSound(name)
+    changes(name);
+
+})
+
+function playSound(name1) {
+    const audio = new Audio('songs/' + name1 + '.mp3');
+    audio.play();
+
+}
+
+function changes(names) {
+    const split = songsgif
+        .attr('class')
+        .split(' ')[1];
+    songsgif.removeClass(split)
+    songsgif.addClass(names + 's')
+}

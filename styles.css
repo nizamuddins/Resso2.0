@@ -32,7 +32,7 @@
     margin-bottom: 1rem;
     padding-left: 0.6rem;
 }
-.li1s{
+.li1s {
     background-color: rgba(0, 0, 0, .5);
     opacity: 1;
 }
@@ -173,7 +173,7 @@
 }
 .cols2 {
     background-color: transparent;
-    background-image: linear-gradient(transparent,transparent,transparent,rgba(0, 0, 0, .1),rgb(74, 69, 69),rgb(62, 53, 53),rgb(56, 52, 52),rgb(43, 39, 39),rgb(29, 26, 26));
+    background-image: linear-gradient(transparent,transparent,transparent,rgba(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(43, 39, 39),rgb(29, 26, 26));
 
     margin: 0;
 
@@ -201,7 +201,55 @@
 
 /* songs******** */
 
-.songsgif {
+.jhooms {
+    height: 250px;
+    width: 250px;
+    background-image: url("images/jhoom.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 17px;
+    position: absolute;
+    z-index: 1;
+    left: 33%;
+
+}
+.rokes {
+    height: 250px;
+    width: 250px;
+    background-image: url("images/roke.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 17px;
+    position: absolute;
+    z-index: 1;
+    left: 33%;
+
+}
+.zaras {
+    height: 250px;
+    width: 250px;
+    background-image: url("images/zara.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 17px;
+    position: absolute;
+    z-index: 1;
+    left: 33%;
+
+}
+.ajabs {
+    height: 250px;
+    width: 250px;
+    background-image: url("images/ajab.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 17px;
+    position: absolute;
+    z-index: 1;
+    left: 33%;
+
+}
+.mashups {
     height: 250px;
     width: 250px;
     background-image: url("images/mashup.jpg");
@@ -268,7 +316,7 @@
 
 }
 .names {
-    margin: 0.5rem 0 0 .8rem;
+    margin: 0.5rem 0 0 0.8rem;
 }
 .RB {
     color: rgb(248, 248, 248);
@@ -311,7 +359,7 @@
     position: fixed;
     bottom: 2%;
     left: 2%;
-    padding:1.6rem 0.7rem 0.5rem;
+    padding: 1.6rem 0.7rem 0.5rem;
     background-color: black;
     margin: auto;
     border-radius: 16px;
@@ -325,7 +373,7 @@
 .play {
     color: rgb(21, 18, 18);
     opacity: 1;
-margin-top: .1rem;
+    margin-top: 0.1rem;
 }
 .playgif {
     padding: 0.7rem 1.1rem;
@@ -337,12 +385,9 @@ margin-top: .1rem;
     background-color: #fff;
     opacity: 0.8;
     border: 1.2px solid rgb(0, 0, 0);
-    
+    cursor: pointer;
 
 }
-
-
-
 
 .play1 {
     color: rgb(244, 244, 244);
@@ -352,7 +397,7 @@ margin-top: .1rem;
 }
 .playgif2 {
     position: absolute;
-    top: 30%;
+    top: 26%;
     left: 28%;
     padding: 0.2rem 0.6rem;
     border-radius: 100%;
@@ -364,26 +409,26 @@ margin-top: .1rem;
 
 /* ForwardBackward********** */
 
-.forBac1{
+.forBac1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     width: 10%;
 }
-.forBac2{
+.forBac2 {
     width: 100%;
-    
+
 }
-.fafb{
+.fafb {
     font-size: 1.3rem;
     color: rgb(155, 153, 153);
 }
-.sideSong{
+.sideSong {
     display: inline-flex;
     align-items: baseline;
     position: absolute;
-    top: 0%;
+    top: 0;
     z-index: 10001;
 }
 .images2 {
@@ -391,6 +436,6 @@ margin-top: .1rem;
     width: 70px;
     height: 68px;
     position: relative;
-    bottom:10px;
+    bottom: 10px;
 
 }
