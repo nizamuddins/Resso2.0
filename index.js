@@ -97,9 +97,11 @@ $('.songsList').click((e) => {
 function playSound(name1) {
     const audio = new Audio('songs/' + name1 + '.mp3');
     audio.play();
-
-
+changes(name1)
 }
+
+//****** */ changinImgs
+const lstImg = $('.lastimg');
 
 function changes(names) {
     const split = songsgif
@@ -107,5 +109,17 @@ function changes(names) {
         .split(' ')[1];
     songsgif.removeClass(split)
     songsgif.addClass(names + 's')
+    // lastimg
+    lstImg.attr('src', `images/${names}.jpg `)
+    // backgroundImg
+    $('.fix1').attr('id', names);
+// addinggif
+    playgif.css('visibility','hidden')
+const cols1 = $('.cols1');
+const innerhtml =   `<span class=" gif plays  p-0">
+<img src="images/gif.gif" class="gif2">
+</span>`
+cols1.append(innerhtml)
 }
+
 
