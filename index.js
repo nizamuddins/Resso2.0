@@ -98,6 +98,7 @@ function playSound(name1) {
     const audio = new Audio('songs/' + name1 + '.mp3');
     audio.play();
 
+
 }
 
 function changes(names) {
@@ -107,3 +108,4 @@ function changes(names) {
     songsgif.removeClass(split)
     songsgif.addClass(names + 's')
 }
+
