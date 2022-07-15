@@ -58,6 +58,34 @@ $('.plays2').mouseover(() => {
 
 })
 
+// adingfontawesomeinsongslist
+
+const songsList = $('.songsList')
+songsList.mouseover((e) => {
+
+    const classes = $(e.currentTarget).attr('class');
+    const divide = classes
+        .split(' ')
+        .pop();
+
+    $('#' + divide + 's').addClass('playgif2');
+    $('#' + divide + 'sa').addClass('play1');
+    $('#' + divide + 'sa').addClass('fa-play');
+
+})
+songsList.mouseleave((e) => {
+
+    const classes = $(e.currentTarget).attr('class');
+    const divide = classes
+        .split(' ')
+        .pop();
+
+    $('#' + divide + 's').removeClass('playgif2');
+    $('#' + divide + 'sa').removeClass('play1');
+    $('#' + divide + 'sa').removeClass('fa-play');
+
+})
+
 const songsgif = $('.songsgif')
 
 play.click((e) => {
@@ -89,15 +117,24 @@ $('.songsList').click((e) => {
         .attr('class')
         .split(' ');
     const name = split.pop();
+    const child = $(e.currentTarget).children()[1];
+    const moreChilds = child.firstElementChild.textContent;
+    const moreChilds2 = child.lastElementChild.textContent;
+    cols1(moreChilds,moreChilds2);
     playSound(name)
     changes(name);
 
 })
 
 function playSound(name1) {
-    const audio = new Audio('songs/' + name1 + '.mp3');
-    audio.play();
-changes(name1)
+    setTimeout(() => {
+        const audio = new Audio('songs/' + name1 + '.mp3');
+        audio.play();
+        const compactdisc = $('.compactdisc');
+        compactdisc.addClass('fa')
+    }, 2000)
+
+    changes(name1)
 }
 
 //****** */ changinImgs
@@ -110,16 +147,33 @@ function changes(names) {
     songsgif.removeClass(split)
     songsgif.addClass(names + 's')
     // lastimg
+
     lstImg.attr('src', `images/${names}.jpg `)
     // backgroundImg
+
     $('.fix1').attr('id', names);
-// addinggif
-    playgif.css('visibility','hidden')
-const cols1 = $('.cols1');
-const innerhtml =   `<span class=" gif plays  p-0">
-<img src="images/gif.gif" class="gif2">
-</span>`
-cols1.append(innerhtml)
+    // addinggif
+
+    playgif.css('visibility', 'hidden')
+    const cols1 = $('.cols1');
+    const innerhtml = `<span class=" gif plays  p-0">
+       <img src="images/gif.gif" class="gif2"></span>`
+    cols1.append(innerhtml);
+
+    const images2 = $('.images2');
+    const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+
+    images2.append(innerhtml2)
+
 }
 
+// changingNames**
 
+function cols1(name1,name2) {
+    const songName1 = $('.songName1');
+    const songName2= $('.songName2');
+    
+    songName1.text(name1);
+    songName2.text(name2);
+
+}
