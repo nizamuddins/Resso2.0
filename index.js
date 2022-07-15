@@ -120,7 +120,7 @@ $('.songsList').click((e) => {
     const child = $(e.currentTarget).children()[1];
     const moreChilds = child.firstElementChild.textContent;
     const moreChilds2 = child.lastElementChild.textContent;
-    cols1(moreChilds,moreChilds2);
+    cols1(moreChilds, moreChilds2);
     playSound(name)
     changes(name);
 
@@ -169,11 +169,16 @@ function changes(names) {
 
 // changingNames**
 
-function cols1(name1,name2) {
+function cols1(name1, name2) {
     const songName1 = $('.songName1');
-    const songName2= $('.songName2');
-    
+    const songName2 = $('.songName2');
+    const musicName = $('.musicName');
+    const singers = $('.singers');
+
     songName1.text(name1);
     songName2.text(name2);
+
+    musicName.text(name1);
+    singers.text(name2);
 
 }
