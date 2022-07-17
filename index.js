@@ -125,6 +125,7 @@ $('.songsList').click((e) => {
     const child = $(e.currentTarget).children()[1];
     const moreChilds = child.firstElementChild.textContent;
     const moreChilds2 = child.lastElementChild.textContent;
+    console.log(name)
     cols1(moreChilds, moreChilds2);
     playSound(name)
     changes(name);
@@ -152,6 +153,7 @@ function changes(names) {
         .split(' ')[1];
     songsgif.removeClass(split)
     songsgif.addClass(names + 's')
+
     // lastimg
 
     lstImg.attr('src', `images/${names}.jpg `)
@@ -185,8 +187,14 @@ function addinggif() {
     })
 
     songsgif.mouseleave(() => {
-        cols1.append(innerhtml);
-        playgif.css('visibility', 'hidden');
+        if (!start2) {
+            cols1.append(innerhtml);
+            playgif.css('visibility', 'hidden');
+            $('.gif')
+                .next()
+                .remove();
+
+        }
     })
     playgif.mouseover(() => {
         playgif.css('visibility', 'visible');
