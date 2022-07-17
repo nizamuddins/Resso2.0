@@ -24,37 +24,37 @@ $('.li1').click((e) => {
 const playgif = $('.plays');
 const play = $('.plays2');
 
-let start = false;
+// let start = false;
 
 $('.songsgif').mouseover(() => {
-    if (!start) {
-        playgif.addClass('playgif');
-        play.addClass('play')
-    }
+    // if (!start) {
+    playgif.addClass('playgif');
+    play.addClass('play')
+    // }
 
 })
 $('.songsgif').mouseleave(() => {
-    if (!start) {
-        playgif.removeClass('playgif');
-        play.removeClass('play')
+    // if (!start) {
+    playgif.removeClass('playgif');
+    play.removeClass('play')
 
-    }
+    // }
 
 })
 $('.plays').mouseover(() => {
-    if (!start) {
-        playgif.addClass('playgif');
-        play.addClass('play')
+    // if (!start) {
+    playgif.addClass('playgif');
+    play.addClass('play')
 
-    }
+    // }
 
 })
 $('.plays2').mouseover(() => {
-    if (!start) {
+    // if (!start) {
 
-        playgif.addClass('playgif');
-        play.addClass('play')
-    }
+    playgif.addClass('playgif');
+    play.addClass('play')
+    // }
 
 })
 
@@ -86,6 +86,7 @@ songsList.mouseleave((e) => {
 
 })
 
+let start2 = false;
 const songsgif = $('.songsgif')
 
 play.click((e) => {
@@ -102,10 +103,14 @@ play.click((e) => {
             .split('s')
             .shift();
         playSound(split2);
+        addinggif();
+        start2 = false;
+
     } else {
         play.addClass('fa-play')
-        play.removeClass('fa-pause fs-5')
+        play.removeClass('fa-pause fs-5');
 
+        start2 = true;
     }
 
 })
@@ -134,7 +139,8 @@ function playSound(name1) {
         compactdisc.addClass('fa')
     }, 2000)
 
-    changes(name1)
+    changes(name1);
+    addinggif();
 }
 
 //****** */ changinImgs
@@ -152,19 +158,41 @@ function changes(names) {
     // backgroundImg
 
     $('.fix1').attr('id', names);
-    // addinggif
-
-    playgif.css('visibility', 'hidden')
-    const cols1 = $('.cols1');
-    const innerhtml = `<span class=" gif plays  p-0">
-       <img src="images/gif.gif" class="gif2"></span>`
-    cols1.append(innerhtml);
 
     const images2 = $('.images2');
     const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
 
     images2.append(innerhtml2)
 
+}
+// addinggif
+function addinggif() {
+
+    play.addClass('fa-pause fs-5');
+    play.removeClass('fa-play');
+
+    const cols1 = $('.cols1');
+    const innerhtml = `<span class=" gif   p-0">
+<img src="images/gif.gif" class="gif2"></span>`;
+
+    cols1.append(innerhtml);
+    playgif.css('visibility', 'hidden');
+
+    songsgif.mouseover(() => {
+        playgif.css('visibility', 'visible');
+        $('.gif').remove();
+
+    })
+
+    songsgif.mouseleave(() => {
+        cols1.append(innerhtml);
+        playgif.css('visibility', 'hidden');
+    })
+    playgif.mouseover(() => {
+        playgif.css('visibility', 'visible');
+
+        $('.gif').remove();
+    })
 }
 
 // changingNames**
