@@ -444,6 +444,7 @@
 .fafb {
     font-size: 1.3rem;
     color: rgb(155, 153, 153);
+    cursor: pointer;
 }
 .sideSong {
     display: inline-flex;

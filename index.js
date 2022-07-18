@@ -86,6 +86,8 @@ songsList.mouseleave((e) => {
 
 })
 
+// addingPause,Play
+
 let start2 = false;
 const songsgif = $('.songsgif')
 
@@ -104,13 +106,15 @@ play.click((e) => {
             .shift();
         playSound(split2);
         addinggif();
+        lstPlay();
         start2 = false;
 
     } else {
         play.addClass('fa-play')
         play.removeClass('fa-pause fs-5');
-
+        lstPlay();
         start2 = true;
+
     }
 
 })
@@ -125,23 +129,41 @@ $('.songsList').click((e) => {
     const child = $(e.currentTarget).children()[1];
     const moreChilds = child.firstElementChild.textContent;
     const moreChilds2 = child.lastElementChild.textContent;
-    console.log(name)
     cols1(moreChilds, moreChilds2);
     playSound(name)
     changes(name);
+    lstPlay();
 
 })
+
+// lastPlay
+
+$('.lstPlay').click((e) => {
+    const split = songsgif
+        .attr('class')
+        .split(' ');
+    const name = split.pop();
+    const split2 = name
+        .split('s')
+        .shift();
+    lstPlay();
+    if ($('.lstPlay').hasClass('fa-pause')) {
+        playSound(split2);
+    }
+
+})
+
+// playsongs
+const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
     setTimeout(() => {
         const audio = new Audio('songs/' + name1 + '.mp3');
         audio.play();
-        const compactdisc = $('.compactdisc');
         compactdisc.addClass('fa')
     }, 2000)
-
-    changes(name1);
     addinggif();
+    changes(name1);
 }
 
 //****** */ changinImgs
@@ -160,11 +182,15 @@ function changes(names) {
     // backgroundImg
 
     $('.fix1').attr('id', names);
-
+    // lastgif
     const images2 = $('.images2');
     const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+    if (play.hasClass('fa-pause')) {
+        images2.append(innerhtml2)
 
-    images2.append(innerhtml2)
+    } else {
+        $('.gif3').remove();
+    }
 
 }
 // addinggif
@@ -217,4 +243,28 @@ function cols1(name1, name2) {
     musicName.text(name1);
     singers.text(name2);
 
+}
+
+// lstPlayfunc
+function lstPlay() {
+    if ($('.lstPlay').hasClass('fa-play')) {
+        $('.lstPlay').removeClass('fa-play');
+        $('.lstPlay').addClass('fa-pause');
+        start2 = false;
+    } else {
+        $('.lstPlay').removeClass('fa-pause');
+        $('.lstPlay').addClass('fa-play');
+        removinggif();
+    }
+
+}
+// removinggif
+function removinggif() {
+
+    play.addClass('fa-play');
+    play.removeClass('fa-pause fs-5');
+    start2 = true;
+    $('.gif').remove();
+    $('.gif3').remove();
+    compactdisc.removeClass('fa');
 }
