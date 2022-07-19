@@ -113,9 +113,10 @@ play.click((e) => {
     } else {
         play.addClass('fa-play')
         play.removeClass('fa-pause fs-5');
-        // lstPlay();
+        lstPlay();
         start2 = true;
-        playSound(split2)
+        playSound(split2);
+        removinggif();
     }
 
 })
