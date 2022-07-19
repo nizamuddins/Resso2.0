@@ -93,17 +93,18 @@ const songsgif = $('.songsgif')
 
 play.click((e) => {
     start = true;
+    const split = songsgif
+        .attr('class')
+        .split(' ');
+    const name = split.pop();
+    const split2 = name
+        .split('s')
+        .shift();
 
     if ($(e.target).hasClass('fa-play')) {
         play.addClass('fa-pause fs-5')
         play.removeClass('fa-play');
-        const split = songsgif
-            .attr('class')
-            .split(' ');
-        const name = split.pop();
-        const split2 = name
-            .split('s')
-            .shift();
+
         playSound(split2);
         addinggif();
         lstPlay();
@@ -112,9 +113,9 @@ play.click((e) => {
     } else {
         play.addClass('fa-play')
         play.removeClass('fa-pause fs-5');
-        lstPlay();
+        // lstPlay();
         start2 = true;
-
+        playSound(split2)
     }
 
 })
@@ -152,21 +153,30 @@ $('.lstPlay').click((e) => {
     }
 
 })
-
+const audio = document.querySelector('#audio');
+let count = 0;
 // playsongs
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
-    setTimeout(() => {
-        const audio = new Audio('songs/' + name1 + '.mp3');
-        audio.play();
-        compactdisc.addClass('fa')
-    }, 2000)
+    if (count === 0) {
+        setTimeout(() => {
+
+            audio.play();
+            compactdisc.addClass('fa');
+            count = 1;
+        }, 2000)
+    } else {
+        audio.pause();
+        count = 0;
+    }
+
     addinggif();
     changes(name1);
+
 }
 
-//****** */ changinImgs
+// pauseSound ****** */ changinImgs
 const lstImg = $('.lastimg');
 
 function changes(names) {
