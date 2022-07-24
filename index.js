@@ -154,22 +154,58 @@ $('.lstPlay').click((e) => {
     }
 
 })
-const audio = document.querySelector('#audio');
+const audio1 = document.querySelector('#audio1');
+const audio2 = document.querySelector('#audio2');
+const audio3 = document.querySelector('#audio3');
+const audio4 = document.querySelector('#audio4');
+const audio5 = document.querySelector('#audio5');
+
 let count = 0;
 // playsongs
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
-    if (count === 0) {
+    console.log(name1)
+    if (count === 0 && name1 === 'jhoom') {
         setTimeout(() => {
-
-            audio.play();
+            audio1.play();
             compactdisc.addClass('fa');
             count = 1;
         }, 2000)
-    } else {
-        audio.pause();
+    } else if (count === 0 && name1 === 'roke') {
+        setTimeout(() => {
+            audio2.play();
+            compactdisc.addClass('fa');
+            count = 1;
+        }, 2000)
+
+    } else if (count === 0 && name1 === 'zara') {
+        setTimeout(() => {
+            audio3.play();
+            compactdisc.addClass('fa');
+            count = 1;
+        }, 2000)
+
+    } else if (count === 0 && name1 === 'ajab') {
+        setTimeout(() => {
+            audio4.play();
+            compactdisc.addClass('fa');
+            count = 1;
+        }, 2000)
+    } else if (count === 0 && name1 === 'remix') {
+        setTimeout(() => {
+            compactdisc.addClass('fa');
+            audio5.play();
+            count = 1;
+        }, 2000)
+    } else if (count === 1) {
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+        audio4.pause();
+        audio5.pause();
         count = 0;
+
     }
 
     addinggif();
