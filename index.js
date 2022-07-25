@@ -122,8 +122,15 @@ play.click((e) => {
 })
 
 // playingsongs************
+const audio1 = document.querySelector('#audio1');
+const audio2 = document.querySelector('#audio2');
+const audio3 = document.querySelector('#audio3');
+const audio4 = document.querySelector('#audio4');
+const audio5 = document.querySelector('#audio5');
+let count = 0;
 
 $('.songsList').click((e) => {
+    count = 0;
     const split = $(e.target)
         .attr('class')
         .split(' ');
@@ -132,6 +139,11 @@ $('.songsList').click((e) => {
     const moreChilds = child.firstElementChild.textContent;
     const moreChilds2 = child.lastElementChild.textContent;
     cols1(moreChilds, moreChilds2);
+    audio1.pause();
+    audio2.pause();
+    audio3.pause();
+    audio4.pause();
+    audio5.pause();
     playSound(name)
     changes(name);
     lstPlay();
@@ -148,24 +160,22 @@ $('.lstPlay').click((e) => {
     const split2 = name
         .split('s')
         .shift();
-    lstPlay();
     if ($('.lstPlay').hasClass('fa-pause')) {
         playSound(split2);
+        lstPlay();
+
+    } else {
+        playSound(split2)
+        lstPlay();
+
     }
 
 })
-const audio1 = document.querySelector('#audio1');
-const audio2 = document.querySelector('#audio2');
-const audio3 = document.querySelector('#audio3');
-const audio4 = document.querySelector('#audio4');
-const audio5 = document.querySelector('#audio5');
 
-let count = 0;
 // playsongs
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
-    console.log(name1)
     if (count === 0 && name1 === 'jhoom') {
         setTimeout(() => {
             audio1.play();
@@ -204,7 +214,6 @@ function playSound(name1) {
         audio3.pause();
         audio4.pause();
         audio5.pause();
-        count = 0;
 
     }
 
