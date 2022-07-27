@@ -140,10 +140,9 @@ let count = 0;
 
 $('.songsList').click((e) => {
     count = 0;
-    const split = $(e.target)
+    const split = $(e.currentTarget)
         .attr('class')
         .split(' ');
-    console.log(split)
     const name = split.pop();
     console.log(name)
     const child = $(e.currentTarget).children()[1];
