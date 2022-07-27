@@ -69,8 +69,17 @@ songsList.mouseover((e) => {
         .pop();
 
     $('#' + divide + 's').addClass('playgif2');
+
     $('#' + divide + 'sa').addClass('play1');
     $('#' + divide + 'sa').addClass('fa-play');
+    setTimeout(()=>{
+    $('#jhooms').addClass('jhoom');
+    $('#ajabs').addClass('ajab');
+    $('#zaras').addClass('zara');
+    $('#remixs').addClass('remix');
+    $('#rokes').addClass('roke');
+
+    },500)
 
 })
 songsList.mouseleave((e) => {
@@ -134,11 +143,15 @@ $('.songsList').click((e) => {
     const split = $(e.target)
         .attr('class')
         .split(' ');
+    console.log(split)
     const name = split.pop();
+    console.log(name)
     const child = $(e.currentTarget).children()[1];
     const moreChilds = child.firstElementChild.textContent;
     const moreChilds2 = child.lastElementChild.textContent;
     cols1(moreChilds, moreChilds2);
+    $('.lstPlay').removeClass('fa-play');
+    $('.lstPlay').addClass('fa-pause');
     audio1.pause();
     audio2.pause();
     audio3.pause();
@@ -146,8 +159,6 @@ $('.songsList').click((e) => {
     audio5.pause();
     playSound(name)
     changes(name);
-    lstPlay();
-
 })
 
 // lastPlay
@@ -160,17 +171,18 @@ $('.lstPlay').click((e) => {
     const split2 = name
         .split('s')
         .shift();
-    if ($('.lstPlay').hasClass('fa-pause')) {
-        playSound(split2);
-        lstPlay();
-
-    } else {
-        playSound(split2)
-        lstPlay();
-
-    }
+    lastPlay(split2)
 
 })
+
+function lastPlay(splits) {
+    // if ($('.lstPlay').hasClass('fa-pause')) {     playSound(splits); } else {
+    playSound(splits)
+
+    // }
+    lstPlay();
+
+}
 
 // playsongs
 const compactdisc = $('.compactdisc');
@@ -181,40 +193,40 @@ function playSound(name1) {
             audio1.play();
             compactdisc.addClass('fa');
             count = 1;
-        }, 2000)
+        }, 100)
     } else if (count === 0 && name1 === 'roke') {
         setTimeout(() => {
             audio2.play();
             compactdisc.addClass('fa');
             count = 1;
-        }, 2000)
+        }, 100)
 
     } else if (count === 0 && name1 === 'zara') {
         setTimeout(() => {
             audio3.play();
             compactdisc.addClass('fa');
             count = 1;
-        }, 2000)
+        }, 100)
 
     } else if (count === 0 && name1 === 'ajab') {
         setTimeout(() => {
             audio4.play();
             compactdisc.addClass('fa');
             count = 1;
-        }, 2000)
+        }, 100)
     } else if (count === 0 && name1 === 'remix') {
         setTimeout(() => {
             compactdisc.addClass('fa');
             audio5.play();
             count = 1;
-        }, 2000)
+        }, 100)
     } else if (count === 1) {
         audio1.pause();
         audio2.pause();
         audio3.pause();
         audio4.pause();
         audio5.pause();
-
+        count = 0;
     }
 
     addinggif();
