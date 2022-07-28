@@ -437,8 +437,8 @@
     margin: auto;
     width: 10%;
 }
-.forBac2 {
-    width: 100%;
+.forBac2 :hover{
+ color: #fff;
 
 }
 .fafb {

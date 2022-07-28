@@ -72,14 +72,14 @@ songsList.mouseover((e) => {
 
     $('#' + divide + 'sa').addClass('play1');
     $('#' + divide + 'sa').addClass('fa-play');
-    setTimeout(()=>{
-    $('#jhooms').addClass('jhoom');
-    $('#ajabs').addClass('ajab');
-    $('#zaras').addClass('zara');
-    $('#remixs').addClass('remix');
-    $('#rokes').addClass('roke');
+    setTimeout(() => {
+        $('#jhooms').addClass('jhoom');
+        $('#ajabs').addClass('ajab');
+        $('#zaras').addClass('zara');
+        $('#remixs').addClass('remix');
+        $('#rokes').addClass('roke');
 
-    },500)
+    }, 500)
 
 })
 songsList.mouseleave((e) => {
@@ -100,21 +100,35 @@ songsList.mouseleave((e) => {
 let start2 = false;
 const songsgif = $('.songsgif')
 
+const array = ['jhoom', 'roke', 'ajab', 'zara', 'remix'];
+
+const split5 = songsgif
+.attr('class')
+.split(' ');
+const name2 = split5.pop();
+const split6 = name2
+.split('s')
+.shift();
+
+
+const arr = array.lastIndexOf(split6)
+const songtoplay = array[arr + 1];
+$('.forward').click(() => {
+
+    $('.lstPlay').removeClass('fa-play');
+    $('.lstPlay').addClass('fa-pause');
+
+    playSound(songtoplay);
+
+})
 play.click((e) => {
-    start = true;
-    const split = songsgif
-        .attr('class')
-        .split(' ');
-    const name = split.pop();
-    const split2 = name
-        .split('s')
-        .shift();
+
 
     if ($(e.target).hasClass('fa-play')) {
         play.addClass('fa-pause fs-5')
         play.removeClass('fa-play');
 
-        playSound(split2);
+        playSound(songtoplay);
         addinggif();
         lstPlay();
         start2 = false;
@@ -144,7 +158,6 @@ $('.songsList').click((e) => {
         .attr('class')
         .split(' ');
     const name = split.pop();
-    console.log(name)
     const child = $(e.currentTarget).children()[1];
     const moreChilds = child.firstElementChild.textContent;
     const moreChilds2 = child.lastElementChild.textContent;
@@ -161,24 +174,34 @@ $('.songsList').click((e) => {
 })
 
 // lastPlay
+const split = songsgif
+    .attr('class')
+    .split(' ');
+const name1 = split.pop();
+const split2 = name1
+    .split('s')
+    .shift();
+
+body.keydown((e) => {
+
+    if (e.key === " ") {
+        lastPlay(split2);
+
+    }
+
+});
+
+
 
 $('.lstPlay').click((e) => {
-    const split = songsgif
-        .attr('class')
-        .split(' ');
-    const name = split.pop();
-    const split2 = name
-        .split('s')
-        .shift();
-    lastPlay(split2)
+
+    lastPlay(split2);
 
 })
 
 function lastPlay(splits) {
-    // if ($('.lstPlay').hasClass('fa-pause')) {     playSound(splits); } else {
     playSound(splits)
 
-    // }
     lstPlay();
 
 }
