@@ -100,35 +100,23 @@ songsList.mouseleave((e) => {
 let start2 = false;
 const songsgif = $('.songsgif')
 
-const array = ['jhoom', 'roke', 'ajab', 'zara', 'remix'];
+const array = ['jhoom', 'roke', 'zara', 'ajab', 'remix'];
 
-const split5 = songsgif
-.attr('class')
-.split(' ');
-const name2 = split5.pop();
-const split6 = name2
-.split('s')
-.shift();
-
-
-const arr = array.lastIndexOf(split6)
-const songtoplay = array[arr + 1];
-$('.forward').click(() => {
-
-    $('.lstPlay').removeClass('fa-play');
-    $('.lstPlay').addClass('fa-pause');
-
-    playSound(songtoplay);
-
-})
 play.click((e) => {
 
+    const split5 = songsgif
+        .attr('class')
+        .split(' ');
+    const name2 = split5.pop();
+    const split6 = name2
+        .split('s')
+        .shift();
 
     if ($(e.target).hasClass('fa-play')) {
         play.addClass('fa-pause fs-5')
         play.removeClass('fa-play');
 
-        playSound(songtoplay);
+        playSound(split6);
         addinggif();
         lstPlay();
         start2 = false;
@@ -151,7 +139,70 @@ const audio3 = document.querySelector('#audio3');
 const audio4 = document.querySelector('#audio4');
 const audio5 = document.querySelector('#audio5');
 let count = 0;
+// forward******
+$('.forward').click(() => {
 
+    const split5 = songsgif
+        .attr('class')
+        .split(' ');
+    const name2 = split5.pop();
+    const split6 = name2
+        .split('s')
+        .shift();
+
+    $('.lstPlay').removeClass('fa-play');
+    $('.lstPlay').addClass('fa-pause');
+    audio1.pause();
+    audio2.pause();
+    audio3.pause();
+    audio4.pause();
+    audio5.pause();
+    count = 0;
+    const arr = array.lastIndexOf(split6);
+
+    if (arr <= 3) {
+        const songtoplay = array[arr + 1];
+        console.log(songtoplay)
+
+        playSound(songtoplay);
+
+    } else {
+        playSound(array[4])
+    }
+
+})
+// backward****
+
+$('.backward').click(() => {
+
+    const split5 = songsgif
+        .attr('class')
+        .split(' ');
+    const name2 = split5.pop();
+    const split6 = name2
+        .split('s')
+        .shift();
+
+    $('.lstPlay').removeClass('fa-play');
+    $('.lstPlay').addClass('fa-pause');
+    audio1.pause();
+    audio2.pause();
+    audio3.pause();
+    audio4.pause();
+    audio5.pause();
+    count = 0;
+    const arr = array.lastIndexOf(split6);
+
+    if (arr > 0) {
+        const songtoplay = array[arr - 1];
+
+        playSound(songtoplay);
+
+    } else{
+        playSound(array[0])
+    }
+
+})
 $('.songsList').click((e) => {
     count = 0;
     const split = $(e.currentTarget)
@@ -190,8 +241,6 @@ body.keydown((e) => {
     }
 
 });
-
-
 
 $('.lstPlay').click((e) => {
 
