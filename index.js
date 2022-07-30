@@ -102,35 +102,7 @@ const songsgif = $('.songsgif')
 
 const array = ['jhoom', 'roke', 'zara', 'ajab', 'remix'];
 
-play.click((e) => {
 
-    const split5 = songsgif
-        .attr('class')
-        .split(' ');
-    const name2 = split5.pop();
-    const split6 = name2
-        .split('s')
-        .shift();
-
-    if ($(e.target).hasClass('fa-play')) {
-        play.addClass('fa-pause fs-5')
-        play.removeClass('fa-play');
-
-        playSound(split6);
-        addinggif();
-        lstPlay();
-        start2 = false;
-
-    } else {
-        play.addClass('fa-play')
-        play.removeClass('fa-pause fs-5');
-        lstPlay();
-        start2 = true;
-        playSound(split2);
-        removinggif();
-    }
-
-})
 
 // playingsongs************
 const audio1 = document.querySelector('#audio1');
@@ -162,8 +134,11 @@ $('.forward').click(() => {
 
     if (arr <= 3) {
         const songtoplay = array[arr + 1];
-        console.log(songtoplay)
+        // const class2 = $('.songsgif').attr('class'); const splitting = class2
+        // .split(' ')     .pop();
+        func(songtoplay);
 
+        // $('.songsgif').removeClass(splitting); $('.songsgif').addClass(songtoplay)
         playSound(songtoplay);
 
     } else {
@@ -195,10 +170,10 @@ $('.backward').click(() => {
 
     if (arr > 0) {
         const songtoplay = array[arr - 1];
-
+        func(songtoplay);
         playSound(songtoplay);
 
-    } else{
+    } else {
         playSound(array[0])
     }
 
@@ -225,13 +200,35 @@ $('.songsList').click((e) => {
 })
 
 // lastPlay
-const split = songsgif
-    .attr('class')
-    .split(' ');
-const name1 = split.pop();
-const split2 = name1
-    .split('s')
-    .shift();
+let split2 = " ";
+function func(name) {
+    split2 = name;
+}
+
+play.click((e) => {
+
+    if ($(e.target).hasClass('fa-play')) {
+        play.addClass('fa-pause fs-5')
+        play.removeClass('fa-play');
+
+        playSound(split2);
+        addinggif();
+        lstPlay();
+        start2 = false;
+
+    } else {
+        play.addClass('fa-play')
+        play.removeClass('fa-pause fs-5');
+        lstPlay();
+        start2 = true;
+        playSound(split2);
+        removinggif();
+    }
+
+})
+
+
+
 
 body.keydown((e) => {
 
