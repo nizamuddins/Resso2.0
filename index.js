@@ -102,8 +102,6 @@ const songsgif = $('.songsgif')
 
 const array = ['jhoom', 'roke', 'zara', 'ajab', 'remix'];
 
-
-
 // playingsongs************
 const audio1 = document.querySelector('#audio1');
 const audio2 = document.querySelector('#audio2');
@@ -111,6 +109,8 @@ const audio3 = document.querySelector('#audio3');
 const audio4 = document.querySelector('#audio4');
 const audio5 = document.querySelector('#audio5');
 let count = 0;
+
+
 // forward******
 $('.forward').click(() => {
 
@@ -178,6 +178,7 @@ $('.backward').click(() => {
     }
 
 })
+
 $('.songsList').click((e) => {
     count = 0;
     const split = $(e.currentTarget)
@@ -195,12 +196,25 @@ $('.songsList').click((e) => {
     audio3.pause();
     audio4.pause();
     audio5.pause();
-    playSound(name)
+    func1(name);
+    playSound(name);
     changes(name);
 })
-
 // lastPlay
-let split2 = " ";
+
+const split5 = songsgif
+    .attr('class')
+    .split(' ');
+const name2 = split5.pop();
+const split6 = name2
+    .split('s')
+    .shift();
+let split2 = split6;
+
+function func1(name1) {
+    split2 = name1
+}
+
 function func(name) {
     split2 = name;
 }
@@ -227,9 +241,6 @@ play.click((e) => {
 
 })
 
-
-
-
 body.keydown((e) => {
 
     if (e.key === " ") {
@@ -241,18 +252,11 @@ body.keydown((e) => {
 
 $('.lstPlay').click((e) => {
 
-    lastPlay(split2);
-
+    playSound(split2);
+    lstPlay();
 })
 
-function lastPlay(splits) {
-    playSound(splits)
-
-    lstPlay();
-
-}
-
-// playsongs
+// function lastPlay(splits) {     playSound(splits)     lstPlay(); } playsongs
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
