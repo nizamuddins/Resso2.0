@@ -110,7 +110,6 @@ const audio4 = document.querySelector('#audio4');
 const audio5 = document.querySelector('#audio5');
 let count = 0;
 
-
 // forward******
 $('.forward').click(() => {
 
@@ -244,7 +243,8 @@ play.click((e) => {
 body.keydown((e) => {
 
     if (e.key === " ") {
-        lastPlay(split2);
+        playSound(split2);
+        lstPlay();
 
     }
 
