@@ -104,12 +104,10 @@ const array = ['jhoom', 'roke', 'zara', 'ajab', 'remix'];
 
 // playingsongs************
 const audio1 = document.querySelector('#audio1');
-const audio2 = document.querySelector('#audio2');
 const audio3 = document.querySelector('#audio3');
 const audio4 = document.querySelector('#audio4');
 const audio5 = document.querySelector('#audio5');
 let count = 0;
-
 // forward******
 $('.forward').click(() => {
 
@@ -178,6 +176,41 @@ $('.backward').click(() => {
 
 })
 
+// Mute and Unmute
+
+$('.volume').click(() => {
+    if ($('.vol').hasClass('fa-volume-high')) {
+        $('.vol').addClass('fa-volume-xmark fs-5');
+        $('.vol').removeClass('fa-volume-high');
+        mute();
+    } else {
+        $('.vol').removeClass('fa-volume-xmark fs-5');
+        $('.vol').addClass('fa-volume-high');
+        unmute();
+    }
+
+})
+
+// mute
+function mute() {
+    audio1.muted = true;
+    audio2.muted = true;
+    audio3.muted = true;
+    audio4.muted = true;
+    audio5.muted = true;
+}
+
+// unmute
+
+function unmute() {
+    audio1.muted = false;
+    audio2.muted = false;
+    audio3.muted = false;
+    audio4.muted = false;
+    audio5.muted = false;
+
+}
+
 $('.songsList').click((e) => {
     count = 0;
     const split = $(e.currentTarget)
@@ -245,6 +278,18 @@ body.keydown((e) => {
     if (e.key === " ") {
         playSound(split2);
         lstPlay();
+
+    }
+    if (e.key === "m") {
+        if ($('.vol').hasClass('fa-volume-high')) {
+            $('.vol').addClass('fa-volume-xmark fs-5');
+            $('.vol').removeClass('fa-volume-high');
+            mute();
+        } else {
+            $('.vol').removeClass('fa-volume-xmark fs-5');
+            $('.vol').addClass('fa-volume-high');
+            unmute();
+        }
 
     }
 

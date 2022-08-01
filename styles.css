@@ -434,11 +434,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
+    margin-left: 47%;
     width: 10%;
 }
-.forBac2 :hover{
- color: #fff;
+.forBac2 :hover {
+    color: #fff;
 
 }
 .fafb {
@@ -499,4 +499,17 @@
 .gif3:hover {
     border: 1px solid #fff;
 
+}
+
+/* volume */
+.forback {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.vol {
+    font-size: 1.1rem;
+    color: #fff;
+    cursor: pointer;
 }
