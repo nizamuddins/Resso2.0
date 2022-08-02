@@ -177,6 +177,13 @@ $('.backward').click(() => {
 })
 
 // Mute and Unmute
+$('.volume').mouseover(()=>{
+    $('.rangesmall').css('visibility','visible')
+})
+$('.rangesmall').mouseleave(()=>{
+    $('.rangesmall').css('visibility','hidden')
+})
+
 
 $('.volume').click(() => {
     if ($('.vol').hasClass('fa-volume-high')) {
