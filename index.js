@@ -104,6 +104,7 @@ const array = ['jhoom', 'roke', 'zara', 'ajab', 'remix'];
 
 // playingsongs************
 const audio1 = document.querySelector('#audio1');
+const audio2 = document.querySelector('#audio2');
 const audio3 = document.querySelector('#audio3');
 const audio4 = document.querySelector('#audio4');
 const audio5 = document.querySelector('#audio5');
@@ -176,14 +177,56 @@ $('.backward').click(() => {
 
 })
 
-// Mute and Unmute
-$('.volume').mouseover(()=>{
-    $('.rangesmall').css('visibility','visible')
-})
-$('.rangesmall').mouseleave(()=>{
-    $('.rangesmall').css('visibility','hidden')
-})
+$('.smallrange').change(() => {
+    let change = +($('.smallrange').val())
+    change = ((change) / 100).toFixed(1);
 
+    if (change === 0.0) {
+        mute()
+    }else {
+        $('.vol').removeClass('fa-volume-xmark fs-5');
+        $('.vol').addClass('fa-volume-high');
+        audio1.muted = false;
+        audio2.muted = false;
+        audio3.muted = false;
+        audio4.muted = false;
+        audio5.muted = false;
+     
+    }
+
+
+    volume_change(change)
+})
+// KeyboardEvent
+body.keydown((e) => {
+    if (e.key === " ") {
+        playSound(split2);
+        lstPlay();
+
+    }
+    if (e.key === "m") {
+        e.preventDefault();
+
+        if ($('.vol').hasClass('fa-volume-high')) {
+            $('.vol').addClass('fa-volume-xmark fs-5');
+            $('.vol').removeClass('fa-volume-high');
+            mute();
+        } else {
+            $('.vol').removeClass('fa-volume-xmark fs-5');
+            $('.vol').addClass('fa-volume-high');
+            unmute();
+        }
+
+    }
+
+});
+// Mute and Unmute
+$('.volume').mouseover(() => {
+    $('.rangesmall').css('visibility', 'visible')
+})
+$('.rangesmall').mouseleave(() => {
+    $('.rangesmall').css('visibility', 'hidden')
+})
 
 $('.volume').click(() => {
     if ($('.vol').hasClass('fa-volume-high')) {
@@ -205,8 +248,11 @@ function mute() {
     audio3.muted = true;
     audio4.muted = true;
     audio5.muted = true;
-}
+    let val = document.querySelector('.smallrange');
+    val.value = 0;
 
+
+}
 // unmute
 
 function unmute() {
@@ -215,6 +261,18 @@ function unmute() {
     audio3.muted = false;
     audio4.muted = false;
     audio5.muted = false;
+    let val = document.querySelector('.smallrange');
+    val.value = 100;
+    volume_change(100/100)
+
+}
+function volume_change(changes) {
+
+    audio1.volume = changes;
+    audio2.volume = changes;
+    audio3.volume = changes;
+    audio4.volume = changes;
+    audio5.volume = changes;
 
 }
 
@@ -280,35 +338,12 @@ play.click((e) => {
 
 })
 
-body.keydown((e) => {
-
-    if (e.key === " ") {
-        playSound(split2);
-        lstPlay();
-
-    }
-    if (e.key === "m") {
-        if ($('.vol').hasClass('fa-volume-high')) {
-            $('.vol').addClass('fa-volume-xmark fs-5');
-            $('.vol').removeClass('fa-volume-high');
-            mute();
-        } else {
-            $('.vol').removeClass('fa-volume-xmark fs-5');
-            $('.vol').addClass('fa-volume-high');
-            unmute();
-        }
-
-    }
-
-});
-
 $('.lstPlay').click((e) => {
 
     playSound(split2);
     lstPlay();
 })
 
-// function lastPlay(splits) {     playSound(splits)     lstPlay(); } playsongs
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
