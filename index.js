@@ -495,3 +495,12 @@ function removinggif() {
     $('.gif3').remove();
     compactdisc.removeClass('fa');
 }
+let val = 0;
+
+    setInterval(()=>{
+        val++
+        console.log(val)
+        document.querySelector('.range').value = val/10;
+
+     
+        },200)
