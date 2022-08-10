@@ -351,13 +351,17 @@ function playSound(name1) {
         setTimeout(() => {
             audio1.play();
             compactdisc.addClass('fa');
+            let class3 = audio1.classList[0];
             count = 1;
+            range(class3);
         }, 100)
     } else if (count === 0 && name1 === 'roke') {
         setTimeout(() => {
             audio2.play();
             compactdisc.addClass('fa');
             count = 1;
+            range(audio2);
+
         }, 100)
 
     } else if (count === 0 && name1 === 'zara') {
@@ -365,6 +369,8 @@ function playSound(name1) {
             audio3.play();
             compactdisc.addClass('fa');
             count = 1;
+            range(audio3);
+
         }, 100)
 
     } else if (count === 0 && name1 === 'ajab') {
@@ -372,12 +378,16 @@ function playSound(name1) {
             audio4.play();
             compactdisc.addClass('fa');
             count = 1;
+            range(audio4);
+
         }, 100)
     } else if (count === 0 && name1 === 'remix') {
         setTimeout(() => {
             compactdisc.addClass('fa');
             audio5.play();
             count = 1;
+            range(audio5);
+
         }, 100)
     } else if (count === 1) {
         audio1.pause();
@@ -495,11 +505,13 @@ function removinggif() {
     $('.gif3').remove();
     compactdisc.removeClass('fa');
 }
-let val = 0;
-
+const range = function (audios) {
+    let time = $('#'+audios+'ing') ;
+    console.log(time)
     setInterval(()=>{
-        val++
-        document.querySelector('.range').value = val/10;
+        document.querySelector('.range').value =time/4 ;
 
      
-        },200)
+        },2000)
+}
+
