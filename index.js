@@ -499,7 +499,6 @@ let val = 0;
 
     setInterval(()=>{
         val++
-        console.log(val)
         document.querySelector('.range').value = val/10;
 
      
