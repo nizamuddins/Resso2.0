@@ -183,7 +183,7 @@ $('.smallrange').change(() => {
 
     if (change === 0.0) {
         mute()
-    }else {
+    } else {
         $('.vol').removeClass('fa-volume-xmark fs-5');
         $('.vol').addClass('fa-volume-high');
         audio1.muted = false;
@@ -191,9 +191,8 @@ $('.smallrange').change(() => {
         audio3.muted = false;
         audio4.muted = false;
         audio5.muted = false;
-     
-    }
 
+    }
 
     volume_change(change)
 })
@@ -251,7 +250,6 @@ function mute() {
     let val = document.querySelector('.smallrange');
     val.value = 0;
 
-
 }
 // unmute
 
@@ -263,7 +261,7 @@ function unmute() {
     audio5.muted = false;
     let val = document.querySelector('.smallrange');
     val.value = 100;
-    volume_change(100/100)
+    volume_change(100 / 100)
 
 }
 function volume_change(changes) {
@@ -339,7 +337,6 @@ play.click((e) => {
 })
 
 $('.lstPlay').click((e) => {
-
     playSound(split2);
     lstPlay();
 })
@@ -351,17 +348,15 @@ function playSound(name1) {
         setTimeout(() => {
             audio1.play();
             compactdisc.addClass('fa');
-            let class3 = audio1.classList[0];
             count = 1;
-            range(class3);
+            duration('1');
         }, 100)
     } else if (count === 0 && name1 === 'roke') {
         setTimeout(() => {
             audio2.play();
             compactdisc.addClass('fa');
             count = 1;
-            range(audio2);
-
+            duration('2');
         }, 100)
 
     } else if (count === 0 && name1 === 'zara') {
@@ -369,8 +364,7 @@ function playSound(name1) {
             audio3.play();
             compactdisc.addClass('fa');
             count = 1;
-            range(audio3);
-
+            duration('3');
         }, 100)
 
     } else if (count === 0 && name1 === 'ajab') {
@@ -378,17 +372,17 @@ function playSound(name1) {
             audio4.play();
             compactdisc.addClass('fa');
             count = 1;
-            range(audio4);
-
+            duration('4');
         }, 100)
     } else if (count === 0 && name1 === 'remix') {
         setTimeout(() => {
             compactdisc.addClass('fa');
             audio5.play();
             count = 1;
-            range(audio5);
+            duration('5');
 
         }, 100)
+
     } else if (count === 1) {
         audio1.pause();
         audio2.pause();
@@ -403,6 +397,24 @@ function playSound(name1) {
 
 }
 
+function duration(num) {
+
+    let time = setInterval(() => {
+        let currents = document
+        .querySelector('#audio' + num)
+        .currentTime;
+        let duration1 = document
+            .querySelector('#audio' + num)
+            .duration;
+        let value1 = (currents / duration1) * 100;
+        document
+            .querySelector('.range')
+            .value = value1;
+     
+    }, 920);
+
+}
+
 // pauseSound ****** */ changinImgs
 const lstImg = $('.lastimg');
 
@@ -411,7 +423,7 @@ function changes(names) {
         .attr('class')
         .split(' ')[1];
     songsgif.removeClass(split)
-    songsgif.addClass(names + 's')
+    songsgif.addClass(names + 's');
 
     // lastimg
 
@@ -505,13 +517,3 @@ function removinggif() {
     $('.gif3').remove();
     compactdisc.removeClass('fa');
 }
-const range = function (audios) {
-    let time = $('#'+audios+'ing') ;
-    console.log(time)
-    setInterval(()=>{
-        document.querySelector('.range').value =time/4 ;
-
-     
-        },2000)
-}
-
