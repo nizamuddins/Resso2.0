@@ -386,56 +386,69 @@
     border-radius: 16px;
 
 }
-.rangesmall{
+.rangesmall {
     width: 130px;
-background-color: rgb(255, 255, 255);
-border-radius: 6px;
-transform: rotate(-90deg);
-height: 1.3rem;
-margin-left: auto;
-position: absolute;
-left: 92.9%;
-bottom: 122px;
-visibility: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    transform: rotate(-90deg);
+    height: 1.3rem;
+    margin-left: auto;
+    position: absolute;
+    left: 92.9%;
+    bottom: 122px;
+    visibility: hidden;
 }
-.smallrange{
-position: relative;
-bottom: 6px;
-margin-left: .5rem;
-cursor: pointer;
+.smallrange {
+    position: relative;
+    bottom: 6px;
+    margin-left: 0.5rem;
+    cursor: pointer;
 
 }
 /* ranges */
-.rangesmall input[type = 'range']{
+.rangesmall input[type = 'range'] {
     -webkit-appearance: none;
     height: 2px;
     width: 90%;
     outline: none;
-background-color: rgb(68, 65, 65);
+    background-color: rgb(68, 65, 65);
 }
-.rangesmall input[type = 'range']::-webkit-slider-thumb{
+.rangesmall input[type = 'range']::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: .6rem;
-    width: .6rem;
+    height: 0.6rem;
+    width: 0.6rem;
     background: rgb(32, 32, 32);
     border-radius: 50%;
-    }
+}
 
-.range2 input[type = 'range']{
-    -webkit-appearance: none;
+.progress {
     height: 3px;
     width: 100%;
     outline: none;
-background-color: grey;
+    background-color: rgb(255, 255, 255);
 }
-.range2 input[type = 'range']::-webkit-slider-thumb{
--webkit-appearance: none;
-height: .8rem;
-width: .8rem;
-background: rgb(156, 153, 153);
-border-radius: 50%;
-cursor: pointer;
+
+.progressfeild {
+    height: 100%;
+    width: 50%;
+    background: rgb(58, 39, 39);
+    cursor: pointer;
+    position: relative;
+
 }
+.progressfeild::before {
+    content: " ";
+    position: absolute;
+    height: 15px;
+    width: 12px;
+    background-color: rgb(0, 102, 255);
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+}
+
 .play {
     color: rgb(21, 18, 18);
     opacity: 1;

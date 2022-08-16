@@ -349,14 +349,12 @@ function playSound(name1) {
             audio1.play();
             compactdisc.addClass('fa');
             count = 1;
-            duration('1');
         }, 100)
     } else if (count === 0 && name1 === 'roke') {
         setTimeout(() => {
             audio2.play();
             compactdisc.addClass('fa');
             count = 1;
-            duration('2');
         }, 100)
 
     } else if (count === 0 && name1 === 'zara') {
@@ -364,7 +362,6 @@ function playSound(name1) {
             audio3.play();
             compactdisc.addClass('fa');
             count = 1;
-            duration('3');
         }, 100)
 
     } else if (count === 0 && name1 === 'ajab') {
@@ -372,15 +369,13 @@ function playSound(name1) {
             audio4.play();
             compactdisc.addClass('fa');
             count = 1;
-            duration('4');
+
         }, 100)
     } else if (count === 0 && name1 === 'remix') {
         setTimeout(() => {
             compactdisc.addClass('fa');
             audio5.play();
             count = 1;
-            duration('5');
-
         }, 100)
 
     } else if (count === 1) {
@@ -397,23 +392,8 @@ function playSound(name1) {
 
 }
 
-function duration(num) {
 
-    let time = setInterval(() => {
-        let currents = document
-        .querySelector('#audio' + num)
-        .currentTime;
-        let duration1 = document
-            .querySelector('#audio' + num)
-            .duration;
-        let value1 = (currents / duration1) * 100;
-        document
-            .querySelector('.range')
-            .value = value1;
-     
-    }, 920);
 
-}
 
 // pauseSound ****** */ changinImgs
 const lstImg = $('.lastimg');
