@@ -127,16 +127,14 @@ $('.forward').click(() => {
     audio3.pause();
     audio4.pause();
     audio5.pause();
+    reset();
     count = 0;
     const arr = array.lastIndexOf(split6);
 
     if (arr <= 3) {
         const songtoplay = array[arr + 1];
-        // const class2 = $('.songsgif').attr('class'); const splitting = class2
-        // .split(' ')     .pop();
-        func(songtoplay);
 
-        // $('.songsgif').removeClass(splitting); $('.songsgif').addClass(songtoplay)
+        func(songtoplay);
         playSound(songtoplay);
 
     } else {
@@ -163,6 +161,7 @@ $('.backward').click(() => {
     audio3.pause();
     audio4.pause();
     audio5.pause();
+    reset();
     count = 0;
     const arr = array.lastIndexOf(split6);
 
@@ -182,7 +181,7 @@ $('.smallrange').change(() => {
     change = ((change) / 100).toFixed(1);
 
     if (change === 0.0) {
-        mute()
+        mute();
     } else {
         $('.vol').removeClass('fa-volume-xmark fs-5');
         $('.vol').addClass('fa-volume-high');
@@ -291,6 +290,7 @@ $('.songsList').click((e) => {
     audio3.pause();
     audio4.pause();
     audio5.pause();
+    reset();
     func1(name);
     playSound(name);
     changes(name);
@@ -391,9 +391,6 @@ function playSound(name1) {
     changes(name1);
 
 }
-
-
-
 
 // pauseSound ****** */ changinImgs
 const lstImg = $('.lastimg');
@@ -496,4 +493,27 @@ function removinggif() {
     $('.gif').remove();
     $('.gif3').remove();
     compactdisc.removeClass('fa');
+}
+
+// timeupdate
+let array2 = [audio1, audio2, audio3, audio4, audio5];
+
+array2.forEach((a) => {
+    a.addEventListener('timeupdate', (e) => {
+        let currenttime = e.target.currentTime
+        let duration = e.target.duration;
+        let width = (currenttime / duration) * 100;
+        $('#range').val(width)
+
+    })
+})
+
+// reset
+
+let reset = function () {
+    audio1.currentTime = 0;
+    audio2.currentTime = 0;
+    audio3.currentTime = 0;
+    audio4.currentTime = 0;
+    audio5.currentTime = 0;
 }

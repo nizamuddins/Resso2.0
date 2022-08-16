@@ -406,9 +406,12 @@
 
 }
 /* ranges */
+.rangesmall {
+    background-color: #d7d4d4;
+}
 .rangesmall input[type = 'range'] {
     -webkit-appearance: none;
-    height: 2px;
+    height: 3px;
     width: 90%;
     outline: none;
     background-color: rgb(68, 65, 65);
@@ -421,32 +424,23 @@
     border-radius: 50%;
 }
 
-.progress {
-    height: 3px;
-    width: 100%;
+.range input[type="range"] {
+    -webkit-appearance: none;
+    height: 4px;
+    width: 90%;
     outline: none;
-    background-color: rgb(255, 255, 255);
-}
-
-.progressfeild {
-    height: 100%;
-    width: 50%;
-    background: rgb(58, 39, 39);
-    cursor: pointer;
-    position: relative;
-
-}
-.progressfeild::before {
-    content: " ";
-    position: absolute;
-    height: 15px;
-    width: 12px;
-    background-color: rgb(0, 102, 255);
-    top: 50%;
-    right: -5px;
-    transform: translateY(-50%);
+    background-color: rgb(202, 197, 197);
+    overflow: hidden;
     cursor: pointer;
 
+}
+.range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0.8rem;
+    width: 0.8rem;
+    background: rgb(199, 199, 199);
+    border-radius: 50%;
+    box-shadow: -750px 0 0 750px #e35840;
 }
 
 .play {
