@@ -391,6 +391,34 @@ function playSound(name1) {
     changes(name1);
 
 }
+// timeupdate
+let array2 = [audio1, audio2, audio3, audio4, audio5];
+var range = $('#range');
+
+array2.forEach((a) => {
+    a.addEventListener('timeupdate', (e) => {
+
+        let currenttime = e.target.currentTime
+        let duration = e.target.duration;
+        let width = (currenttime / duration) * 100;
+        range.val(width)
+      changingEvery()
+
+    })
+})
+
+function changingEvery(){
+    let value = 0;
+    if (range.val()== 100) {
+        value++;
+     
+    }
+    if(value === 1){
+        lstPlay();
+    }
+
+}
+
 
 // pauseSound ****** */ changinImgs
 const lstImg = $('.lastimg');
@@ -494,19 +522,6 @@ function removinggif() {
     $('.gif3').remove();
     compactdisc.removeClass('fa');
 }
-
-// timeupdate
-let array2 = [audio1, audio2, audio3, audio4, audio5];
-
-array2.forEach((a) => {
-    a.addEventListener('timeupdate', (e) => {
-        let currenttime = e.target.currentTime
-        let duration = e.target.duration;
-        let width = (currenttime / duration) * 100;
-        $('#range').val(width)
-
-    })
-})
 
 // reset
 

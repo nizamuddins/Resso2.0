@@ -437,8 +437,8 @@
 .range input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 0.8rem;
-    width: 0.8rem;
-    background: rgb(199, 199, 199);
+    width: 0.1rem;
+    background: rgb(203, 203, 203);
     border-radius: 50%;
     box-shadow: -750px 0 0 750px #e35840;
 }
