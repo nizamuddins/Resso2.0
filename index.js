@@ -402,23 +402,22 @@ array2.forEach((a) => {
         let duration = e.target.duration;
         let width = (currenttime / duration) * 100;
         range.val(width)
-      changingEvery()
+        changingEvery()
 
     })
 })
 
-function changingEvery(){
-    let value = 0;
-    if (range.val()== 100) {
+let value = 0;
+
+function changingEvery() {
+    if (range.val() == 100) {
         value++;
-     
     }
-    if(value === 1){
+    if (value === 1) {
         lstPlay();
     }
 
 }
-
 
 // pauseSound ****** */ changinImgs
 const lstImg = $('.lastimg');
