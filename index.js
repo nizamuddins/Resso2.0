@@ -176,6 +176,54 @@ $('.backward').click(() => {
 
 })
 
+// timeupdate
+let array2 = [audio1, audio2, audio3, audio4, audio5];
+var range = $('#range');
+
+array2.forEach((a) => {
+    a.addEventListener('timeupdate', (e) => {
+
+        let currenttime = e.target.currentTime
+        let duration = e.target.duration;
+        let width = (currenttime / duration) * 100;
+        range.val(width)
+        changingEvery()
+
+    })
+})
+
+let value = 0;
+
+function changingEvery() {
+    if (range.val() == 100) {
+        value++;
+    }
+    if (value === 1) {
+        count = 0;
+        const split5 = songsgif
+            .attr('class')
+            .split(' ');
+        const name2 = split5.pop();
+        const split6 = name2
+            .split('s')
+            .shift();
+        const arr = array.lastIndexOf(split6);
+
+        if (arr <= 3) {
+            const songtoplay = array[arr + 1];
+
+            func(songtoplay);
+            playSound(songtoplay);
+
+        } else {
+            playSound(array[4]);
+            
+        }
+
+    }
+console.log(value)
+}
+
 $('.smallrange').change(() => {
     let change = +($('.smallrange').val())
     change = ((change) / 100).toFixed(1);
@@ -344,17 +392,21 @@ $('.lstPlay').click((e) => {
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
+    console.log(name1)
     if (count === 0 && name1 === 'jhoom') {
         setTimeout(() => {
             audio1.play();
             compactdisc.addClass('fa');
             count = 1;
+            value = 0;
         }, 100)
     } else if (count === 0 && name1 === 'roke') {
         setTimeout(() => {
             audio2.play();
             compactdisc.addClass('fa');
             count = 1;
+            value = 0;
+
         }, 100)
 
     } else if (count === 0 && name1 === 'zara') {
@@ -362,6 +414,8 @@ function playSound(name1) {
             audio3.play();
             compactdisc.addClass('fa');
             count = 1;
+            value = 0;
+
         }, 100)
 
     } else if (count === 0 && name1 === 'ajab') {
@@ -369,6 +423,8 @@ function playSound(name1) {
             audio4.play();
             compactdisc.addClass('fa');
             count = 1;
+            value = 0;
+
 
         }, 100)
     } else if (count === 0 && name1 === 'remix') {
@@ -376,6 +432,8 @@ function playSound(name1) {
             compactdisc.addClass('fa');
             audio5.play();
             count = 1;
+            value = 0;
+
         }, 100)
 
     } else if (count === 1) {
@@ -389,33 +447,6 @@ function playSound(name1) {
 
     addinggif();
     changes(name1);
-
-}
-// timeupdate
-let array2 = [audio1, audio2, audio3, audio4, audio5];
-var range = $('#range');
-
-array2.forEach((a) => {
-    a.addEventListener('timeupdate', (e) => {
-
-        let currenttime = e.target.currentTime
-        let duration = e.target.duration;
-        let width = (currenttime / duration) * 100;
-        range.val(width)
-        changingEvery()
-
-    })
-})
-
-let value = 0;
-
-function changingEvery() {
-    if (range.val() == 100) {
-        value++;
-    }
-    if (value === 1) {
-        lstPlay();
-    }
 
 }
 
