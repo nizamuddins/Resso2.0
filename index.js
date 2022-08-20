@@ -109,6 +109,7 @@ const audio3 = document.querySelector('#audio3');
 const audio4 = document.querySelector('#audio4');
 const audio5 = document.querySelector('#audio5');
 let count = 0;
+
 // forward******
 $('.forward').click(() => {
 
@@ -193,13 +194,13 @@ array2.forEach((a) => {
 })
 
 let value = 0;
-let repeat = 0;
+let stop = true;
 function changingEvery() {
-    if (range.val() == 100 && repeat === 0) {
-        value++;
-        repeat++;
+    if (range.val() == 100) {
+        value += 1;
+
     }
-    if (value === 1+(value-1) ) {
+    if (value === 5 || value === 4 || value === 6) {
         count = 0;
         const split5 = songsgif
             .attr('class')
@@ -214,17 +215,24 @@ function changingEvery() {
             const songtoplay = array[arr + 1];
 
             func(songtoplay);
-            playSound(songtoplay);
+            setTimeout(() => {
+                playSound(songtoplay);
+            }, 2000)
 
         } else {
-            playSound(array[4]);
+
+            if (!stop) {
+                lstPlay();
+            } else {
+                playSound(array[4]);
+                stop = false;
+            }
 
         }
+        value = 0;
 
     }
-    console.log(value)
 }
-
 $('.smallrange').change(() => {
     let change = +($('.smallrange').val())
     change = ((change) / 100).toFixed(1);
@@ -244,7 +252,7 @@ $('.smallrange').change(() => {
 
     volume_change(change)
 })
-// KeyboardEvent
+// KeyoardEvent
 body.keydown((e) => {
     if (e.key === " ") {
         playSound(split2);
@@ -393,44 +401,54 @@ $('.lstPlay').click((e) => {
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
-    console.log(name1)
     if (count === 0 && name1 === 'jhoom') {
         setTimeout(() => {
             audio1.play();
+            let RB = $('#song1').text();
+            let singer = $('#singer1').text();
+            cols1(RB, singer);
             compactdisc.addClass('fa');
             count = 1;
-            repeat = 0;
         }, 100)
     } else if (count === 0 && name1 === 'roke') {
         setTimeout(() => {
             audio2.play();
+            let RB = $('#song2').text();
+            let singer = $('#singer2').text();
+            cols1(RB, singer)
             compactdisc.addClass('fa');
             count = 1;
-            repeat = 0;
 
         }, 100)
 
     } else if (count === 0 && name1 === 'zara') {
         setTimeout(() => {
             audio3.play();
+            let RB = $('#song3').text();
+            let singer = $('#singer3').text();
+            cols1(RB, singer)
             compactdisc.addClass('fa');
             count = 1;
-            repeat = 0;
 
         }, 100)
 
     } else if (count === 0 && name1 === 'ajab') {
         setTimeout(() => {
             audio4.play();
+            let RB = $('#song4').text();
+            let singer = $('#singer4').text();
+            cols1(RB, singer)
             compactdisc.addClass('fa');
             count = 1;
-            repeat = 0;
 
         }, 100)
     } else if (count === 0 && name1 === 'remix') {
         setTimeout(() => {
             compactdisc.addClass('fa');
             audio5.play();
+            let RB = $('#song5').text();
+            let singer = $('#singer5').text();
+            cols1(RB, singer)
             count = 1;
 
         }, 100)
