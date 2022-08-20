@@ -193,12 +193,13 @@ array2.forEach((a) => {
 })
 
 let value = 0;
-
+let repeat = 0;
 function changingEvery() {
-    if (range.val() == 100) {
+    if (range.val() == 100 && repeat === 0) {
         value++;
+        repeat++;
     }
-    if (value === 1) {
+    if (value === 1+(value-1) ) {
         count = 0;
         const split5 = songsgif
             .attr('class')
@@ -217,11 +218,11 @@ function changingEvery() {
 
         } else {
             playSound(array[4]);
-            
+
         }
 
     }
-console.log(value)
+    console.log(value)
 }
 
 $('.smallrange').change(() => {
@@ -398,14 +399,14 @@ function playSound(name1) {
             audio1.play();
             compactdisc.addClass('fa');
             count = 1;
-            value = 0;
+            repeat = 0;
         }, 100)
     } else if (count === 0 && name1 === 'roke') {
         setTimeout(() => {
             audio2.play();
             compactdisc.addClass('fa');
             count = 1;
-            value = 0;
+            repeat = 0;
 
         }, 100)
 
@@ -414,7 +415,7 @@ function playSound(name1) {
             audio3.play();
             compactdisc.addClass('fa');
             count = 1;
-            value = 0;
+            repeat = 0;
 
         }, 100)
 
@@ -423,8 +424,7 @@ function playSound(name1) {
             audio4.play();
             compactdisc.addClass('fa');
             count = 1;
-            value = 0;
-
+            repeat = 0;
 
         }, 100)
     } else if (count === 0 && name1 === 'remix') {
@@ -432,7 +432,6 @@ function playSound(name1) {
             compactdisc.addClass('fa');
             audio5.play();
             count = 1;
-            value = 0;
 
         }, 100)
 
