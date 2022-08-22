@@ -43,6 +43,12 @@
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
         <!-- external js -->
         <script src="index.js" defer="defer"></script>
 
@@ -62,7 +68,7 @@
                         <span class="restxt">resso 2.0</span>
                     </a>
                     <ul class="ul1">
-                        <a href="index.html" style="text-decoration:none">
+                        <a href="/YourFM" style="text-decoration:none">
                             <li class="li1 pt-1">
                                 <i class="fa-solid fa-satellite-dish fa1"></i>
                                 <span class=" restxt1">
@@ -70,58 +76,57 @@
                                 </span>
                             </li>
                         </a>
-
-                        <li class="li1  pt-1">
-                            <i class="fa-solid fa-heart-circle-check fa1"></i>
-                            <span class=" restxt1">
-                                for you
-
-                            </span>
-                        </li>
+                        <a href="/ForYou" style="text-decoration:none">
+                            <li class="li1  pt-1">
+                                <i class="fa-solid fa-heart-circle-check fa1"></i>
+                                <span class=" restxt1">
+                                    for you
+                        
+                                </span>
+                            </li>
+                        </a>
+                      <a href="/Browse" style="text-decoration:none">
                         <li class="li1 pt-1 ">
                             <i class=" fa-brands fa-firefox fa1"></i>
                             <span class=" restxt1">
                                 browse
                             </span>
                         </li>
+                      </a>
+                       
 
                     </ul>
                     <ul class="ul2">
                         <li class="li2 restxt1 ">
                             <span class="lib">My Library</span>
                         </li>
-                        <li class="li2 restxt1">
+                        <!-- <li class="li2 restxt1">
                             <span>my favorite</span>
-                        </li>
+                        </li> -->
                         <li class="li2 restxt1">
                             <span>history</span>
                         </li>
-                        <li class="li2 restxt1">
+                        <!-- <li class="li2 restxt1">
                             <span>Download</span>
-                        </li>
+                        </li> -->
 
                     </ul>
-
-                    <p></p>
-                    <p></p>
-                    <p></i>
-                </p>
             </div>
 
             <!-- *********songs -->
 
             <div id="jhoom" class="fix1 p-0">
                 <div class="fix fixed-top1">
-                    <form class="d-flex fm2 " role="search">
-                        <input
-                            class="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                            autocomplete="on">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
+                  <form action="/" method="post">
+                    <div class="label">
+                        <input type="search" name=""class='form-control me-2 bg-dark text-light' id="tags" placeholder="Search">
+                        <button type="submit" class="btn bg-dark">
+                            <i class="fas fa-search text-white"></i>
+                          </button>
+                      </div>
+                  </form>
+              
+            </div>
 
                 <div class="container ">
                     <div class="cols1 cols">
@@ -254,24 +259,31 @@
 
             <div class="range">
 
-                <input type="range" class=" w-100" name="" id="range" min="0" max="100" value="0">
+                <input
+                    type="range"
+                    class=" w-100"
+                    name=""
+                    id="range"
+                    min="0"
+                    max="100"
+                    value="0">
             </div>
 
         </div>
 
-        <audio id="audio1" class="jhoom "id="jhooming">
+        <audio id="audio1" class="jhoom ">
             <source src="songs/jhoom.mp3" class="audio2" type="audio/mp3">
         </audio>
-        <audio id="audio2" class="roke" id="rokeing">
+        <audio id="audio2" class="roke">
             <source src="songs/roke.mp3" class="audio2" type="audio/mp3">
         </audio>
-        <audio id="audio3" class="zara" id="zaraing">
+        <audio id="audio3" class="zara">
             <source src="songs/zara.mp3" class="audio2" type="audio/mp3">
         </audio>
-        <audio id="audio4" class="ajab" id="ajabing">
+        <audio id="audio4" class="ajab">
             <source src="songs/ajab.mp3" class="audio2" type="audio/mp3">
         </audio>
-        <audio id="audio5" class="remix" id="remixing">
+        <audio id="audio5" class="remix">
             <source src="songs/remix.mp3" class="audio2" type="audio/mp3">
         </audio>
 

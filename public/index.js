@@ -1,23 +1,75 @@
 const body = $("body");
 
-$('.li1').click((e) => {
+// form**********
+const basicAutocomplete = document.querySelector('#search-autocomplete');
+// const data = ['One', 'Two', 'Three', 'Four', 'Five'];
+// const dataFilter = (value) => {
+//   return data.filter((item) => {
+//     return item.toLowerCase().startsWith(value.toLowerCase());
+//   });
+// };
 
+// new mdb.Autocomplete(basicAutocomplete, {
+//   filter: dataFilter
+// });
+
+$( function() {
+  var availableTags = [
+    "Aila Re Aillaa",
+    "Aayi Aayi Bhoot Police",
+    "Aaye Haaye",
+    "Abhi Toh Party Shuru Hui Hai",
+    "Awara",
+    "Ankhiyon Se Goli Maare",
+    "Ae Dil Hai Mushkil",
+    "Aadat",
+    "Aira Gaira",
+    "Agar Tu Hota",
+    "Abhi Mujh Mein Kahin",
+    "Ae Khuda",
+    "Allah Duhai Hai ",
+    "Aankh Marey",
+    "Apna Time Aayega",
+    "Bhool Bhulaiyaa",
+    "Bolna",
+    "Bad Boy",
+    "Bom Diggy Diggy",
+    "Bulleya",
+    "Bhar Do Jholi Meri",
+    "Bhula Dena",
+    "Baaton Ko Teri",
+    "Baadshah O Baadshah",
+    "Boss (Title Song)",
+    "Be Intehaan",
+    "Bande Hain Hum",
+  ];
+  $( "#tags" ).autocomplete({
+    source: availableTags
+  },{
+
+    minLength:2,
+  }
+  );
+} );
+
+// *****************
+$('.li1').click((e) => {
     $(e.currentTarget).addClass('li1s');
 
-    const next = $(e.currentTarget).next();
-    const next2 = $(e.currentTarget)
-        .next()
-        .next();
+    // const next = $(e.currentTarget).next();
+    // const next2 = $(e.currentTarget)
+    //     .next()
+    //     .next();
 
-    const prev = $(e.currentTarget).prev();
-    const prev2 = $(e.currentTarget)
-        .prev()
-        .prev();
+    // const prev = $(e.currentTarget).prev();
+    // const prev2 = $(e.currentTarget)
+    //     .prev()
+    //     .prev();
 
-    next.removeClass('li1s');
-    next2.removeClass('li1s')
-    prev.removeClass('li1s');
-    prev2.removeClass('li1s');
+    // next.removeClass('li1s');
+    // next2.removeClass('li1s')
+    // prev.removeClass('li1s');
+    // prev2.removeClass('li1s');
 
 })
 
@@ -193,43 +245,36 @@ array2.forEach((a) => {
     })
 })
 
-let value = 0;
-let stop = true;
 function changingEvery() {
-    if (range.val() == 100) {
-        value += 1;
-
-    }
-    if (value === 5 || value === 4 || value === 6) {
+    if (audio1.currentTime === 294.176) {
         count = 0;
-        const split5 = songsgif
-            .attr('class')
-            .split(' ');
-        const name2 = split5.pop();
-        const split6 = name2
-            .split('s')
-            .shift();
-        const arr = array.lastIndexOf(split6);
+        playSound("roke");
+        func("roke");
 
-        if (arr <= 3) {
-            const songtoplay = array[arr + 1];
+        audio1.currentTime = 0;
+    } else if (audio2.currentTime === 277.904) {
+        count = 0;
+        playSound("zara");
+        func("zara");
+        audio2.currentTime = 0;
 
-            func(songtoplay);
-            setTimeout(() => {
-                playSound(songtoplay);
-            }, 2000)
+    } else if (audio3.currentTime === 211.448) {
+        count = 0;
+        playSound("ajab");
+        func("ajab");
+        audio3.currentTime = 0;
 
-        } else {
+    } else if (audio4.currentTime === 180.92) {
+        count = 0;
+        playSound("remix");
+        func("remix");
+        audio4.currentTime = 0;
 
-            if (!stop) {
-                lstPlay();
-            } else {
-                playSound(array[4]);
-                stop = false;
-            }
-
-        }
-        value = 0;
+    } else if (audio5.currentTime === 379.64) {
+        count = 0;
+        audio5.currentTime = 0;
+        func1("remix");
+        lstPlay();
 
     }
 }

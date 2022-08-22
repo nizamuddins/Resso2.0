@@ -160,12 +160,20 @@
 
 .form-control {
     width: 20%;
-    height: 31%;
+    height: 32%;
     padding: 0.1rem 0.75rem;
     margin-left: 70%;
     font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
     border-radius: 30px;
     transition: none;
+}
+
+.label{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
 }
 .btn {
     padding: 0 0.5rem;
@@ -173,12 +181,54 @@
     font-size: 0.8rem;
     border-radius: 30px;
     color: #fff;
-    border-color: #FC573B;
+    border-color:rgb(82, 70, 70);
+    height: 26px;
+    width: 42px;
 }
-.btn:hover {
-    background-color: #FC573B;
+
+#ui-id-1{
+    margin-top: 2rem;
+    --bs-bg-opacity: 1;
+    background-color: rgb(29, 26, 26);
+    background-image: linear-gradient(transparent,rgba(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(28, 27, 27),rgb(26, 24, 24));
+    border: 1px solid #0000;
+    color: #fff;
+    width: 310px !important;
+    top: 2.5rem !important;
+    border-radius: 10px !important;
+
 
 }
+
+.ui-menu-item{
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    border: none !important;
+   
+
+}
+.ui-menu-item .ui-menu-item-wrapper{
+    color: rgb(222, 220, 220) !important;
+    padding: .4rem .5rem!important;
+    outline: none !important;  
+    background:none !important; 
+    border:none !important;
+
+}
+
+
+.ui-menu-item .ui-menu-item-wrapper:hover{
+background:rgb(59, 57, 57)  !important;
+font-weight: bold !important;
+color: rgb(236, 226, 226) !important;
+border:none !important;
+border-radius: 10px !important;
+outline: none !important;  
+
+}
+
 
 /* *******col */
 .cols {
@@ -195,7 +245,6 @@
 .cols2 {
     background-color: transparent;
     background-image: linear-gradient(transparent,transparent,transparent,rgba(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(43, 39, 39),rgb(29, 26, 26));
-
     margin: 0;
 
 }
@@ -214,7 +263,7 @@
         height: 70%;
     }
     .cols2 {
-        flex: 0 0 auto;
+        flex: 0 0 auto; 
         width: 40%;
         height: 70%;
     }
