@@ -195,7 +195,10 @@
     color: #fff;
     width: 310px !important;
     top: 2.5rem !important;
-    border-radius: 10px !important;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
 
 
 }
@@ -206,7 +209,7 @@
     font-size: .9rem;
     letter-spacing: 1px;
     border: none !important;
-   
+   border-bottom: 1px solid rgb(59, 57, 57)  !important;;
 
 }
 .ui-menu-item .ui-menu-item-wrapper{

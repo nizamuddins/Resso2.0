@@ -1,0 +1,68 @@
+/* .label{
+    width:300px;
+} */
+.searching{
+    display: flex;
+    justify-content: space-around;
+    width: 26%;
+    margin-left: auto;
+    position: relative;
+    top: 40px;
+    margin-right: 3.5rem;
+
+}
+.input1 {
+    width: 75%;
+    height: 23px;
+    padding: 0.1rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    transition: none;
+}
+.btn:hover{
+border: 1px solid #fff;
+}
+
+.foryou{
+width: 87%;
+height: 20%;
+}
+.fortext{
+    font-size: 3.3rem;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    color: rgb(228, 227, 227);
+    margin: 5rem 0rem 0rem 1.4rem;
+}
+.rows{
+    margin: 3rem 0rem 0rem 12.5rem;
+    width: 86% !important;
+    padding:1rem 0rem 0rem ;
+    border: 2px solid;
+    border-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* margin-left: auto !important; */
+}
+.mostText{
+    font-size:2rem;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    color: rgb(228, 227, 227);
+}
+.most{
+    margin-bottom: .5rem;
+}
+
+/* trendinglist */
+.trend{
+    display: flex;
+    padding: .5rem;
+}
+.trend:hover{
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+    border-radius: 10px;
+}
