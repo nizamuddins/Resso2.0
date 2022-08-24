@@ -29,6 +29,7 @@ $( function() {
     "Boss (Title Song)",
     "Be Intehaan",
     "Bande Hain Hum",
+    "jhoom"
   ];
   $( "#tags" ).autocomplete({
     source: availableTags

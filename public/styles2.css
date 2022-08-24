@@ -31,14 +31,14 @@ width: 87%;
 height: 20%;
 }
 .fortext{
-    font-size: 3.3rem;
+    font-size: 3.7rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 600;
     color: rgb(228, 227, 227);
     margin: 5rem 0rem 0rem 1.4rem;
 }
 .rows{
-    margin: 3rem 0rem 0rem 12.5rem;
+    margin: 2.5rem 0rem 0rem 12.5rem;
     width: 86% !important;
     padding:1rem 0rem 0rem ;
     border: 2px solid;
@@ -65,4 +65,29 @@ height: 20%;
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
     border-radius: 10px;
+}
+
+/* brewse */
+
+.mostText2{
+    font-size:1.7rem;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    color: rgb(228, 227, 227);
+}
+
+.rows2{
+    margin: 2.5rem 0rem 0rem 15rem;
+    width: 80% !important;
+    padding:1rem .5rem 0rem ;
+    border: 2px solid;
+    border-radius: 10px;
+    border-bottom-right-radius: 10px;  
+}
+.fortext2{
+    font-size: 3.7rem;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    color: rgb(228, 227, 227);
+    margin: 5rem 0rem 0rem 4.2rem;
 }

@@ -1,3 +1,57 @@
-<%- include('partial/header1') -%>
+<%- include('partial/header2') -%>
+<section id="forYou" class="bg-dark" >
+<div class="foryou  ms-auto bg-dark" >
+    <form action="/browse" method="post" class="searching ">
+            <input type="search" name="songName"class='input1 bg-dark text-light' id="tags" placeholder="Search">
+            <button type="submit" class="btn bg-dark">
+                <i class="fas fa-search text-white"></i>
+              </button>
+      </form>
+<h1 class=" fortext2 ">Browse</h1>
+</div>
+<div class="row rows2" style="background-color: #121212;">
+    <div class="most">
+        <h1 class="mostText2">Top Result</h1>
 
-<%- include('partial/footer1') -%>
+    </div>
+    <div class="col-lg-12 p-2">
+    
+        <ul id="songs" class="songs p-0" >
+
+            <li class="trend ajab">
+                <span class="images ajab">
+                    <img src="images/ajab.jpg " class="pngs ajab" alt="">
+                    <span id="ajabs">
+                        <i id="ajabsa" class="fa-solid ajab lh-lg"></i>
+                    </span>
+                </span>
+                <span class="names ajab">
+                    <a id="song4" class="RB ajab">Tu Jaane Na</a>
+                    <p id="singer4" class="singer ajab">Atif Aslam - Ajab Prem Ki Gazab Kahani</p>
+                </span>
+            </li>
+            
+            <li class="trend ajab">
+                <span class="images ajab">
+                    <img src="images/.jpg " class="pngs ajab" alt="">
+                    <span id="ajabs">
+                        <i id="ajabsa" class="fa-solid ajab lh-lg"></i>
+                    </span>
+                </span>
+                <span class="names ajab">
+                    <a id="song4" class="RB ajab"></a>
+                    <p id="singer4" class="singer ajab"></p>
+                </span>
+            </li>
+     
+        </ul>
+    </div>
+   
+
+</div>
+
+</section>
+
+
+<%- include('partial/footer2') -%>
+
