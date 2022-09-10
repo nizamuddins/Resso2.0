@@ -29,7 +29,8 @@ $( function() {
     "Boss (Title Song)",
     "Be Intehaan",
     "Bande Hain Hum",
-    "jhoom"
+    "jhoom (R&B MIX)",
+    "Roke Na Ruke Naina" 
   ];
   $( "#tags" ).autocomplete({
     source: availableTags
@@ -388,8 +389,7 @@ $('.songsList').click((e) => {
 // lastPlay
 
 const split5 = songsgif
-    .attr('class')
-    .split(' ');
+    .attr('class').split(' ');
 const name2 = split5.pop();
 const split6 = name2
     .split('s')

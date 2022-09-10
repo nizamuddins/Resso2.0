@@ -2,9 +2,9 @@
 let object={
   "jhoom(R&BMIX)":"Jhoom (R&B MIX)-Ali Zafar",
   RokeNaRukeNaina:"Arijit-Singh - Badrinath Ki Dulhania",
+  tujaanena:'Atif Aslam - Ajab Prem Ki Gazab Kahani',
 }
-
-
+// Searchform**********
 $( function() {
   var availableTags = [
     "Aila Re Aillaa",
@@ -46,15 +46,18 @@ $( function() {
   );
 } );
 
+
+
 // browse
-// singer.text()
+let singer = $("#singer");
+let song = $("#song");
+
 $("form").submit((e)=>{
   let inputValue = document.querySelector(".input2").value
   e.preventDefault();
 setTimeout(()=>{
 // changingNames
-let singer = $("#singer");
-let song = $("#song");
+
 let songname = inputValue.split(" ")
 let joinName = songname.join("")
 let name_1 = object[joinName];
@@ -64,7 +67,6 @@ singer.text(name_1);
 let lower = joinName.toLowerCase();
 let static = $("#imagestatic");
 static.attr("src","images/"+lower+".jpg");
-
 },2000)  
 
 
@@ -72,55 +74,48 @@ static.attr("src","images/"+lower+".jpg");
 
 // // addingplayandpause
 
-const songsList = $('.trend')
-songsList.mouseover((e) => {
-
-    const classes = $(e.currentTarget).attr('class');
-    const divide = classes
-        .split(' ')
-        .pop();
-
-    $('#' + divide + 's').addClass('playgif2');
-
-    $('#' + divide + 'sa').addClass('play1');
-    $('#' + divide + 'sa').addClass('fa-play');
-    setTimeout(() => {
-        $('#jhooms').addClass('jhoom');
-        $('#ajabs').addClass('ajab');
-        $('#zaras').addClass('zara');
-        $('#remixs').addClass('remix');
-        $('#rokes').addClass('roke');
-
-    }, 500)
-
-})
-songsList.mouseleave((e) => {
-
-    const classes = $(e.currentTarget).attr('class');
-    const divide = classes
-        .split(' ')
-        .pop();
-
-    $('#' + divide + 's').removeClass('playgif2');
-    $('#' + divide + 'sa').removeClass('play1');
-    $('#' + divide + 'sa').removeClass('fa-play');
-
-})
-
+  $('#playPause1').addClass('playgif2');
+  $('#playPause2').addClass('play1');
+  $('#playPause2').addClass('fa-play');
 
 // // playingsongs
 
 
-// let songs = $("#songs");
+let songs = $("#songs1");
+songs.click(function (){
+    $('#playPause1').addClass('playgif2');
+    $('#playPause2').addClass('play1');
+    $('#playPause2').addClass('fa-pause');
+    $('#playPause2').removeClass('fa-play');
 
-// songs.click(function (){
-// console.log(joinName)
-//   let audio = new Audio("songs/"+lower+".mp3");
-//   setTimeout(()=>{
-//     audio.play();
+    $(".width").animate({height:"300px"})
 
-//   },2000)
+    let music1 = song.text()
+    let music2 = music1.toLowerCase()
+    let music3 = music2.split(" ");
+    let music4 = music3.join("");
+    let singer = object[music4]
+    PlayMusic(music4);
+    lastImgtext(music1,singer);   
+ 
+  
+})
+  
+function PlayMusic(songName2){
+  let audio = new Audio("songs/"+songName2+".mp3");
+  setTimeout(()=>{
+    audio.play();
 
+  },2000)
 
-// })
+}
+function lastImgtext(images,name){
+  let music2 = images.toLowerCase()
+  let music3 = music2.split(" ");
+  let music4 = music3.join("");
+$(".lastimg").attr("src","images/"+music4+".jpg")
+$('.musicName').text(images);
+$('.singers').text(name)
+
+}
 
