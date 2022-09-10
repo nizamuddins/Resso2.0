@@ -3,6 +3,8 @@ let object={
   "jhoom(R&BMIX)":"Jhoom (R&B MIX)-Ali Zafar",
   RokeNaRukeNaina:"Arijit-Singh - Badrinath Ki Dulhania",
   tujaanena:'Atif Aslam - Ajab Prem Ki Gazab Kahani',
+  BharDoJholiMeri:"Adnan Sami-Bajrangi Bhaijaan",
+
 }
 // Searchform**********
 $( function() {
