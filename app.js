@@ -15,6 +15,7 @@ app.get('/Browse',(req,res)=>{setTimeout(()=>{res.render("browse")},2000);})
 // post
 app.post("/song",(req,res)=>{
 const request = req.body.songName;
+console.log(request)
 res.render("post",{name:request});
 })
 

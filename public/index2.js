@@ -59,8 +59,8 @@ $("form").submit((e)=>{
   e.preventDefault();
 setTimeout(()=>{
 // changingNames
-
-let songname = inputValue.split(" ")
+if(inputValue !== ""){
+  let songname = inputValue.split(" ")
 let joinName = songname.join("")
 let name_1 = object[joinName];
 song.text(inputValue)
@@ -69,10 +69,25 @@ singer.text(name_1);
 let lower = joinName.toLowerCase();
 let static = $("#imagestatic");
 static.attr("src","images/"+lower+".jpg");
+}
+
 },2000)  
 
 
 })
+
+// songsbyyourfm
+var song1 = $("#song").text();
+let songname = song1.split(" ")
+let joinName = songname.join("")
+let name_1 = object[joinName];
+singer.text(name_1);
+// changingImage
+let lower = joinName.toLowerCase();
+let static = $("#dynamicimage");
+static.attr("src","images/"+lower+".jpg");
+
+
 
 // // addingplayandpause
 
