@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const app = express();
+let array = [];
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
@@ -15,8 +16,14 @@ app.get('/Browse',(req,res)=>{setTimeout(()=>{res.render("browse")},2000);})
 // post
 app.post("/song",(req,res)=>{
 const request = req.body.songName;
-console.log(request)
-res.render("post",{name:request});
+ if(request != ""){
+   array = [];
+   array.push(request);     
+   res.render("post",{name:request});
+ }else{
+    res.render("post",{name:array[0]});
+ }
+
 })
 
 app.listen(4000, () => console.log(`Example app listening on port 4000`));

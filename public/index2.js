@@ -108,31 +108,57 @@ songs.click(function (){
     $(".width").animate({height:"300px"})
 
     let music1 = song.text()
-    let music2 = music1.toLowerCase()
-    let music3 = music2.split(" ");
+    let music3 = music1.split(" ");
     let music4 = music3.join("");
     let singer = object[music4]
-    PlayMusic(music4);
-    lastImgtext(music1,singer);   
+    let music2 = music4.toLowerCase()
+
+    PlayMusic(music2);
+    lastImgtext(music1,singer);
+    console.log(singer)   
  
   
 })
   
 function PlayMusic(songName2){
-  let audio = new Audio("songs/"+songName2+".mp3");
+let audio = new Audio("songs/"+songName2+".mp3");
   setTimeout(()=>{
     audio.play();
+   let id =  setInterval(()=>{
+      var range = $('#range');
+      let currenttime = audio.currentTime
+      let duration = audio.duration;;
+      let width = (currenttime / duration) * 100;
+      range.val(width)
+      if(range.val()==100){
+        audio.currentTime = 0;
+        audio.pause()
+        clearInterval(id)
+      }
+  
+  
+    },100);
 
+   
   },2000)
 
 }
+
+    // audio.addEventListener('timeupdate', (e) => {
+
+    //     let currenttime = e.target.currentTime
+   
+        // changingEvery()
+
+//     })
+// })
 function lastImgtext(images,name){
   let music2 = images.toLowerCase()
   let music3 = music2.split(" ");
   let music4 = music3.join("");
-$(".lastimg").attr("src","images/"+music4+".jpg")
-$('.musicName').text(images);
-$('.singers').text(name)
+  $(".lastimg").attr("src","images/"+music4+".jpg")
+  $('.musicName').text(images);
+  $('.singers').text(name)
 
 }
 
