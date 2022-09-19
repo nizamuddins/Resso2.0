@@ -16,10 +16,14 @@ app.get('/Browse',(req,res)=>{setTimeout(()=>{res.render("browse")},2000);})
 // post
 app.post("/song",(req,res)=>{
 const request = req.body.songName;
+let music3 = request.split(" ");
+let music4 = music3.join("");
+let music2 = music4.toLowerCase();
  if(request != ""){
    array = [];
    array.push(request);     
-   res.render("post",{name:request});
+   res.render("post",{name:request,name2:music2});
+   
  }else{
     res.render("post",{name:array[0]});
  }

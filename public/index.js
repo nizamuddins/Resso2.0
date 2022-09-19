@@ -30,7 +30,9 @@ $( function() {
     "Be Intehaan",
     "Bande Hain Hum",
     "jhoom (R&B MIX)",
-    "Roke Na Ruke Naina" 
+    "Roke Na Ruke Naina",
+    "Zara Sa (Lofi Flip)"
+
   ];
   $( "#tags" ).autocomplete({
     source: availableTags
@@ -44,21 +46,6 @@ $( function() {
 // *****************
 $('.li1').click((e) => {
     $(e.currentTarget).addClass('li1s');
-
-    // const next = $(e.currentTarget).next();
-    // const next2 = $(e.currentTarget)
-    //     .next()
-    //     .next();
-
-    // const prev = $(e.currentTarget).prev();
-    // const prev2 = $(e.currentTarget)
-    //     .prev()
-    //     .prev();
-
-    // next.removeClass('li1s');
-    // next2.removeClass('li1s')
-    // prev.removeClass('li1s');
-    // prev2.removeClass('li1s');
 
 })
 
@@ -289,12 +276,12 @@ $('.smallrange').change(() => {
 // KeyoardEvent
 body.keydown((e) => {
     if (e.key === " ") {
+        e.preventDefault();
         playSound(split2);
         lstPlay();
 
     }
     if (e.key === "m") {
-        e.preventDefault();
 
         if ($('.vol').hasClass('fa-volume-high')) {
             $('.vol').addClass('fa-volume-xmark fs-5');
