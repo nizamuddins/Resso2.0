@@ -1,7 +1,7 @@
 <%- include('partial/header2') -%>
 <section id="forYou" class="bg-dark" >
 <div class="foryou  ms-auto bg-dark" >
-    <form action="/browse" method="" class="searching ">
+    <form action="/browse" method="post" class="searching ">
             <input type="search" name="songName"class='input1 input2 bg-dark text-light' value="" id="tags" placeholder="Search">
             <button type="submit" class="btn bg-dark">
                 <i class="fas fa-search text-white"></i>
@@ -20,14 +20,14 @@
 
             <li class="trend ">
                 <span class="images ajab">
-                    <img id="imagestatic" src="images/ajab.jpg " class="pngs" alt="">
+                    <img id="dynamicimage" src="" class="pngs" alt="">
                     <span id="playPause1">
                         <i id="playPause2" class="fa-solid  lh-lg fas"></i>
                     </span>
                 </span>
                 <span class="names ">
-                    <a id="song" class="RB ajab">Tu Jaane Na</a>
-                    <p id="singer" class="singer ajab">Atif Aslam - Ajab Prem Ki Gazab Kahani</p>
+                    <a id="song" class="RB ajab fm1"><%= name %></a>
+                    <p id="singer" class="singer ajab fm2">Atif Aslam - Ajab Prem Ki Gazab Kahani</p>
                 </span>
             </li>
         </ul>
