@@ -1,3 +1,4 @@
+
 // singernames
 let object = {
     "Jhoom(R&BMIX)": "Jhoom (R&B MIX)-Ali Zafar",
@@ -40,19 +41,25 @@ $(function () {
         "Roke Na Ruke Naina",
         "Zara Sa (Lofi Flip)"
     ];
+    console.log(availableTags[0].indexOf("A"))
     $("#tags").autocomplete({
         source: availableTags
     }, {minLength: 2});
 });
-
+// ______________________________________
+let body = $("body");
 // browse
 let singer = $("#singer");
 let song1 = $("#song").text();
-
+console.log()
 $('#playPause1').addClass('playgif2');
 $('#playPause2').addClass('play1');
 $('#playPause2').addClass('fa-play');
 
+$('.li1').click((e) => {
+    $(e.currentTarget).addClass('li1s');
+
+})
 // songsbyyourfm
 let songname = song1.split(" ")
 let joinName = songname.join("")
@@ -90,13 +97,42 @@ songs.click(function () {
     }
 
 })
-function lastImgtext(name1, name2, name3) {
 
-    $(".lastimg").attr("src", "images/" + name3 + ".jpg")
-    $('.musicName').text(name1);
-    $('.singers').text(name2)
+// keydown***
 
-}
+body.keydown((e)=>{
+    if (e.key === " ") {
+    $(".width").animate({height: "300px"})
+    lastImgtext(song1, name_1, lower);
+        e.preventDefault();
+        if ($('.lstPlay').hasClass('fa-play')) {
+            $('.lstPlay').removeClass('fa-play');
+            $('.lstPlay').addClass('fa-pause');
+            play1();
+            audio1.play();
+        } else {
+            $('.lstPlay').removeClass('fa-pause');
+            $('.lstPlay').addClass('fa-play');
+           play2();
+            audio1.pause();
+        }
+
+    }    if (e.key === "m") {
+
+        if ($('.vol').hasClass('fa-volume-high')) {
+            $('.vol').addClass('fa-volume-xmark fs-5');
+            $('.vol').removeClass('fa-volume-high');
+            mute();
+        } else {
+            $('.vol').removeClass('fa-volume-xmark fs-5');
+            $('.vol').addClass('fa-volume-high');
+            unmute();
+        }
+
+    }
+
+})
+
 // range******
 
 audio1.addEventListener("timeupdate", (e) => {
@@ -114,6 +150,9 @@ audio1.addEventListener("timeupdate", (e) => {
 })
 
 $('.lstPlay').click((e) => {
+    lastImgtext(song1, name_1, lower);
+    $(".width").animate({height: "300px"})
+
     if ($('.lstPlay').hasClass('fa-play')) {
         $('.lstPlay').removeClass('fa-play');
         $('.lstPlay').addClass('fa-pause');
@@ -137,21 +176,69 @@ function play2(){
     $('#playPause2').addClass('play1');
     $('#playPause2').addClass('fa-play');
 }
+// lstImg
+function lastImgtext(name1, name2, name3) {
 
-// playingsongs let songs = $("#songs1");     songs.click(function () {
-// let music1 = song.text()         let music3 = music1.split(" ");         let
-// music4 = music3.join("");         let singer = object[music4]         let
-// music2 = music4.toLowerCase()PlayMusic(music2);         lastImgtext(music1,
-// singer);         console.log(singer)     })function PlayMusic(songName2) {
-// let audio = new         Audio("songs/" + songName2 + ".mp3");
-// setTimeout(() => {             audio.play();         }, 50);     }, 2000)
-// $('.lstPlay').click((e) => {     lstPlay(); })function lstPlay() {     let
-// music1 = song.text()     let music3 = music1.split(" ");     let music4 =
-// music3.join("");     let music2 = music4.toLowerCase();     let audio4 = new
-// Audio("songs/" + music2 + ".mp3");     if ($('.lstPlay').hasClass('fa-play'))
-// {         $('.lstPlay').removeClass('fa-play');
-// $('.lstPlay').addClass('fa-pause');         audio4.play()     } else {
-// $('.lstPlay').removeClass('fa-pause');
-// $('.lstPlay').addClass('fa-play');         audio4.pause()     } }
-// audio.addEventListener('timeupdate', (e) => {     let currenttime =
-// e.target.currentTime changingEvery() }) } )
+    $(".lastimg").attr("src", "images/" + name3 + ".jpg")
+    $('.musicName').text(name1);
+    $('.singers').text(name2)
+
+}
+
+$('.smallrange').change(() => {
+    let change = +($('.smallrange').val())
+    change = ((change) / 100).toFixed(1);
+
+    if (change === 0.0) {
+        mute();
+    } else {
+        $('.vol').removeClass('fa-volume-xmark fs-5');
+        $('.vol').addClass('fa-volume-high');
+        audio1.muted = false;
+
+    }
+
+    volume_change(change)
+})
+
+// Mute and Unmute
+$('.volume').mouseover(() => {
+    $('.rangesmall').css('visibility', 'visible')
+})
+$('.rangesmall').mouseleave(() => {
+    $('.rangesmall').css('visibility', 'hidden')
+})
+
+$('.volume').click(() => {
+    if ($('.vol').hasClass('fa-volume-high')) {
+        $('.vol').addClass('fa-volume-xmark fs-5');
+        $('.vol').removeClass('fa-volume-high');
+        mute();
+    } else {
+        $('.vol').removeClass('fa-volume-xmark fs-5');
+        $('.vol').addClass('fa-volume-high');
+        unmute();
+    }
+
+})
+
+// mute
+function mute() {
+    audio1.muted = true;
+    let val = document.querySelector('.smallrange');
+    val.value = 0;
+
+}
+// unmute
+
+function unmute() {
+    audio1.muted = false;
+
+    let val = document.querySelector('.smallrange');
+    val.value = 100;
+    volume_change(100 / 100)
+
+}
+function volume_change(changes) {
+    audio1.volume = changes;
+}
