@@ -7,6 +7,20 @@ let object = {
     BharDoJholiMeri: "Adnan Sami-Bajrangi Bhaijaan",
     "ZaraSa(LofiFlip)": "Pritam,KK - Jannat (Orignal Motion Picture Soundtrack)"
 }
+let body = $("body");
+// browse
+let singer = $("#singer");
+let song1 = $("#song").text();
+let letter = song1[0];
+let songArray = [];
+
+var availableTags = ["Aila Re Aillaa","Aayi Aayi Bhoot Police","Aaye Haaye","Abhi Toh Party Shuru Hui Hai","Awara","Ankhiyon Se Goli Maare","Ae Dil Hai Mushkil","Aadat","Aira Gaira","Agar Tu Hota","Abhi Mujh Mein Kahin","Ae Khuda","Allah Duhai Hai ","Aankh Marey","Apna Time Aayega","Bhool Bhulaiyaa 2","Bolna","Bad Boy","Bom Diggy Diggy","Bulleya","Bhar Do Jholi Meri","Bhula Dena","Baaton Ko Teri","Baadshah O Baadshah","Boss (Title Song)","Be Intehaan","Bande Hain Hum","Jhoom (R&B MIX)","Roke Na Ruke Naina","Zara Sa (Lofi Flip)"];
+availableTags.forEach((a)=>{
+if(a[0]===letter){
+songArray.push(a)
+}
+
+})
 // Searchform**********
 $(function () {
     var availableTags = [
@@ -25,7 +39,7 @@ $(function () {
         "Allah Duhai Hai ",
         "Aankh Marey",
         "Apna Time Aayega",
-        "Bhool Bhulaiyaa",
+        "Bhool Bhulaiyaa 2",
         "Bolna",
         "Bad Boy",
         "Bom Diggy Diggy",
@@ -41,17 +55,18 @@ $(function () {
         "Roke Na Ruke Naina",
         "Zara Sa (Lofi Flip)"
     ];
-    console.log(availableTags[0].indexOf("A"))
+availableTags.forEach((a)=>{
+if(a[0]===letter){
+    songArray.push(a)
+}
+
+})
     $("#tags").autocomplete({
         source: availableTags
     }, {minLength: 2});
 });
 // ______________________________________
-let body = $("body");
-// browse
-let singer = $("#singer");
-let song1 = $("#song").text();
-console.log()
+
 $('#playPause1').addClass('playgif2');
 $('#playPause2').addClass('play1');
 $('#playPause2').addClass('fa-play');
@@ -83,7 +98,10 @@ songs.click(function () {
     $(".width").animate({height: "300px"})
 
     if (start) {
-        audio1.play();
+        setTimeout(()=>{
+            audio1.play();
+    
+        },2000);
         start = false;
         play1(); 
         $('.lstPlay').removeClass('fa-play');
@@ -109,7 +127,10 @@ body.keydown((e)=>{
             $('.lstPlay').removeClass('fa-play');
             $('.lstPlay').addClass('fa-pause');
             play1();
-            audio1.play();
+            setTimeout(()=>{
+                audio1.play();
+        
+            },2000)
         } else {
             $('.lstPlay').removeClass('fa-pause');
             $('.lstPlay').addClass('fa-play');
@@ -157,7 +178,10 @@ $('.lstPlay').click((e) => {
         $('.lstPlay').removeClass('fa-play');
         $('.lstPlay').addClass('fa-pause');
         play1();
-        audio1.play();
+        setTimeout(()=>{
+            audio1.play();
+    
+        },2000)
     } else {
         $('.lstPlay').removeClass('fa-pause');
         $('.lstPlay').addClass('fa-play');
@@ -242,3 +266,58 @@ function unmute() {
 function volume_change(changes) {
     audio1.volume = changes;
 }
+
+///////////////////////////////////////////
+// forward and backwaRD
+
+let val = 0;
+$('.forward').click(() => {
+    let gaana = songArray[val].split(" ")
+    let joinName = gaana.join("")
+    // let name_1 = object[joinName];
+    // singer.text(name_1);
+
+// changingImage
+    let lower = joinName.toLowerCase();
+    $('.lstPlay').removeClass('fa-play');
+    $('.lstPlay').addClass('fa-pause');
+    audio1.pause();
+    audio1 = new Audio("songs/"+lower+".mp3");
+    setTimeout(()=>{
+        audio1.play();
+
+    },2000)
+    if(val!== songArray.length){
+        val++;
+
+    }
+    console.log(val)
+})
+// backward****
+
+$('.backward').click(() => {
+    // if(val >= 0){
+    //     val--;
+    //     val--;
+
+    // }
+    let gaana = songArray[val].split(" ")
+    let joinName = gaana.join("")
+    // let name_1 = object[joinName];
+    // singer.text(name_1);
+
+// changingImage
+    let lower = joinName.toLowerCase();
+    $('.lstPlay').removeClass('fa-play');
+    $('.lstPlay').addClass('fa-pause');
+    audio1.pause();
+    audio1 = new Audio("songs/"+lower+".mp3");
+    setTimeout(()=>{
+        audio1.play();
+
+    },2000)
+  
+    console.log(val)
+
+   
+})
