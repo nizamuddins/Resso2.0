@@ -19,7 +19,7 @@ $( function() {
     "Apna Time Aayega",
     "Bhool Bhulaiyaa",
     "Bolna",
-    "Bad Boy",
+    "Bad Boy (From Saaho)",
     "Bom Diggy Diggy",
     "Bulleya",
     "Bhar Do Jholi Meri",

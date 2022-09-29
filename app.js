@@ -32,6 +32,7 @@ app.get('/', (req, res) => res.sendFile(__dirname +"/index.html"));
 // params: {}, }).then(function (response) {          handle success
 // console.log(response.data); }).catch(function (error) {          handle error
 // console.log(error); })
+
 app.post("/",(req,res)=>{
 const query = req.body.songName;
 let type = 'track';
@@ -39,24 +40,28 @@ let type = 'track';
   https.get(url,(response)=>{
     response.on("data",(data)=>{
 const data1 = JSON.parse(data);
-let name = data1.tracks.items[0].album.name;
+// let name0 = data1.tracks.items[0].album.name;
 let name3 = data1.tracks.items[0].name;
 let lengths = data1.tracks.items[0].artists.length;
-res.write(name3);
-res.write(name);
-for(let i=0;i<lengths;i++){
+let img = data1.tracks.items[0].album.images[2].url;
+let singers = " ";
 
-let name2 = data1.tracks.items[0].artists[i].name;
-res.write(name2);
+for(let i=0;i<lengths;i++){
+  
+  let name2 = data1.tracks.items[0].artists[i].name;
+  singers += name2;
+  if(i < lengths-1){
+    singers += ", "
+
+  }
+  if(i === lengths-1){
+    singers += "."
+  }
 
 }
 
-// // let name4 = data1.tracks.items[0].artists[2].name;
+res.render("browse",{name:name3,name2:singers,name3:img});
 
-// res.write(name4);
-
-// console.log(length)
-res.end();
 })
   })
 })

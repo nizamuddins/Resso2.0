@@ -78,13 +78,14 @@ $('.li1').click((e) => {
 // songsbyyourfm
 let songname = song1.split(" ")
 let joinName = songname.join("")
-let name_1 = object[joinName];
+let name_1 = singer.text();
 singer.text(name_1);
 
 // changingImage
 let lower = joinName.toLowerCase();
 let static = $("#dynamicimage");
-static.attr("src", "images/" + lower + ".jpg");
+let src = static.attr("src");
+// static.attr("src", "images/" + lower + ".jpg");
 
 // ***** playSongs
 
@@ -94,7 +95,7 @@ console.log(audio1)
 let songs = $("#songs1");
 let start = true;
 songs.click(function () {
-    lastImgtext(song1, name_1, lower);
+    lastImgtext(song1, name_1, src);
     $(".width").animate({height: "300px"})
 
     if (start) {
@@ -203,7 +204,7 @@ function play2(){
 // lstImg
 function lastImgtext(name1, name2, name3) {
 
-    $(".lastimg").attr("src", "images/" + name3 + ".jpg")
+    $(".lastimg").attr("src", name3)
     $('.musicName').text(name1);
     $('.singers').text(name2)
 
