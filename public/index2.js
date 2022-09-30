@@ -90,7 +90,6 @@ let src = static.attr("src");
 // ***** playSongs
 
 let audio1 = document.getElementById("audio1");
-console.log(audio1)
 
 let songs = $("#songs1");
 let start = true;
