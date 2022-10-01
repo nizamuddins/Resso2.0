@@ -14,34 +14,17 @@ app.set("view engine", "ejs")
 // get
 app.get('/', (req, res) => res.sendFile(__dirname + "/index.html"));
 app.get('/YourFm',(req,res)=>{setTimeout(()=>{res.render("yourfm")},2000);})
-// app.get('/ForYou',(req,res)=>{setTimeout(()=>{res.render("foryou")},2000);})
-app.get('/Browse',(req,res)=>{setTimeout(()=>{res.render("browse",{name:"Tu Jaane Na",name2:"Atif Aslam - Ajab Prem Ki Gazab Kahani",name3:"images/tujaanena.jpg",names:"songs/tujaanena.mp3"})},2000);})  
+app.get('/Browse',(req,res)=>{setTimeout(()=>{res.render("browse",{browse:"Browse",name:"Tu Jaane Na",name2:"Atif Aslam - Ajab Prem Ki Gazab Kahani",name3:"images/tujaanena.jpg",names:"songs/tujaanena.mp3"})},2000);})  
 // post 
-// app.post("/browse",(req,res)=>{
-// const request = req.body.songName;   let music3 = request.split(" ");   let
-// music4 = music3.join("");   let music2 = music4.toLowerCase();   let src =
-// "songs/"+music2+".mp3"    if(request != ""){      array = [];
-// array.push(request);      res.render("post",{name:request,name2:src}); }else{
-// res.render("post",{name:array[0]});    }   }) app.post("/song",(req,res)=>{
-// const request = req.body.songName; let music3 = request.split(" "); let
-// music4 = music3.join(""); let music2 = music4.toLowerCase(); let src =
-// "songs/"+music2+".mp3"  if(request != ""){ array = []; array.push(request);
-// res.render("post",{name:request,name2:src});  }else{
-// res.render("post",{name:array[0]});  } }) const axios = require('axios');
-// axios({     method: 'get',     url:
-// 'https://v1.nocodeapi.com/itsnizam/spotify/dTbMlsFAKejWKQJd/search?q=kesariya&type=track',
-// params: {}, }).then(function (response) {          handle success
-// console.log(response.data); }).catch(function (error) {          handle error
-// console.log(error); })
 
 app.post("/song", (req, res) => {
     const query = req.body.songName;
     let type = 'track';
-    const url = `https://v1.nocodeapi.com/itsnizam/spotify/dTbMlsFAKejWKQJd/search?q=${query}&type=${type}&perPage=2&page=0`;
+    const url = `https://v1.nocodeapi.com/nizam/spotify/CRobmWArUTMzModv/search?q=${query}&type=${type}&perPage=2&page=0`;
     https.get(url, (response) => {
         response.on("data", (data) => {
             const data1 = JSON.parse(data);
-            // let name0 = data1.tracks.items[0].album.name;
+            let name0 = data1.tracks.items[0].album.name;
             let name3 = data1.tracks.items[0].name;
             let lengths = data1.tracks.items[0].artists.length;
             let img = data1.tracks.items[0].album.images[2].url;
@@ -61,10 +44,58 @@ app.post("/song", (req, res) => {
             let songname = name3.split(" ");
             let joinName = songname.join("");
             let lower = joinName.toLowerCase();
-            let src = "songs/"+lower+".mp3"
-            res.render("browse", {name: name3,name2: singers,name3: img,names:src});
+            var new_string = lower.split('"');
+            let joinName2 = new_string.join("");
+            let hyphensRemoved = joinName2.replaceAll('-', '')
+            let src = "songs/"+hyphensRemoved+".mp3";
+            if(array.length>0){
+                let flag =0;
+                for(let i=0;i<1;i++){
+                    for(j=0;j<array.length;j++){
+                        if(array[j].songnaam === name3){
+                            flag =1;
+                            break;
+
+                        }
+                    }
+                   if(flag === 0){
+                    let obj ={
+                        src1:src,
+                        songnaam:name3,
+                        singername:singers,                       
+                        imag:img
+                    };
+                    array.unshift(obj);
+                   }
+                  
+                }
+            }else{
+                let obj ={
+                    src1:src,
+                    songnaam:name3,
+                    singername:singers,                       
+                    imag:img
+                };
+                array.push(obj);
+            }
+            res.render("browse", {browse:name0,name: name3,name2: singers,name3: img,names:src});
         })
     })
 })
+
+// ________
+app.get("/history",(req,res)=>{
+    let array2 = [
+    
+    ]
+if(array.length === 0){
+    res.render("history",{array1:array2})
+}else{
+    res.render("post",{array1:array})
+
+}
+})
+
+
 
 app.listen(4000, () => console.log(`Example app listening on port 4000`));

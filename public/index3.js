@@ -9,7 +9,7 @@ let object = {
 }
 let body = $("body");
 // browse
-let singer = $("#singer");
+let singer = $("#singer").text();
 let song1 = $("#song").text();
 let letter = song1[0];
 let songArray = [];
@@ -75,67 +75,88 @@ $('.li1').click((e) => {
     $(e.currentTarget).addClass('li1s');
 
 })
-// songsbyyourfm
-let songname = song1.split(" ")
-let joinName = songname.join("")
-let name_1 = singer.text();
-singer.text(name_1);
 
-// changingImage
-let lower = joinName.toLowerCase();
-let static = $("#dynamicimage");
-let src = static.attr("src");
-// static.attr("src", "images/" + lower + ".jpg");
+let audio1 = document.getElementById("gaana")
 
 // ***** playSongs
-let audio1 = document.getElementById("audio1");
-
-let songs = $("#songs1");
+var range = $('#range');
+let songs = $(".fm1");
 let start = true;
-songs.click(function () {
-    lastImgtext(song1, name_1, src);
+let source = "hdf";
+
+songs.click(function (e) {
+    let temp1 = e.currentTarget;
+    let sibling = temp1.nextElementSibling;
+    let val1 = temp1.textContent;
+    let val2 = sibling.textContent;
+    let img = temp1.parentNode.previousElementSibling.childNodes[1];
+    let playPause = temp1.parentNode.previousElementSibling.childNodes[3].firstElementChild;
+    let src = img.getAttribute("src")
+    lastImgtext(val1, val2, src);
+// audio
+    let songname = val1.split(" ");
+    let joinName = songname.join("");
+    let lower = joinName.toLowerCase();
+    var new_string = lower.split('"');
+    let joinName2 = new_string.join("");
+    let hyphensRemoved = joinName2.replaceAll('-', '')
+    let src2 = "songs/"+hyphensRemoved+".mp3";
+    if(src2 !== source ){
+        audio1.setAttribute("src",src2);
+        source = src2;
+        start = true;
+
+        console.log("df")
+    }  
 
     if (start) {
         setTimeout(()=>{
             audio1.play();
-    
-        },2000);
+        },1000);
         start = false;
-        play1(); 
+        playPause.classList.add('fa-pause');
+        playPause.classList.remove('fa-play');
         $('.lstPlay').removeClass('fa-play');
         $('.lstPlay').addClass('fa-pause');
     } else {
+
         audio1.pause();
         start = true;
-        play2();
+        playPause.classList.add('fa-play');
+        playPause.classList.remove('fa-pause');
+
         $('.lstPlay').removeClass('fa-pause');
         $('.lstPlay').addClass('fa-play');
     }
-
 })
 
 // keydown***
 
 body.keydown((e)=>{
+    if(e.key === 'Control'){
+        e.preventDefault()
+    }
     if (e.key === " ") {
-    lastImgtext(song1, name_1, src);
         e.preventDefault();
         if ($('.lstPlay').hasClass('fa-play')) {
             $('.lstPlay').removeClass('fa-play');
             $('.lstPlay').addClass('fa-pause');
-            play1();
+        let pp = document.querySelectorAll(".playPause");
+        pp.forEach((a)=>{
+if(a.hasClass(""))
+        })
             setTimeout(()=>{
                 audio1.play();
-        
-            },1500)
+                start = false;
+            },1000)
         } else {
             $('.lstPlay').removeClass('fa-pause');
             $('.lstPlay').addClass('fa-play');
-           play2();
+            start =true
             audio1.pause();
         }
 
-    }    if (e.key === "m") {
+    } if (e.key === "m") {
 
         if ($('.vol').hasClass('fa-volume-high')) {
             $('.vol').addClass('fa-volume-xmark fs-5');
@@ -151,10 +172,9 @@ body.keydown((e)=>{
 
 })
 
-// range******
+// // range******
 
 audio1.addEventListener("timeupdate", (e) => {
-    var range = $('#range');
     let currenttime = e.currentTarget.currentTime
     let duration = e.currentTarget.duration;
     let width = (currenttime / duration) * 100;
@@ -162,13 +182,13 @@ audio1.addEventListener("timeupdate", (e) => {
     if (range.val() == 100) {
         $('.lstPlay').addClass('fa-play');
         $('.lstPlay').removeClass('fa-pause');
-        play2();
+        playPause.classList.add('fa-play');
+        playPause.classList.remove('fa-pause');
         start = true;
     }
 })
 
 $('.lstPlay').click((e) => {
-    lastImgtext(song1, name_1, src);
 
     if ($('.lstPlay').hasClass('fa-play')) {
         $('.lstPlay').removeClass('fa-play');
@@ -185,18 +205,18 @@ $('.lstPlay').click((e) => {
         audio1.pause();
     }
 })
-function play1(){
-    $('.playPause1').addClass('playgif2');
-    $('.playPause2').addClass('play1');
-    $('.playPause2').addClass('fa-pause');
-    $('.playPause2').removeClass('fa-play');
-}
-function play2(){
-    $('.playPause1').addClass('playgif2');
-    $('.playPause2').addClass('play1');
-    $('.playPause2').addClass('fa-play');
-}
-// lstImg
+// // function play1(){
+// //     $('.playPause1').addClass('playgif2');
+// //     $('.playPause2').addClass('play1');
+// //     $('.playPause2').addClass('fa-pause');
+// //     $('.playPause2').removeClass('fa-play');
+// // }
+// // function play2(){
+// //     $('.playPause1').addClass('playgif2');
+// //     $('.playPause2').addClass('play1');
+// //     $('.playPause2').addClass('fa-play');
+// // }
+// // lstImg
 function lastImgtext(name1, name2, name3) {
 
     $(".lastimg").attr("src", name3)

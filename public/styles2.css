@@ -1,7 +1,7 @@
 /* .label{
     width:300px;
 } */
-.searching{
+.searching {
     display: flex;
     justify-content: space-around;
     width: 26%;
@@ -22,46 +22,44 @@
     border: 1px solid #fff;
     transition: none;
 }
-.btn:hover{
-border: 1px solid #fff;
+.btn:hover {
+    border: 1px solid #fff;
 }
 
-.foryou{
-width: 87%;
-height: 20%;
+.foryou {
+    width: 87%;
 }
-.fortext{
+.fortext {
     font-size: 3.7rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 600;
     color: rgb(228, 227, 227);
-    margin: 5rem 0rem 0rem 1.4rem;
+    margin: 5rem 0 0 1.4rem;
 }
-.rows{
-    margin: 2.5rem 0rem 0rem 12.5rem;
+.rows {
     width: 86% !important;
-    padding:1rem 0rem 0rem ;
+    padding: 1rem 0 0;
     border: 2px solid;
     border-radius: 10px;
     border-bottom-right-radius: 10px;
     /* margin-left: auto !important; */
 }
-.mostText{
-    font-size:2rem;
+.mostText {
+    font-size: 2rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 600;
     color: rgb(228, 227, 227);
 }
-.most{
-    margin-bottom: .5rem;
+.most {
+    margin-bottom: 0.5rem;
 }
 
 /* trendinglist */
-.trend{
+.trend {
     display: flex;
-    padding: .5rem;
+    padding: 0.5rem;
 }
-.trend:hover{
+.trend:hover {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
     border-radius: 10px;
@@ -69,29 +67,37 @@ height: 20%;
 
 /* brewse */
 
-.mostText2{
-    font-size:1.7rem;
+.mostText2 {
+    font-size: 1.7rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 600;
     color: rgb(228, 227, 227);
 }
 
-.rows2{
-    margin: 2.5rem 0rem 0rem 15rem;
+.rows2 {
+    margin: 3.5rem 0 0 15rem;
     width: 80% !important;
-    padding:1rem .5rem 0rem ;
+    padding: 1rem 0.5rem 0;
     border: 2px solid;
     border-radius: 10px;
-    border-bottom-right-radius: 10px;  
+    border-bottom-right-radius: 10px;
 }
-.fortext2{
-    font-size: 3.7rem;
+.fortext2 {
+    font-size: 2.5rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 600;
     color: rgb(228, 227, 227);
-    margin: 5rem 0rem 0rem 4.2rem;
+    margin: 5rem 0 0 4.2rem;
 }
-.fas{
-padding: 0rem .1rem;
+.fas {
+    padding: 0 0.1rem;
 }
 
+.rows3 {
+    margin: 2rem 0 0 15rem;
+    width: 80% !important;
+    padding: 1rem 0.5rem 0;
+    border: 2px solid;
+    border-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
