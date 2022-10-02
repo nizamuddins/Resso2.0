@@ -13,9 +13,34 @@ app.set("view engine", "ejs")
 
 // get
 app.get('/', (req, res) => res.sendFile(__dirname + "/index.html"));
-app.get('/YourFm',(req,res)=>{setTimeout(()=>{res.render("yourfm")},2000);})
-app.get('/Browse',(req,res)=>{setTimeout(()=>{res.render("browse",{browse:"Browse",name:"Tu Jaane Na",name2:"Atif Aslam - Ajab Prem Ki Gazab Kahani",name3:"images/tujaanena.jpg",names:"songs/tujaanena.mp3"})},2000);})  
-// post 
+app.get('/YourFm', (req, res) => {
+    setTimeout(() => {
+        res.render("yourfm")
+    }, 2000);
+})
+app.get('/Browse', (req, res) => {
+    setTimeout(() => {
+        if (array.length === 0) {
+            res.render("browse", {
+                browse: "Browse",
+                name:"Tu Jaane Na",
+                name2: "Atif Aslam - Ajab Prem Ki Gazab Kahani",
+                name3: "images/tujaanena.jpg",
+                names: "songs/tujaanena.mp3"
+            })
+        } else {
+            res.render("browse", {
+                browse: array[0].browse1,
+                name: array[0].songnaam,
+                name2: array[0].singername,
+                name3: array[0].imag,
+                names: array[0].src1,
+            })
+        }
+
+    }, 2000);
+})
+// post
 
 app.post("/song", (req, res) => {
     const query = req.body.songName;
@@ -47,55 +72,58 @@ app.post("/song", (req, res) => {
             var new_string = lower.split('"');
             let joinName2 = new_string.join("");
             let hyphensRemoved = joinName2.replaceAll('-', '')
-            let src = "songs/"+hyphensRemoved+".mp3";
-            if(array.length>0){
-                let flag =0;
-                for(let i=0;i<1;i++){
-                    for(j=0;j<array.length;j++){
-                        if(array[j].songnaam === name3){
-                            flag =1;
+            let src = "songs/" + hyphensRemoved + ".mp3";
+            if (array.length > 0) {
+                let flag = 0;
+                for (let i = 0; i < 1; i++) {
+                    for (j = 0; j < array.length; j++) {
+                        if (array[j].songnaam === name3) {
+                            flag = 1;
                             break;
-
                         }
                     }
-                   if(flag === 0){
-                    let obj ={
-                        src1:src,
-                        songnaam:name3,
-                        singername:singers,                       
-                        imag:img
-                    };
-                    array.unshift(obj);
-                   }
-                  
+                    if (flag === 0) {
+                        let obj = {
+                            src1: src,
+                            songnaam: name3,
+                            singername: singers,
+                            imag: img,
+                            browse1:name0
+                        };
+                        array.unshift(obj);
+                    }
+
                 }
-            }else{
-                let obj ={
-                    src1:src,
-                    songnaam:name3,
-                    singername:singers,                       
-                    imag:img
+            } else {
+                let obj = {
+                    src1: src,
+                    songnaam: name3,
+                    singername: singers,
+                    imag: img,
+                    browse1:name0
                 };
                 array.push(obj);
             }
-            res.render("browse", {browse:name0,name: name3,name2: singers,name3: img,names:src});
+            res.render("browse", {
+                browse:name0,
+                name: name3,
+                name2: singers,
+                name3: img,
+                names: src
+            });
         })
     })
 })
 
 // ________
-app.get("/history",(req,res)=>{
-    let array2 = [
-    
-    ]
-if(array.length === 0){
-    res.render("history",{array1:array2})
-}else{
-    res.render("post",{array1:array})
+app.get("/history", (req, res) => {
+    let array2 = []
+    if (array.length === 0) {
+        res.render("history", {array1: array2})
+    } else {
+        res.render("history1", {array1: array})
 
-}
+    }
 })
-
-
 
 app.listen(4000, () => console.log(`Example app listening on port 4000`));

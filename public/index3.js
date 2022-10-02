@@ -1,4 +1,3 @@
-
 // singernames
 let object = {
     "Jhoom(R&BMIX)": "Jhoom (R&B MIX)-Ali Zafar",
@@ -67,10 +66,6 @@ if(a[0]===letter){
 });
 // ______________________________________
 
-$('.playPause1').addClass('playgif2');
-$('.playPause2').addClass('play1');
-$('.playPause2').addClass('fa-play');
-
 $('.li1').click((e) => {
     $(e.currentTarget).addClass('li1s');
 
@@ -83,15 +78,13 @@ var range = $('#range');
 let songs = $(".fm1");
 let start = true;
 let source = "hdf";
-
 songs.click(function (e) {
     let temp1 = e.currentTarget;
     let sibling = temp1.nextElementSibling;
     let val1 = temp1.textContent;
     let val2 = sibling.textContent;
     let img = temp1.parentNode.previousElementSibling.childNodes[1];
-    let playPause = temp1.parentNode.previousElementSibling.childNodes[3].firstElementChild;
-    let src = img.getAttribute("src")
+    let src = img.getAttribute("src");
     lastImgtext(val1, val2, src);
 // audio
     let songname = val1.split(" ");
@@ -106,25 +99,22 @@ songs.click(function (e) {
         source = src2;
         start = true;
 
-        console.log("df")
     }  
 
-    if (start) {
+    if (start === true) {
         setTimeout(()=>{
             audio1.play();
         },1000);
+        const images2 = $('.images2');
+        const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+        images2.append(innerhtml2)     
         start = false;
-        playPause.classList.add('fa-pause');
-        playPause.classList.remove('fa-play');
         $('.lstPlay').removeClass('fa-play');
         $('.lstPlay').addClass('fa-pause');
     } else {
-
+        $('.gif3').remove();
         audio1.pause();
         start = true;
-        playPause.classList.add('fa-play');
-        playPause.classList.remove('fa-pause');
-
         $('.lstPlay').removeClass('fa-pause');
         $('.lstPlay').addClass('fa-play');
     }
@@ -133,27 +123,28 @@ songs.click(function (e) {
 // keydown***
 
 body.keydown((e)=>{
-    if(e.key === 'Control'){
-        e.preventDefault()
-    }
+  
     if (e.key === " ") {
         e.preventDefault();
         if ($('.lstPlay').hasClass('fa-play')) {
             $('.lstPlay').removeClass('fa-play');
             $('.lstPlay').addClass('fa-pause');
-        let pp = document.querySelectorAll(".playPause");
-        pp.forEach((a)=>{
-if(a.hasClass(""))
-        })
-            setTimeout(()=>{
+
+        setTimeout(()=>{
                 audio1.play();
                 start = false;
-            },1000)
-        } else {
+            },1000);
+            const images2 = $('.images2');
+            const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+            images2.append(innerhtml2)     
+        }     
+         else {
             $('.lstPlay').removeClass('fa-pause');
             $('.lstPlay').addClass('fa-play');
-            start =true
+            start =true;
             audio1.pause();
+            $('.gif3').remove();
+
         }
 
     } if (e.key === "m") {
@@ -175,17 +166,24 @@ if(a.hasClass(""))
 // // range******
 
 audio1.addEventListener("timeupdate", (e) => {
-    let currenttime = e.currentTarget.currentTime
-    let duration = e.currentTarget.duration;
-    let width = (currenttime / duration) * 100;
-    range.val(width);
-    if (range.val() == 100) {
-        $('.lstPlay').addClass('fa-play');
-        $('.lstPlay').removeClass('fa-pause');
-        playPause.classList.add('fa-play');
-        playPause.classList.remove('fa-pause');
-        start = true;
-    }
+
+        let currenttime = e.currentTarget.currentTime
+        let duration = e.currentTarget.duration;
+        let width = (currenttime / duration) * 100;
+        if(isNaN(width)){
+            console.log("NAN")
+        }else{
+            range.val(width);
+
+        }
+        if (range.val() == 100) {
+            $('.lstPlay').addClass('fa-play');
+            $('.lstPlay').removeClass('fa-pause');
+            start = true;
+            $('.gif3').remove();
+
+        }
+ 
 })
 
 $('.lstPlay').click((e) => {
@@ -193,30 +191,22 @@ $('.lstPlay').click((e) => {
     if ($('.lstPlay').hasClass('fa-play')) {
         $('.lstPlay').removeClass('fa-play');
         $('.lstPlay').addClass('fa-pause');
-        play1();
         setTimeout(()=>{
             audio1.play();
     
         },2000)
+        const images2 = $('.images2');
+        const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+        images2.append(innerhtml2)     
     } else {
         $('.lstPlay').removeClass('fa-pause');
         $('.lstPlay').addClass('fa-play');
-       play2();
         audio1.pause();
+        $('.gif3').remove();
+
     }
 })
-// // function play1(){
-// //     $('.playPause1').addClass('playgif2');
-// //     $('.playPause2').addClass('play1');
-// //     $('.playPause2').addClass('fa-pause');
-// //     $('.playPause2').removeClass('fa-play');
-// // }
-// // function play2(){
-// //     $('.playPause1').addClass('playgif2');
-// //     $('.playPause2').addClass('play1');
-// //     $('.playPause2').addClass('fa-play');
-// // }
-// // lstImg
+
 function lastImgtext(name1, name2, name3) {
 
     $(".lastimg").attr("src", name3)
@@ -283,3 +273,16 @@ function volume_change(changes) {
     audio1.volume = changes;
 }
 
+// expand
+$(".images2").mouseover(()=>{
+    $(".span2").addClass("span3")
+})
+$(".images2").mouseleave(()=>{
+    $(".span2").removeClass("span3")
+})
+$(".span1").mouseover(()=>{
+    $(".span2").addClass("span3")
+})
+$(".span1").mouseleave(()=>{
+    $(".span2").removeClass("span3")
+})

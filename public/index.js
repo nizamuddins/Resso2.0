@@ -599,3 +599,16 @@ let reset = function () {
     audio4.currentTime = 0;
     audio5.currentTime = 0;
 }
+// expand
+$(".images2").mouseover(()=>{
+    $(".span2").addClass("span3")
+})
+$(".images2").mouseleave(()=>{
+    $(".span2").removeClass("span3")
+})
+$(".span1").mouseover(()=>{
+    $(".span2").addClass("span3")
+})
+$(".span1").mouseleave(()=>{
+    $(".span2").removeClass("span3")
+})

@@ -100,12 +100,16 @@ songs.click(function () {
             audio1.play();
     
         },2000);
+        const images2 = $('.images2');
+        const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+        images2.append(innerhtml2)     
         start = false;
         play1(); 
         $('.lstPlay').removeClass('fa-play');
         $('.lstPlay').addClass('fa-pause');
     } else {
         audio1.pause();
+        $('.gif3').remove();
         start = true;
         play2();
         $('.lstPlay').removeClass('fa-pause');
@@ -128,11 +132,16 @@ body.keydown((e)=>{
                 audio1.play();
         
             },1500)
+            const images2 = $('.images2');
+            const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+            images2.append(innerhtml2)     
         } else {
             $('.lstPlay').removeClass('fa-pause');
             $('.lstPlay').addClass('fa-play');
            play2();
             audio1.pause();
+            $('.gif3').remove();
+
         }
 
     }    if (e.key === "m") {
@@ -164,6 +173,8 @@ audio1.addEventListener("timeupdate", (e) => {
         $('.lstPlay').removeClass('fa-pause');
         play2();
         start = true;
+        $('.gif3').remove();
+
     }
 })
 
@@ -177,12 +188,17 @@ $('.lstPlay').click((e) => {
         setTimeout(()=>{
             audio1.play();
     
-        },2000)
+        },2000);
+        const images2 = $('.images2');
+        const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+        images2.append(innerhtml2)     
     } else {
         $('.lstPlay').removeClass('fa-pause');
         $('.lstPlay').addClass('fa-play');
        play2();
         audio1.pause();
+        $('.gif3').remove();
+
     }
 })
 function play1(){
@@ -263,3 +279,16 @@ function volume_change(changes) {
     audio1.volume = changes;
 }
 
+// expand
+$(".images2").mouseover(()=>{
+$(".span2").addClass("span3")
+})
+$(".images2").mouseleave(()=>{
+    $(".span2").removeClass("span3")
+})
+$(".span1").mouseover(()=>{
+    $(".span2").addClass("span3")
+})
+$(".span1").mouseleave(()=>{
+    $(".span2").removeClass("span3")
+})
