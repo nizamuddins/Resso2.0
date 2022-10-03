@@ -1,44 +1,149 @@
 const body = $("body");
 // Searchform**********
 $( function() {
-  var availableTags = [
-    "Aila Re Aillaa",
-    "Aayi Aayi Bhoot Police",
-    "Aaye Haaye",
-    "Abhi Toh Party Shuru Hui Hai",
-    "Awara",
-    "Ankhiyon Se Goli Maare",
-    "Ae Dil Hai Mushkil",
-    "Aadat",
-    "Aira Gaira",
-    "Agar Tu Hota",
-    "Abhi Mujh Mein Kahin",
-    "Ae Khuda",
-    "Allah Duhai Hai ",
-    "Aankh Marey",
-    "Apna Time Aayega",
-    "Bhool Bhulaiyaa",
-    "Bolna",
-    "Bad Boy (From Saaho)",
-    "Bom Diggy Diggy",
-    "Bulleya",
-    "Bhar Do Jholi Meri",
-    "Bhula Dena",
-    "Baaton Ko Teri",
-    "Baadshah O Baadshah",
-    "Boss (Title Song)",
-    "Be Intehaan",
-    "Bande Hain Hum",
-    "jhoom (R&B MIX)",
-    "Roke Na Ruke Naina",
-    "Zara Sa (Lofi Flip)"
-
-  ];
+    var availableTags = [
+        "Aila Re Aillaa",
+        "Aayi Aayi Bhoot Police",
+        "Aaye Haaye",
+        "Abhi Toh Party Shuru Hui Hai",
+        "Awara",
+        "Ankhiyon Se Goli Maare",
+        "Ae Dil Hai Mushkil",
+        "Aadat",
+        "Aira Gaira",
+        "Tu Aake Dekhle",
+        "Agar Tu Hota",
+        "Abhi Mujh Mein Kahin",
+        "Ae Khuda",
+        "Allah Duhai Hai ",
+        "Aankh Marey",
+        "Apna Time Aayega",
+        'Akdi Pakdi (From "Liger")',
+        "Bolna",
+        "Bad Boy(From Saaho)",
+        "Bom Diggy Diggy",
+        "Bulleya",
+        "Tun Aake Dekhle",
+        "Bhar Do Jholi Meri",
+        "Bhula Dena",
+        "Baaton Ko Teri",
+        "Baadshah O Baadshah",
+        "Boss (Title Song)",
+        "Be Intehaan",
+        'Bol Bol Bol - Jhankar',
+        'Bhool Bhulaiyaa 2 Title Track (From "Bhool Bhulaiyaa 2")',
+        "Bande Hain Hum",
+        'Coka 2.0 (From "Liger")',
+        'Chaiyaan Mein Saiyaan Ki',
+        'Chhora Ganwar',
+        'Deva Deva (From "Brahmastra")',
+        'Dil (From "Ek Villain Returns")',
+        'Dil (Shreya’s Version) [From "Ek Villain Returns"]',
+        'Fitoor',
+        'Galliyan Returns (From "Ek Villain Returns")',
+        'I Love My India',
+        "Jhoom (R&B MIX)",
+        'Kesariya (From "Brahmastra")',
+        'La Ilaaj',
+        'Nain Ta Heere (From "Jugjugg Jeeyo")',
+        'Raksha Bandhan - Reprise',
+        'Rangisari (From "Jugjugg Jeeyo")',
+        'Rubaru',
+        'Paracetamol',
+        "Roke Na Ruke Naina",
+        'Shaamat (From "Ek Villain Returns")',
+        'Something in the Orange',
+        'Tum Pyaar Ho',
+        'Tere Saath Hoon Main (From "Raksha Bandhan")',
+        'Tur Kalleyan (From "Laal Singh Chaddha")',
+        "Zara Sa (Lofi Flip)",
+        'Naacho Naacho (From "Rrr")',
+        'Jeeye To Jeeye Kaise - From "Saajan- Hindi"',
+        'Tujh Mein Rab Dikhta Hai',
+        'Kusu Kusu (From "Satyameva Jayate 2")',
+        'Raataan Lambiyan (From "Shershaah")',
+        'Srivalli (From "Pushpa The Rise Part - 01")',
+        'Baarish Ban Jaana',
+        'Lut Gaye',
+        'Maiyya Mainu',
+        'Khairiyat',
+        'Khal Nayak Hoon Main',
+        'Tujhe Dekha To',
+        'Gali Gali (From "Kgf Chapter 1")',
+        'Vaaste',
+        'Mehabooba',
+        'O Saki Saki (From "Batla House")',
+        'Dil Galti Kar Baitha Hai',
+        'Hookah Bar',
+        'Tum Hi Aana (From "Marjaavaan")',
+        'Humnava Mere',
+        'Thoda Thoda Pyaar',
+        'Lungi Dance (From "Lungi Dance")',
+        'Muqabla (From "Street Dancer 3D")',
+        "Bachpan Ka Pyaar",
+        'Jugnu',
+        'Filhaal2 Mohabbat',
+        'Jeene Laga Hoon',
+        'Samjhawan',
+        'Sunn Raha Hai (From "Aashiqui 2")',
+        'Dil Tod Ke',
+        'Mann Bharryaa 2.0 (From "Shershaah")',
+        'Dil Meri Na Sune',
+        'Rait Zara Si',
+        'Ranjha (From "Shershaah")',
+        'Prem Ratan Dhan Payo',
+        'Teri Mitti',
+        'Sanam Re',
+        'O Re Piya',
+        'Kabira',
+        'Kaun Tujhe (From "M.S.Dhoni - The Untold Story")',
+        'Dilbar (From "Satyameva Jayate")',
+        'Afghan Jalebi (Ya Baba)',
+        'No Mercy',
+        'Gunehgar',
+        'Intense Love',
+        'BUSY',
+        'Speed Se Badho',
+        'Shana Bann',
+        'LOBOTOMY',
+        'Bimari - B.D.S.M EP',
+        'Chetavani',
+        'Basti Ka Hasti',
+        'Insaan',
+        'Dhoondein Sitaare-Acoustic',
+        'GRIND',
+        'Bantai Ki Public',
+        'Bad Munda',
+        'Jingle Bell',
+        'Amin - Tadipaar',
+        'Khatam Hue Waande',
+        'Mirchi',
+        'Pink Venom',
+        'Baby',
+        'Believer',
+        'Thunder',
+        'On My Way',
+        'Darkside',
+        'Faded',
+        'Bad Boy (feat. Luana Kiara)',
+        'Yummy',
+        'Let Me Love You',
+        'Cheap Thrills',
+        'Safari',
+        'Bad Liar',
+        'Main Pal Do Pal Ka Shair Hoon',
+        'Aaj Mere Yaar Ki Shaadi Hai-From "Aadmi Sadak Ka"',
+        'Tum Agar Saath Dene Ka Vada Karo',
+        'Likhe Jo Khat Tujhe (From "Kanyadaan")',
+        'Teri Galiyon Mein',
+        'Mere Mehboob Qayamat Hogi',
+        'Mere Humsafar (Original Score) [Female Version]'
+    ];
   $( "#tags" ).autocomplete({
     source: availableTags
   },{
 
-    minLength:2,
+    minLength:3,
   }
   );
 } );
@@ -276,7 +381,7 @@ $('.smallrange').change(() => {
 // KeyoardEvent
 body.keydown((e) => {
     if (e.key === " ") {
-        e.preventDefault();
+        // e.preventDefault();
         playSound(split2);
         lstPlay();
 
@@ -599,16 +704,8 @@ let reset = function () {
     audio4.currentTime = 0;
     audio5.currentTime = 0;
 }
-// expand
-$(".images2").mouseover(()=>{
-    $(".span2").addClass("span3")
-})
-$(".images2").mouseleave(()=>{
-    $(".span2").removeClass("span3")
-})
-$(".span1").mouseover(()=>{
-    $(".span2").addClass("span3")
-})
-$(".span1").mouseleave(()=>{
-    $(".span2").removeClass("span3")
-})
+body.keydown((e)=>{
+    if(e.key ===  "+"){
+        e.preventDefault();
+    }
+})  

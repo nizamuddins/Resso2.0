@@ -102,31 +102,13 @@ border: 1px solid #fff;
     border-bottom-right-radius: 10px;
 }
 
-/*  */
-.span1{
-    width: 17px;
-    height: 17px;
-    position: absolute;
-    z-index: 1;
-    transform: rotate(45deg);
-    border-left: 3px solid rgb(223, 223, 223);
-    border-top: 3px solid rgb(224, 224, 224);
-    left: 25px;
-    cursor: pointer;
+.forBac3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0%;
+    width: 10%;
 }
-.span2{
-    text-align: center;
-    width: 73px;
-    height: 25px;
-    position: relative;
-    z-index: 1;
-    color: #121212;
-    bottom: 4rem;
-    border-radius: 7px
-}
-.span3{
-    color: rgb(240, 240, 240);
-    background-color: #000000;
-    font-weight: 600;
-
+.sizes{
+    font-size: 4rem;
 }
