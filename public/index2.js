@@ -15,6 +15,7 @@ $(function () {
         "Ae Dil Hai Mushkil",
         "Aadat",
         "Aira Gaira",
+        "Tu Aake Dekhle",
         "Agar Tu Hota",
         "Abhi Mujh Mein Kahin",
         "Ae Khuda",
@@ -26,7 +27,6 @@ $(function () {
         "Bad Boy(From Saaho)",
         "Bom Diggy Diggy",
         "Bulleya",
-        "Tun Aake Dekhle",
         "Bhar Do Jholi Meri",
         "Bhula Dena",
         "Baaton Ko Teri",
@@ -52,6 +52,8 @@ $(function () {
         'Raksha Bandhan - Reprise',
         'Rangisari (From "Jugjugg Jeeyo")',
         'Rubaru',
+        'Suno Chanda - Original Soundtrack',
+        'Suno Chanda Season 2',
         'Paracetamol',
         "Roke Na Ruke Naina",
         'Shaamat (From "Ek Villain Returns")',
@@ -430,3 +432,90 @@ body.keydown((e)=>{
         e.preventDefault();
     }
 })  
+let ranges = document.querySelector("#range");
+
+ranges.addEventListener("change",(e)=>{
+    // let currenttime = audio1.currentTime
+    let time = e.target.value;
+    let duration = audio1.duration
+    let time2 = (time*duration)/100;
+    audio1.currentTime = time2
+
+
+
+})
+
+// -----------
+window.addEventListener('keydown', (e) => {  
+    if (e.keyCode === 32 && e.target === document.body) {  
+      e.preventDefault();  
+    }  
+  });
+  
+
+$(document).keydown(function(event) {
+    if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+            event.preventDefault();
+         }
+        // 107 Num Key  +
+        // 109 Num Key  -
+        // 173 Min Key  hyphen/underscore key
+        // 61 Plus key  +/= key
+    });
+    
+    $(window).bind('mousewheel DOMMouseScroll', function (event) {
+           if (event.ctrlKey == true) {
+           event.preventDefault();
+           }
+});
+$("#tags").click(()=>{
+
+    body.off();
+    // True();
+})
+function True(){
+    body.click(()=>{
+
+        body.keydown((e)=>{
+            if (e.key === " ") {
+            lastImgtext(song1, name_1, src);
+                // e.preventDefault();
+                if ($('.lstPlay').hasClass('fa-play')) {
+                    $('.lstPlay').removeClass('fa-play');
+                    $('.lstPlay').addClass('fa-pause');
+                    play1();
+                    setTimeout(()=>{
+                        audio1.play();
+                
+                    },1000)
+                    const images2 = $('.images2');
+                    const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+                    images2.append(innerhtml2)     
+                } else {
+                    audio1.pause();
+                    $('.lstPlay').removeClass('fa-pause');
+                    $('.lstPlay').addClass('fa-play');
+                    play2();
+                    $('.gif3').remove();
+        
+                }
+        
+            }    if (e.key === "m") {
+        
+                if ($('.vol').hasClass('fa-volume-high')) {
+                    $('.vol').addClass('fa-volume-xmark fs-5');
+                    $('.vol').removeClass('fa-volume-high');
+                    mute();
+                } else {
+                    $('.vol').removeClass('fa-volume-xmark fs-5');
+                    $('.vol').addClass('fa-volume-high');
+                    unmute();
+                }
+        
+            }
+        
+        })
+        
+        })
+        
+}

@@ -1,4 +1,3 @@
-
 let body = $("body");
 // browse
 let singer = $("#singer").text();
@@ -27,10 +26,11 @@ $(function () {
         "Apna Time Aayega",
         'Akdi Pakdi (From "Liger")',
         "Bolna",
+        'Suno Chanda - Original Soundtrack',
+        'Suno Chanda Season 2',
         "Bad Boy(From Saaho)",
         "Bom Diggy Diggy",
         "Bulleya",
-        "Tun Aake Dekhle",
         "Bhar Do Jholi Meri",
         "Bhula Dena",
         "Baaton Ko Teri",
@@ -256,10 +256,10 @@ body.keydown((e)=>{
 // // range******
 
 audio1.addEventListener("timeupdate", (e) => {
-
         let currenttime = e.currentTarget.currentTime
         let duration = e.currentTarget.duration;
         let width = (currenttime / duration) * 100;
+      
         if(isNaN(width)){
             console.log("NAN")
         }else{
@@ -273,7 +273,7 @@ audio1.addEventListener("timeupdate", (e) => {
             $('.gif3').remove();
 
         }
- 
+   
 })
 
 $('.lstPlay').click((e) => {
@@ -431,3 +431,88 @@ body.keydown((e)=>{
         e.preventDefault();
     }
 })  
+
+let ranges = document.querySelector("#range");
+
+ranges.addEventListener("change",(e)=>{
+    // let currenttime = audio1.currentTime
+    let time = e.target.value;
+    let duration = audio1.duration
+    let time2 = (time*duration)/100;
+    audio1.currentTime = time2
+})
+
+// -------------
+
+window.addEventListener('keydown', (e) => {  
+    if (e.keyCode === 32 && e.target === document.body) {  
+      e.preventDefault();  
+    }  
+});
+
+
+$(document).keydown(function(event) {
+    if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+            event.preventDefault();
+         }
+        // 107 Num Key  +
+        // 109 Num Key  -
+        // 173 Min Key  hyphen/underscore key
+        // 61 Plus key  +/= key
+    });
+    
+    $(window).bind('mousewheel DOMMouseScroll', function (event) {
+           if (event.ctrlKey == true) {
+           event.preventDefault();
+           }
+});
+
+$("#tags").click(()=>{
+
+    body.unbind();
+    setTimeout(() => {
+
+        body.keydown((e)=>{
+  
+            if (e.key === " ") {
+                // e.preventDefault();
+                if ($('.lstPlay').hasClass('fa-play')) {
+                    $('.lstPlay').removeClass('fa-play');
+                    $('.lstPlay').addClass('fa-pause');
+        
+                setTimeout(()=>{
+                        audio1.play();
+                        start = false;
+                    },1000);
+                    const images2 = $('.images2');
+                    const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+                    images2.append(innerhtml2)     
+                }     
+                 else {
+                    audio1.pause();
+                    $('.lstPlay').removeClass('fa-pause');
+                    $('.lstPlay').addClass('fa-play');
+                    start =true;
+                    $('.gif3').remove();
+        
+                }
+        
+            } if (e.key === "m") {
+        
+                if ($('.vol').hasClass('fa-volume-high')) {
+                    $('.vol').addClass('fa-volume-xmark fs-5');
+                    $('.vol').removeClass('fa-volume-high');
+                    mute();
+                } else {
+                    $('.vol').removeClass('fa-volume-xmark fs-5');
+                    $('.vol').addClass('fa-volume-high');
+                    unmute();
+                }
+        
+            }
+        
+        })
+        
+
+    },5000);
+})

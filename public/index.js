@@ -23,7 +23,6 @@ $( function() {
         "Bad Boy(From Saaho)",
         "Bom Diggy Diggy",
         "Bulleya",
-        "Tun Aake Dekhle",
         "Bhar Do Jholi Meri",
         "Bhula Dena",
         "Baaton Ko Teri",
@@ -32,6 +31,8 @@ $( function() {
         "Be Intehaan",
         'Bol Bol Bol - Jhankar',
         'Bhool Bhulaiyaa 2 Title Track (From "Bhool Bhulaiyaa 2")',
+        'Suno Chanda - Original Soundtrack',
+        'Suno Chanda Season 2',
         "Bande Hain Hum",
         'Coka 2.0 (From "Liger")',
         'Chaiyaan Mein Saiyaan Ki',
@@ -708,4 +709,90 @@ body.keydown((e)=>{
     if(e.key ===  "+"){
         e.preventDefault();
     }
-})  
+})
+
+let ranges = document.querySelector("#range");
+
+
+
+ranges.addEventListener("change",(e)=>{
+    // let currenttime = audio1.currentTime
+    let time = e.target.value;
+  
+    if (split2 === 'jhoom') {
+            let duration = audio1.duration
+            let time2 = (time*duration)/100;
+            audio1.currentTime = time2;
+    } else if (split2 === 'roke') {
+            let duration = audio2.duration
+            let time2 = (time*duration)/100;
+            audio2.currentTime = time2;
+    } else if (split2 === 'zara') {
+            let duration = audio3.duration
+            let time2 = (time*duration)/100;
+            audio3.currentTime = time2;
+    } else if (split2 === 'ajab') {
+            let duration = audio4.duration
+            let time2 = (time*duration)/100;
+            audio4.currentTime = time2;
+    } else if (split2 === 'remix') {
+            let duration = audio5.duration
+            let time2 = (time*duration)/100;
+            audio5.currentTime = time2;
+    }
+})
+
+// ------------
+window.addEventListener('keydown', (e) => {  
+    if (e.keyCode === 32 && e.target === document.body) {  
+      e.preventDefault();  
+    }  
+});
+
+
+$(document).keydown(function(event) {
+    if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+            event.preventDefault();
+         }
+        // 107 Num Key  +
+        // 109 Num Key  -
+        // 173 Min Key  hyphen/underscore key
+        // 61 Plus key  +/= key
+    });
+    
+    $(window).bind('mousewheel DOMMouseScroll', function (event) {
+           if (event.ctrlKey == true) {
+           event.preventDefault();
+           }
+});
+
+$("#tags").click(()=>{
+
+    body.unbind();
+    setTimeout(() => {
+        // KeyoardEvent
+        body.keydown((e) => {
+            if (e.key === " ") {
+                // e.preventDefault();
+                playSound(split2);
+                lstPlay();
+            
+            }
+            if (e.key === "m") {
+            
+                if ($('.vol').hasClass('fa-volume-high')) {
+                    $('.vol').addClass('fa-volume-xmark fs-5');
+                    $('.vol').removeClass('fa-volume-high');
+                    mute();
+                } else {
+                    $('.vol').removeClass('fa-volume-xmark fs-5');
+                    $('.vol').addClass('fa-volume-high');
+                    unmute();
+                }
+            
+            }
+        
+        });
+
+    },5000);
+})
