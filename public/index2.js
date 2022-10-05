@@ -8,22 +8,22 @@ $(function () {
     var availableTags = [
         "Aila Re Aillaa",
         "Aayi Aayi Bhoot Police",
-        "Aaye Haaye",
-        "Abhi Toh Party Shuru Hui Hai",
+       'Aaye Haaye (From "Time To Dance")',
         "Awara",
-        "Ankhiyon Se Goli Maare",
-        "Ae Dil Hai Mushkil",
+        'Ankhiyon Se Goli Mare (From "Pati Patni Aur Woh")',
+        'Ae Dil Hai Mushkil Title Track',
         "Aadat",
         "Aira Gaira",
-        "Tu Aake Dekhle",
         "Agar Tu Hota",
+        "Tu Aake Dekhle",
         "Abhi Mujh Mein Kahin",
-        "Ae Khuda",
-        "Allah Duhai Hai ",
-        "Aankh Marey",
+        "Aye Khuda",
+        'Aankh Marey (From "Simmba")',
         "Apna Time Aayega",
         'Akdi Pakdi (From "Liger")',
         "Bolna",
+        'Suno Chanda - Original Soundtrack',
+        'Suno Chanda Season 2',
         "Bad Boy(From Saaho)",
         "Bom Diggy Diggy",
         "Bulleya",
@@ -31,17 +31,13 @@ $(function () {
         "Bhula Dena",
         "Baaton Ko Teri",
         "Baadshah O Baadshah",
-        "Boss (Title Song)",
         "Be Intehaan",
         'Bol Bol Bol - Jhankar',
         'Bhool Bhulaiyaa 2 Title Track (From "Bhool Bhulaiyaa 2")',
-        "Bande Hain Hum",
+        'Bande Hain Hum Uske',
         'Coka 2.0 (From "Liger")',
         'Chaiyaan Mein Saiyaan Ki',
-        'Chhora Ganwar',
-        'Deva Deva (From "Brahmastra")',
         'Dil (From "Ek Villain Returns")',
-        'Dil (Shreya’s Version) [From "Ek Villain Returns"]',
         'Fitoor',
         'Galliyan Returns (From "Ek Villain Returns")',
         'I Love My India',
@@ -51,13 +47,9 @@ $(function () {
         'Nain Ta Heere (From "Jugjugg Jeeyo")',
         'Raksha Bandhan - Reprise',
         'Rangisari (From "Jugjugg Jeeyo")',
-        'Rubaru',
-        'Suno Chanda - Original Soundtrack',
-        'Suno Chanda Season 2',
         'Paracetamol',
         "Roke Na Ruke Naina",
         'Shaamat (From "Ek Villain Returns")',
-        'Something in the Orange',
         'Tum Pyaar Ho',
         'Tere Saath Hoon Main (From "Raksha Bandhan")',
         'Tur Kalleyan (From "Laal Singh Chaddha")',
@@ -144,6 +136,7 @@ $(function () {
         'Mere Mehboob Qayamat Hogi',
         'Mere Humsafar (Original Score) [Female Version]'
     ];
+
     $("#tags").autocomplete({
         source: availableTags
     }, {minLength: 3});
@@ -462,60 +455,66 @@ $(document).keydown(function(event) {
         // 173 Min Key  hyphen/underscore key
         // 61 Plus key  +/= key
     });
-    
+
     $(window).bind('mousewheel DOMMouseScroll', function (event) {
            if (event.ctrlKey == true) {
            event.preventDefault();
            }
 });
-$("#tags").click(()=>{
+let word = 0;
+$("#tags").click(() => {
 
     body.off();
-    // True();
+    True();
+    word = 1;
 })
-function True(){
-    body.click(()=>{
+function True() {
+    body.click((e) => {
+        let tar = $(e.target);
+        if (!tar.hasClass('fn') && word === 1) {
+            body.keydown((e) => {
+                if (e.key === " ") {
+                    lastImgtext(song1, name_1, src);
+                    // e.preventDefault();
+                    if ($('.lstPlay').hasClass('fa-play')) {
+                        $('.lstPlay').removeClass('fa-play');
+                        $('.lstPlay').addClass('fa-pause');
+                        play1();
+                        setTimeout(() => {
+                            audio1.play();
 
-        body.keydown((e)=>{
-            if (e.key === " ") {
-            lastImgtext(song1, name_1, src);
-                // e.preventDefault();
-                if ($('.lstPlay').hasClass('fa-play')) {
-                    $('.lstPlay').removeClass('fa-play');
-                    $('.lstPlay').addClass('fa-pause');
-                    play1();
-                    setTimeout(()=>{
-                        audio1.play();
-                
-                    },1000)
-                    const images2 = $('.images2');
-                    const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
-                    images2.append(innerhtml2)     
-                } else {
-                    audio1.pause();
-                    $('.lstPlay').removeClass('fa-pause');
-                    $('.lstPlay').addClass('fa-play');
-                    play2();
-                    $('.gif3').remove();
-        
+                        }, 1000)
+                        const images2 = $('.images2');
+                        const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
+                        images2.append(innerhtml2)
+                    } else {
+                        audio1.pause();
+                        $('.lstPlay').removeClass('fa-pause');
+                        $('.lstPlay').addClass('fa-play');
+                        play2();
+                        $('.gif3').remove();
+
+                    }
+
                 }
-        
-            }    if (e.key === "m") {
-        
-                if ($('.vol').hasClass('fa-volume-high')) {
-                    $('.vol').addClass('fa-volume-xmark fs-5');
-                    $('.vol').removeClass('fa-volume-high');
-                    mute();
-                } else {
-                    $('.vol').removeClass('fa-volume-xmark fs-5');
-                    $('.vol').addClass('fa-volume-high');
-                    unmute();
+                if (e.key === "m") {
+
+                    if ($('.vol').hasClass('fa-volume-high')) {
+                        $('.vol').addClass('fa-volume-xmark fs-5');
+                        $('.vol').removeClass('fa-volume-high');
+                        mute();
+                    } else {
+                        $('.vol').removeClass('fa-volume-xmark fs-5');
+                        $('.vol').addClass('fa-volume-high');
+                        unmute();
+                    }
+
                 }
-        
-            }
-        
-        })
-        
-        })
-        
+
+            })
+
+            word = 0;
+        }
+    })
+
 }
