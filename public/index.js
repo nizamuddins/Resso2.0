@@ -799,3 +799,26 @@ function True() {
     })
 
 }
+let width = window.innerWidth;
+
+if(width < 1230){
+
+
+$("#home").remove();
+body.css("background-color","#fff")
+body.text("Error!")
+
+
+
+}
+
+window.addEventListener("resize",(e)=>{
+if(window.innerWidth < 1426){
+    $("#home").remove();
+    body.css("background-color","#fff")
+    body.text("Error!")
+    
+    
+
+}
+})
