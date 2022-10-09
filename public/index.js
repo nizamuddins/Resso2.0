@@ -4,7 +4,7 @@ $( function() {
     var availableTags = [
         "Aila Re Aillaa",
         "Aayi Aayi Bhoot Police",
-       'Aaye Haaye (From "Time To Dance")',
+        'Aaye Haaye (From "Time To Dance")',
         "Awara",
         'Ankhiyon Se Goli Mare (From "Pati Patni Aur Woh")',
         'Ae Dil Hai Mushkil Title Track',
@@ -94,9 +94,7 @@ $( function() {
         'Afghan Jalebi (Ya Baba)',
         'No Mercy',
         'Gunehgar',
-        'Intense Love',
         'BUSY',
-        'Speed Se Badho',
         'Shana Bann',
         'LOBOTOMY',
         'Bimari - B.D.S.M EP',
@@ -200,10 +198,10 @@ songsList.mouseover((e) => {
     $('#' + divide + 'sa').addClass('play1');
     $('#' + divide + 'sa').addClass('fa-play');
     setTimeout(() => {
-        $('#jhooms').addClass('jhoom');
-        $('#ajabs').addClass('ajab');
+        $('#keaars').addClass('keaar');
+        $('#halkis').addClass('halki');
         $('#zaras').addClass('zara');
-        $('#remixs').addClass('remix');
+        $('#toofs').addClass('toof');
         $('#rokes').addClass('roke');
 
     }, 500)
@@ -227,7 +225,7 @@ songsList.mouseleave((e) => {
 let start2 = false;
 const songsgif = $('.songsgif')
 
-const array = ['jhoom', 'roke', 'zara', 'ajab', 'remix'];
+const array = ['keaar', 'roke', 'zara', 'halki', 'toof'];
 
 // playingsongs************
 const audio1 = document.querySelector('#audio1');
@@ -335,20 +333,20 @@ function changingEvery() {
 
     } else if (audio3.currentTime === 211.448) {
         count = 0;
-        playSound("ajab");
-        func("ajab");
+        playSound("halki");
+        func("halki");
         audio3.currentTime = 0;
 
     } else if (audio4.currentTime === 180.92) {
         count = 0;
-        playSound("remix");
-        func("remix");
+        playSound("toof");
+        func("toof");
         audio4.currentTime = 0;
 
     } else if (audio5.currentTime === 379.64) {
         count = 0;
         audio5.currentTime = 0;
-        func1("remix");
+        func1("toof");
         lstPlay();
 
     }
@@ -520,7 +518,7 @@ $('.lstPlay').click((e) => {
 const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
-    if (count === 0 && name1 === 'jhoom') {
+    if (count === 0 && name1 === 'keaar') {
         setTimeout(() => {
             audio1.play();
             let RB = $('#song1').text();
@@ -551,7 +549,7 @@ function playSound(name1) {
 
         }, 100)
 
-    } else if (count === 0 && name1 === 'ajab') {
+    } else if (count === 0 && name1 === 'halki') {
         setTimeout(() => {
             audio4.play();
             let RB = $('#song4').text();
@@ -561,7 +559,7 @@ function playSound(name1) {
             count = 1;
 
         }, 100)
-    } else if (count === 0 && name1 === 'remix') {
+    } else if (count === 0 && name1 === 'toof') {
         setTimeout(() => {
             compactdisc.addClass('fa');
             audio5.play();
@@ -712,7 +710,7 @@ ranges.addEventListener("change",(e)=>{
     // let currenttime = audio1.currentTime
     let time = e.target.value;
   
-    if (split2 === 'jhoom') {
+    if (split2 === 'keaar') {
             let duration = audio1.duration
             let time2 = (time*duration)/100;
             audio1.currentTime = time2;
@@ -724,11 +722,11 @@ ranges.addEventListener("change",(e)=>{
             let duration = audio3.duration
             let time2 = (time*duration)/100;
             audio3.currentTime = time2;
-    } else if (split2 === 'ajab') {
+    } else if (split2 === 'halki') {
             let duration = audio4.duration
             let time2 = (time*duration)/100;
             audio4.currentTime = time2;
-    } else if (split2 === 'remix') {
+    } else if (split2 === 'toof') {
             let duration = audio5.duration
             let time2 = (time*duration)/100;
             audio5.currentTime = time2;

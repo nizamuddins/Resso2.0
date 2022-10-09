@@ -116,28 +116,28 @@
 }
 
 /* backgroundimages**** */
-#jhoom {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5),rgba(0, 0, 0, .9),rgb(28, 23, 23),rgb(9, 8, 8)), url("images/jhoom.jpg");
+#keaar {
+    background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,rgb(28, 23, 23),rgb(9, 8, 8)), url("images/keaar.jpg");
 
 }
 #roke {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5),rgba(0, 0, 0, .9),rgb(28, 23, 23),rgb(9, 8, 8)), url("images/roke.jpg");
+    background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,rgb(28, 23, 23),rgb(9, 8, 8)), url("images/roke.jpg");
 
 }
 #zara {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5),rgba(0, 0, 0, .9),rgb(28, 23, 23),rgb(9, 8, 8)), url("images/zara.jpg");
+    background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,rgb(28, 23, 23),rgb(9, 8, 8)), url("images/zara.jpg");
 }
-#ajab {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5),rgba(0, 0, 0, .9),rgb(28, 23, 23),rgb(9, 8, 8)), url("images/ajab.jpg");
+#halki {
+    background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,rgb(28, 23, 23),rgb(9, 8, 8)), url("images/halki.jpg");
 
 }
-#remix {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5),rgba(0, 0, 0, .9),rgb(28, 23, 23),rgb(9, 8, 8)), url("images/remix.jpg");
+#toof {
+    background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,rgb(28, 23, 23),rgb(9, 8, 8)), url("images/toof.jpg");
 
 }
 
 .fix1 {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5),rgba(0, 0, 0, .9),rgb(28, 23, 23),rgb(9, 8, 8)), url("images/jhoom.jpg");
+    background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,rgb(28, 23, 23),rgb(9, 8, 8)), url("images/keaar.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -248,7 +248,7 @@ outline: none !important;
 }
 .cols2 {
     background-color: transparent;
-    background-image: linear-gradient(transparent,transparent,transparent,rgba(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(0, 0, 0, .1),rgb(43, 39, 39),rgb(29, 26, 26));
+    background-image: linear-gradient(rgb(82, 70, 70),rgb(66, 57, 57),rgb(67, 61, 61),rgb(62, 53, 53),rgb(37, 31, 31),rgb(31, 26, 26),rgb(24, 21, 21),rgb(20, 17, 17),rgb(16, 14, 14),rgb(12, 11, 11),rgb(8, 7, 7),rgb(6, 5, 5));
     margin: 0;
 
 }
@@ -276,10 +276,10 @@ outline: none !important;
 
 /* songs******** */
 
-.jhooms {
+.keaars {
     height: 250px;
     width: 250px;
-    background-image: url("images/jhoom.jpg");
+    background-image: url("images/keaar.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 17px;
@@ -312,10 +312,10 @@ outline: none !important;
     left: 33%;
 
 }
-.ajabs {
+.halkis {
     height: 250px;
     width: 250px;
-    background-image: url("images/ajab.jpg");
+    background-image: url("images/halki.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 17px;
@@ -324,10 +324,10 @@ outline: none !important;
     left: 33%;
 
 }
-.remixs {
+.toofs {
     height: 250px;
     width: 250px;
-    background-image: url("images/remix.jpg");
+    background-image: url("images/toof.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 17px;
@@ -376,7 +376,7 @@ outline: none !important;
         width: 36%;
         height: 70%;
     }
-    .jhooms {
+    .keaars {
         height: 240px;
         width: 240px;
         left: 29%;
