@@ -1,0 +1,55 @@
+body{
+    background-image:url('https://i.pinimg.com/originals/fc/48/68/fc48688993507d71fd61fb4c492914cc.jpg');
+    font-family: 'Roboto', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+.login-form {
+    width: 500px;
+    margin: 120px auto;
+}
+.login-form form {        
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 100px 60px 50px;
+    height: 450px;
+    box-shadow: 0 0 10px 8px rgb(100, 81, 81);
+    border-radius: 25px;
+    
+}
+.txt{
+    font-size:20rem;
+    position:absolute;
+    z-index: -1;
+    left:14%;
+    top: 23%;
+    color: rgb(70, 70, 70);
+    font-weight: 600;
+    font-family: "Audiowide", sans-serif;
+}
+.login-form h2 {
+    margin: 0 0 20px;
+    color: rgb(43, 41, 41);
+    font-weight: bold;
+    
+}
+.form-control, .login-btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.input-group-addon .fa {
+    font-size: 18px;
+}
+.login-btn {
+    font-size: 15px;
+    font-weight: bold;
+    font-size: 1.8rem;
+    background-color:#286090;
+
+}
+.small{
+    font-size: 1.5rem;
+    color: #fff;
+}

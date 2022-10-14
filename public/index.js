@@ -319,7 +319,8 @@ array2.forEach((a) => {
 })
 
 function changingEvery() {
-    if (audio1.currentTime === 294.176) {
+    
+    if (audio1.currentTime === 172.208) {
         count = 0;
         playSound("roke");
         func("roke");
@@ -337,13 +338,13 @@ function changingEvery() {
         func("halki");
         audio3.currentTime = 0;
 
-    } else if (audio4.currentTime === 180.92) {
+    } else if (audio4.currentTime === 212.610612 || audio4.currentTime ===  212.63804) {
         count = 0;
         playSound("toof");
         func("toof");
         audio4.currentTime = 0;
 
-    } else if (audio5.currentTime === 379.64) {
+    } else if (audio5.currentTime === 218.174694) {
         count = 0;
         audio5.currentTime = 0;
         func1("toof");
@@ -351,6 +352,7 @@ function changingEvery() {
 
     }
 }
+
 $('.smallrange').change(() => {
     let change = +($('.smallrange').val())
     change = ((change) / 100).toFixed(1);
@@ -519,6 +521,7 @@ const compactdisc = $('.compactdisc');
 
 function playSound(name1) {
     if (count === 0 && name1 === 'keaar') {
+
         setTimeout(() => {
             audio1.play();
             let RB = $('#song1').text();

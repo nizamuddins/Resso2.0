@@ -1,19 +1,65 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const https = require('https');
-
-
-
+require("./config");
+const data = require("./data")
 const app = express();
 
 let array = [];
 let array2 = [];
+let mails =" ";
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
-app.set("view engine", "ejs")
+app.use(express.json());
+app.set("view engine", "ejs");
+
+// loginpage
 // get
-app.get('/', (req, res) => res.sendFile(__dirname + "/index.html"));
-app.get('/YourFm', (req, res) => {
+app.get("/login",(req,res)=>{
+    res.sendFile(__dirname+"/login.html");
+
+})
+
+app.post("/resso2.0",async(req,res)=>{
+    let data2 =await data.find({});
+    mails = req.body.mail;
+    let flag =1;
+    for(let i=0;i<data2.length;i++){
+        if(data2[i].mail=== req.body.mail && data2[i].password === req.body.password){
+            flag = 0;
+            break;
+        }
+        
+    }
+    if(flag===0){
+        res.sendFile(__dirname+"/index.html")
+        myfunc();        
+    }else{
+        res.send("something went wrong");
+
+    }
+
+})
+
+
+// signup
+app.get("/signup",(req,res)=>{
+    res.sendFile(__dirname+"/signup.html")
+})
+
+// insert
+// dataposttomongodb
+app.post("/resso2-0",async (req,res)=>{
+    let data1 = new data(req.body)
+    let data2 = await data1.save();
+    res.sendFile(__dirname+"/index.html")
+    myfunc();
+    })
+
+
+// -------------------
+function myfunc(){
+    app.get('/YourFm', (req, res) => {
     setTimeout(() => {
         res.render("yourfm")
     }, 2000);
@@ -142,5 +188,11 @@ app.post("/clear",(req,res)=>{
     array = [];
     res.redirect('/history')
 })
+app.get("/settings",async(req,res)=>{
+    let data2 =await data.find({mail:mails});
+    res.render("settings",{Name:data2[0].name,Email:mails})
+})
+// logout
 
+}
 app.listen(4000, () => console.log(`Example app listening on port 4000`));

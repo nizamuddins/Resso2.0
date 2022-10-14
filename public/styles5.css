@@ -1,0 +1,28 @@
+.box4{
+    margin: 2rem auto;
+}
+tbody{
+    height: 70px;
+}
+.btn5{
+    padding:.3rem  .7rem;
+    background-color:black;
+    border-radius: 10px;
+}
+.delete{
+    color: #fff;
+    background-color: rgb(199, 53, 53);
+}
+.out{
+    color: #fff;
+    background-color: rgb(39, 99, 190);
+    margin-left: 1rem;
+    
+}
+.delete:hover{
+    color: #fff;
+
+}.out:hover{
+    color: #fff;
+
+}

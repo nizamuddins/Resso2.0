@@ -1,0 +1,114 @@
+/* signup */
+body {
+    color: #fff;
+    background-color: transparent;
+    background-image:url('https://i.pinimg.com/originals/fc/48/68/fc48688993507d71fd61fb4c492914cc.jpg');
+    font-family: 'Roboto', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+.txt{
+    font-size:20rem;
+    position:absolute;
+    z-index: -1;
+    left:14%;
+    top: 23%;
+    color: rgb(70, 70, 70);
+    font-weight: 600;
+    font-family: "Audiowide", sans-serif;
+}
+.form-control,
+.input-group-addon {
+    border: 1px solid
+  
+}
+.form-control:focus{
+    color: rgb(43, 93, 143);
+}
+.btn,
+.form-control {
+    border-radius: 3px;
+    font-weight: 500;
+}
+.signup-form {
+    width: 500px;
+    margin: 5rem auto;
+    padding: 30px 0;
+}
+.signup-form form {
+    color: rgb(78, 74, 74);
+    border-radius: 20px;
+    margin-bottom: 15px;
+    background: rgb(255, 255, 255);
+    padding: 50px;
+    box-shadow: 0 0 10px 8px rgb(100, 81, 81);
+
+}
+.signup-form h2 {
+    color: rgb(4, 4, 4);
+    font-weight: bold;
+    margin-top: 0;
+}
+.signup-form hr {
+    margin: 0 -30px 20px;
+}
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+.signup-form label {
+    font-weight: normal;
+    font-size: 13px;
+}
+.signup-form .form-control {
+    min-height: 38px;
+    box-shadow: none !important;
+    /* border: 1px solid rgb(101, 101, 101); */
+}
+.signup-form .input-group-addon {
+    max-width: 42px;
+    text-align: center;
+}
+.signup-form input[type="checkbox"] {
+    margin-top: 2px;
+}
+.signup-form .btn {
+    font-size: 16px;
+    font-weight: bold;
+    background: #2d81b8;
+    border: none;
+    min-width: 140px;
+    margin-top: 1rem;
+}
+.signup-form .btn:focus,
+.signup-form .btn:hover {
+    background: #2d81b8;
+    outline: none;
+}
+.signup-form a {
+    color: #fff;
+    text-decoration: underline;
+}
+.signup-form a:hover {
+    text-decoration: none;
+}
+.signup-form form a {
+    color:#2d81b8;
+    text-decoration: none;
+}
+.signup-form form a:hover {
+    text-decoration: underline;
+}
+.signup-form .fa {
+    font-size: 21px;
+}
+.signup-form .fa-paper-plane {
+    font-size: 18px;
+}
+.signup-form .fa-check {
+    color: #fff;
+    left: 17px;
+    top: 18px;
+    font-size: 7px;
+    position: absolute;
+}
