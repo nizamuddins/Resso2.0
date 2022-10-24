@@ -1,24 +1,11 @@
 <%- include("partial/header4") -%>
 <div class="container">
     <div class="box4">
+    <div class="user"><i class="fa-solid fa-user user2"></i></div>
+<p class="text-white fs-2 fw-bold mt-4"><%= Name %></p>
+<p class="text-white fs-2 fw-bold "><%= Email %></p>
 
-    <table >
-        <div class="mb-4 ">
-        <tr>
-            <th>Name:</th>
-            <td><%= Name %></td>
-        </tr>
-    </div>
-
-       <div class="mt-4">
-        <tr>
-            <th>Email:</th>
-            <td><%= Email %></td>
-        </tr>
-       </div>
-
-    </table>
-    <a href="" class="btn5 mt-2 text-decoration-none delete" type="button">Delete Account</a>
+    <a href="/delete" class="btn5 mt-3  text-decoration-none delete" type="button">Delete Account</a>
     <a href="/logout" class="btn5 mt-2 text-decoration-none out" type="button">LogOut</a>
 </div>
 

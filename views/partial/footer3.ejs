@@ -8,12 +8,12 @@
         <span class="span2 "> <p>Expand</p></span>
         <div class="sideSong">
             <span class="images2">
-                <img src=<%= array1[0].imag %> class="pngs lastimg" alt=""></span>
+                <img src=<%= array1[0].image %> class="pngs lastimg" alt=""></span>
                 <span class="span1"></span>
                     <span class="span1 mt-2 me-2"></span>
                 <span class="names">
-                    <a class="RB musicName"><%= array1[0].songnaam %></a>
-                    <p class="singer singers"><%= array1[0].singername %></p>
+                    <a class="RB musicName"><%= array1[0].musicName %></a>
+                    <p class="singer singers"><%= array1[0].artists %></p>
                 </span>
 
             </div>
@@ -41,7 +41,7 @@
             <div class="range">
                 <input type="range" class=" w-100" name="" id="range" min="0" max="100" value="0"></div>
             </div>
-            <audio src= <%= array1[0].src1 %> id="gaana"></audio>
+            <audio src= <%= array1[0].source %> id="gaana"></audio>
 
         </section>
     </body>

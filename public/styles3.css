@@ -20,7 +20,7 @@ body {
 }
 .form-control,
 .input-group-addon {
-    border: 1px solid
+    border: 1px solid;
   
 }
 .form-control:focus{
@@ -40,13 +40,13 @@ body {
     color: rgb(78, 74, 74);
     border-radius: 20px;
     margin-bottom: 15px;
-    background: rgb(255, 255, 255);
+    background: #141414;
     padding: 50px;
     box-shadow: 0 0 10px 8px rgb(100, 81, 81);
 
 }
 .signup-form h2 {
-    color: rgb(4, 4, 4);
+    color: rgb(247, 247, 247);
     font-weight: bold;
     margin-top: 0;
 }

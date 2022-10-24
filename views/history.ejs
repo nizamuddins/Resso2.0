@@ -21,14 +21,14 @@
         <% for(i=0;i<array1.length;i++){ %>
             <li class="trend ajab">
                 <span class="images ajab">
-                    <img id="dynamicimage" src= <%= array1[i].imag %> class="pngs ajab" alt="">
+                    <img id="dynamicimage" src= <%= array1[i].image %> class="pngs ajab" alt="">
                     <span class="playPause1">
                         <i class="playPause2 fa-solid  lh-lg fas"></i>
                     </span>
                 </span>
                 <span class="names ajab">
-                    <a id="song" class="RB ajab fm1"> <%= array1[i].songnaam %></a>
-                    <p id="singer" class="singer ajab fm2"> <%= array1[i].singername %></p>
+                    <a id="song" class="RB ajab fm1"> <%= array1[i].musicName %></a>
+                    <p id="singer" class="singer ajab fm2"> <%= array1[i].artists %></p>
                 </span>
             </li>
         <% } %>

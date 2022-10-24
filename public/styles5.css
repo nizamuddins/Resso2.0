@@ -1,3 +1,8 @@
+body{
+    color: #000;
+    background-image: none;
+    background-color:  #212020;
+}
 .box4{
     margin: 2rem auto;
 }
@@ -5,7 +10,7 @@ tbody{
     height: 70px;
 }
 .btn5{
-    padding:.3rem  .7rem;
+    padding:.3rem  .6rem;
     background-color:black;
     border-radius: 10px;
 }
@@ -25,4 +30,19 @@ tbody{
 }.out:hover{
     color: #fff;
 
+}
+.user{
+    border-radius: 100px;
+    background-color: #343131;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.user2{
+    font-size: 9rem;
+}
+.row1{
+    height: 700px;
 }
