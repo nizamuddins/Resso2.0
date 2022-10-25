@@ -14,7 +14,7 @@ const findOrCreate = require('mongoose-findorcreate');
 const { use, authenticate } = require("passport");
 const { profile } = require("console");
 const { access } = require("fs");
-
+const port = process.env.PORT || 3000
 
 let sign=0;
 let array = [];
@@ -384,4 +384,4 @@ app.get("/delete",async(req,res)=>{
 })
 
 
-app.listen(3000, () => console.log(`Example app listening on port 4000`));
+app.listen(port, () => console.log(`Example app listening on port 4000`));
