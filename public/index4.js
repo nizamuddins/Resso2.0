@@ -7,7 +7,7 @@ window.addEventListener('keydown', (e) => {
 });
 
 
-$(document).keydown(function(event) {
+$(document).keydown((event)=> {
     if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
             event.preventDefault();
          }
@@ -17,7 +17,7 @@ $(document).keydown(function(event) {
         // 61 Plus key  +/= key
     });
     
-    $(window).bind('mousewheel DOMMouseScroll', function (event) {
+    $(window).bind('mousewheel DOMMouseScroll',  (event)=> {
            if (event.ctrlKey == true) {
            event.preventDefault();
            }

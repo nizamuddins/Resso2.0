@@ -4,7 +4,7 @@ let singer = $("#singer");
 let song1 = $("#song").text();
 
 // Searchform**********
-$(function () {
+$(()=> {
     var availableTags = [
         "Aila Re Aillaa",
         "Aayi Aayi Bhoot Police",
@@ -169,13 +169,16 @@ let audio1 = document.getElementById("audio1");
 
 let songs = $("#songs1");
 let start = true;
-songs.click(function () {
+
+songs.click(()=> {
     lastImgtext(song1, name_1, src);
+    body.css("background-image",`linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%,rgba(192,212,194,0.24723392775078779), rgba(192,212,194,0.24723392775078779) 100%),url(${src})`)
+    body.css("height","100%");
+    body.css('background-size' ,'cover');
 $(".Img1").attr("src",src)
     if (start) {
         setTimeout(()=>{
             audio1.play();
-    
         },1000);
         const images2 = $('.images2');
         const innerhtml2 = `<img src="images/gif.gif" class="gif3">`
@@ -200,6 +203,11 @@ $(".Img1").attr("src",src)
 body.keydown((e)=>{
     if (e.key === " ") {
     lastImgtext(song1, name_1, src);
+    $(".Img1").attr("src",src)
+    body.css("background-image",`linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%,rgba(192,212,194,0.24723392775078779), rgba(192,212,194,0.24723392775078779) 100%),url(${src})`)
+    body.css("height","100%");
+    body.css('background-size' ,'cover');
+
         // e.preventDefault();
         if ($('.lstPlay').hasClass('fa-play')) {
             $('.lstPlay').removeClass('fa-play');
@@ -257,6 +265,10 @@ audio1.addEventListener("timeupdate", (e) => {
 
 $('.lstPlay').click((e) => {
     lastImgtext(song1, name_1, src);
+    $(".Img1").attr("src",src);
+    body.css("background-image",`linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%,rgba(192,212,194,0.24723392775078779), rgba(192,212,194,0.24723392775078779) 100%),url(${src})`)
+    body.css("height","100%");
+    body.css('background-size' ,'cover');
 
     if ($('.lstPlay').hasClass('fa-play')) {
         $('.lstPlay').removeClass('fa-play');
@@ -388,9 +400,15 @@ function myFunc(){
         exp.prepend(arrow)
         $(".arrow1").mouseover(()=>{
             $(".span4").addClass("span3");
+             $(".span4").css("visibility","visible");
+
         })
         $(".arrow1").mouseleave(()=>{
             $(".span4").removeClass("span3");
+            $(".span2").css("visibility",'hidden');
+            $(".span4").css("visibility","hidden");
+
+
         })
         $(".arrow1").click(()=>{
             $(".arrow").css("visibility","hidden");
@@ -446,7 +464,7 @@ window.addEventListener('keydown', (e) => {
   });
   
 
-$(document).keydown(function(event) {
+$(document).keydown((event)=> {
     if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
             event.preventDefault();
          }
@@ -456,7 +474,7 @@ $(document).keydown(function(event) {
         // 61 Plus key  +/= key
     });
 
-    $(window).bind('mousewheel DOMMouseScroll', function (event) {
+    $(window).bind('mousewheel DOMMouseScroll',  (event)=> {
            if (event.ctrlKey == true) {
            event.preventDefault();
            }
@@ -525,6 +543,8 @@ if(width < 1230){
 
 $("#home").remove();
 body.css("background-color","#fff")
+body.css("background-image","none")
+
 body.text("Error!")
 
 
@@ -534,10 +554,11 @@ body.text("Error!")
 window.addEventListener("resize",(e)=>{
     if(window.innerWidth < 1426){
         $("#home").remove();
-        body.css("background-color","#fff")
-        body.text("Error!")
+        body.css("background-color","#fff");
+        body.css("background-image","none")
+        body.text("Error!");
         
         
     
-    }
-    })
+}
+})

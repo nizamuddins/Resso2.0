@@ -1,6 +1,6 @@
 const body = $("body");
-// Searchform**********
-$( function() {
+// Searchform*********************************
+$( ()=>{
     var availableTags = [
         "Aila Re Aillaa",
         "Aayi Aayi Bhoot Police",
@@ -220,14 +220,14 @@ songsList.mouseleave((e) => {
 
 })
 
-// addingPause,Play
+// addingPause,PlayU********************************
 
 let start2 = false;
 const songsgif = $('.songsgif')
 
 const array = ['keaar', 'roke', 'zara', 'halki', 'toof'];
 
-// playingsongs************
+// playingsongs****************************
 const audio1 = document.querySelector('#audio1');
 const audio2 = document.querySelector('#audio2');
 const audio3 = document.querySelector('#audio3');
@@ -235,7 +235,7 @@ const audio4 = document.querySelector('#audio4');
 const audio5 = document.querySelector('#audio5');
 let count = 0;
 
-// forward******
+// forward***************************
 $('.forward').click(() => {
 
     const split5 = songsgif
@@ -268,7 +268,7 @@ $('.forward').click(() => {
     }
 
 })
-// backward****
+// backward********************************
 
 $('.backward').click(() => {
 
@@ -302,7 +302,8 @@ $('.backward').click(() => {
 
 })
 
-// timeupdate
+// timeupdate**************************************
+
 let array2 = [audio1, audio2, audio3, audio4, audio5];
 var range = $('#range');
 
@@ -372,7 +373,7 @@ $('.smallrange').change(() => {
 
     volume_change(change)
 })
-// KeyoardEvent
+// KeyoardEvent*************************
 body.keydown((e) => {
     if (e.key === " ") {
         // e.preventDefault();
@@ -395,7 +396,7 @@ body.keydown((e) => {
     }
 
 });
-// Mute and Unmute
+// Mute and Unmute**********************
 $('.volume').mouseover(() => {
     $('.rangesmall').css('visibility', 'visible')
 })
@@ -416,7 +417,7 @@ $('.volume').click(() => {
 
 })
 
-// mute
+// mute***************************
 function mute() {
     audio1.muted = true;
     audio2.muted = true;
@@ -427,7 +428,7 @@ function mute() {
     val.value = 0;
 
 }
-// unmute
+// unmute************************
 
 function unmute() {
     audio1.muted = false;
@@ -472,7 +473,7 @@ $('.songsList').click((e) => {
     playSound(name);
     changes(name);
 })
-// lastPlay
+// lastPlay**************************************
 
 const split5 = songsgif
     .attr('class').split(' ');
@@ -587,7 +588,8 @@ function playSound(name1) {
 
 }
 
-// pauseSound ****** */ changinImgs
+// pauseSound ****** */ changinImgs******************
+
 const lstImg = $('.lastimg');
 
 function changes(names) {
@@ -614,7 +616,7 @@ function changes(names) {
     }
 
 }
-// addinggif
+// addinggif*********************************
 function addinggif() {
 
     play.addClass('fa-pause fs-5');
@@ -650,7 +652,7 @@ function addinggif() {
     })
 }
 
-// changingNames**
+// changingNames*****************************
 
 function cols1(name1, name2) {
     const songName1 = $('.songName1');
@@ -666,7 +668,7 @@ function cols1(name1, name2) {
 
 }
 
-// lstPlayfunc
+// lstPlayfunc*********************************
 function lstPlay() {
     if ($('.lstPlay').hasClass('fa-play')) {
         $('.lstPlay').removeClass('fa-play');
@@ -679,7 +681,7 @@ function lstPlay() {
     }
 
 }
-// removinggif
+// removinggif******************************
 function removinggif() {
 
     play.addClass('fa-play');
@@ -690,7 +692,7 @@ function removinggif() {
     compactdisc.removeClass('fa');
 }
 
-// reset
+// reset*****************************************
 
 let reset = function () {
     audio1.currentTime = 0;
@@ -823,3 +825,4 @@ if(window.innerWidth < 1426){
 
 }
 })
+// ____________________________________________________________________

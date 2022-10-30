@@ -1,0 +1,50 @@
+<%- include('partial/header6') -%>
+
+<% if(message.length >0){ %>
+	<div class="alert">
+		<%= message[0].message %>
+	</div>
+<%}%>
+
+
+ <h1 class="txt">Resso 2.0</h1>   
+<div class="signup-form">
+    <form action="/signup" method="post">
+		<h2>Sign Up</h2>
+		<p style="color: rgb(218, 212, 212);">Please fill in this form to create an account!</p>
+		<hr>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input type="text" class="form-control" name="username" placeholder="Username"  autocomplete="off">
+			</div>
+        </div>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+				<input type="email" class="form-control" name="mail" placeholder="Email Address" autocomplete="off">
+			</div>
+        </div>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				<input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
+			</div>
+        </div>
+        <div class="form-group">
+			<label class="checkbox-inline" style="color: #fff;"><input type="checkbox" required="required" > I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></label>
+		</div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+        </div>
+		<div class="form-group">
+   
+			<a class="btn btn-block " href="/auth/google" role="button" style="color: #fff;font-weight:400;font-size:1.5rem;background-color: rgb(232, 75, 75);text-decoration: none;padding: 1rem 0rem;">
+			  <i class="fab fa-google"></i>
+			  Sign Up with Google
+			</a>
+	</div>
+    </form>
+	<div class="text-center" >Already have an account? <a href="/" style="color:rgb(89, 119, 220);">Login here</a></div>
+</div>
+<%- include('partial/footer4') -%>

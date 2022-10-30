@@ -186,7 +186,9 @@
     height: 26px;
     width: 42px;
 }
-
+.btn:hover {
+    border: 1px solid #fff;
+}
 #ui-id-1{
     margin-top: 2rem;
     --bs-bg-opacity: 1;
@@ -347,7 +349,7 @@ outline: none !important;
 
 .songName2 {
     display: block;
-    max-width: 60%;
+    max-width: 65%;
     margin: auto;
     line-height: 28px;
     color: rgb(195,200,215);
@@ -380,14 +382,14 @@ outline: none !important;
     .keaars {
         height: 240px;
         width: 240px;
-        left: 29%;
+        left: 33%;
     
     }
     .disc {
         font-size: 11rem;
         color: rgb(0, 0, 0);
         position: absolute;
-        left: 27%;
+        left: 33%;
         top: 20%;
         z-index: 0;
         margin-left: 7.5rem;

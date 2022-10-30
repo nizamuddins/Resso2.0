@@ -4,7 +4,7 @@ let singer = $("#singer").text();
 let song1 = $("#song").text();
 
 // Searchform**********
-$(function () {
+$( ()=> {
     var availableTags = [
         "Aila Re Aillaa",
         "Aayi Aayi Bhoot Police",
@@ -156,7 +156,7 @@ var range = $('#range');
 let songs = $(".fm1");
 let start = true;
 let source = "hdf";
-songs.click(function (e) {
+songs.click( (e)=> {
     let temp1 = e.currentTarget;
     let sibling = temp1.nextElementSibling;
     let val1 = temp1.textContent;
@@ -441,7 +441,7 @@ window.addEventListener('keydown', (e) => {
 });
 
 
-$(document).keydown(function(event) {
+$(document).keydown((event)=> {
     if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
             event.preventDefault();
          }
@@ -451,7 +451,7 @@ $(document).keydown(function(event) {
         // 61 Plus key  +/= key
     });
     
-    $(window).bind('mousewheel DOMMouseScroll', function (event) {
+    $(window).bind('mousewheel DOMMouseScroll',  (event)=> {
            if (event.ctrlKey == true) {
            event.preventDefault();
            }

@@ -1,0 +1,49 @@
+<%- include('partial/header6') -%>
+<% if(message.length >0){ %>
+	<div class="alert">
+		<%= message[0].message %>
+	</div>
+<%}%>
+
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default" style="margin-top: 100px;
+                background: #060606;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                height: 450px;
+                box-shadow: 0 0 10px 8px rgb(100, 81, 81);
+                border-radius: 25px;">
+                    <div class="panel-body">
+                        <div class="text-center">
+                          <h3><i class="fa fa-lock fa-4x" style="color: rgb(80, 75, 75);font-size: 10rem;"></i></h3>
+                          <h2 class="text-center">Forgot Password?</h2>
+                          <p>You can reset your password here.</p>
+                            <div class="panel-body">
+                              
+                              <form action="/forgot" class="form" method="post">
+                                <fieldset>
+                                  <div class="form-group">
+                                    <div class="input-group">
+                                      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                      
+                                      <input  name="reset" id="emailInput" placeholder="email address" class="form-control" type="email" oninvalid="setCustomValidity('Please enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <input class="btn btn-lg btn-primary btn-block" style="padding:.5rem 1rem ;font-size: 1.7rem;" value="Reset My Password" type="submit">
+                                  </div>
+                                </fieldset>
+                              </form>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partial/footer4') -%>

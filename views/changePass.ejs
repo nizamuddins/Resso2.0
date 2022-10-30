@@ -1,0 +1,40 @@
+<%- include('partial/header6') -%>
+<% if(message.length >0){ %>
+	<div class="alert">
+		<%= message[0].message %>
+	</div>
+<%}%>
+
+<div class="card login-form" style=" width:320px;margin:auto;margin-top: 100px;
+			background: #060606;
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			padding: 60px 45px 50px; 
+			height: 450px;
+			box-shadow: 0 0 10px 8px rgb(100, 81, 81);
+			border-radius: 25px;">
+	<div class="card-body">
+		<h3 class="card-title text-center" >Change password</h3>
+		
+		<!--Password must contain one lowercase letter, one number, and be at least 7 characters long.-->
+		
+		<div class="card-text">
+			<form action="/newPassword" method="post" style="
+                padding-top: 10px;
+                font-size: 13px;
+                margin-top: 30px;
+            ">
+				<div class="form-group">
+					<label for="exampleInputEmail1">New password</label>
+					<input type="password" class="form-control form-control-sm" name="newPass" >
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Confirm password</label>
+					<input type="password" class="form-control form-control-sm" name="retype">
+				</div>
+				<button name="button" type="submit" value=<%= object %> class="btn btn-primary btn-block submit-btn" style="font-size: 13p;margin-top: 20px;">Confirm</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<%- include('partial/footer4') -%>

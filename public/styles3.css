@@ -1,11 +1,8 @@
 /* signup */
 body {
     color: #fff;
-    background-color: transparent;
-    background-image:url('https://i.pinimg.com/originals/fc/48/68/fc48688993507d71fd61fb4c492914cc.jpg');
     font-family: 'Roboto', sans-serif;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: black;
     height: 600px;
 }
 .txt{
@@ -40,7 +37,7 @@ body {
     color: rgb(78, 74, 74);
     border-radius: 20px;
     margin-bottom: 15px;
-    background: #141414;
+    background: #060606;
     padding: 50px;
     box-shadow: 0 0 10px 8px rgb(100, 81, 81);
 
@@ -111,4 +108,14 @@ body {
     top: 18px;
     font-size: 7px;
     position: absolute;
+}
+
+.alert{
+    width: 400px;
+    height: 30px;
+    margin:1rem auto auto;    
+    background-color: rgb(181, 41, 41);
+    text-align: center;
+    line-height: 2px;
+    color: #fff;
 }

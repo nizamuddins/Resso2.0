@@ -1,0 +1,44 @@
+<%- include('partial/header5') -%>
+<% if(message.length >0){ %>
+	<div class="alert">
+		<%= message[0].message %>
+  
+	</div>
+  
+<%}%>
+ <h1 class="txt">Resso 2.0</h1>   
+<div class="login-form">
+    <form action="/login" method="post">
+        <h2 class="text-center">Login</h2>   
+        <div class="form-group">
+        	<div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" class="form-control" name="username" placeholder="Username"  autocomplete="off">				
+            </div>
+        </div>
+		<div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="password" class="form-control" name="password" placeholder="Password"  autocomplete="off">				
+            </div>
+        </div>        
+        <div class="form-group " style="margin-top: 4rem;">
+            <button type="submit" class="btn btn-primary login-btn btn-block">Log in</button>
+        </div>
+        <div class="form-group" style="background-color: rgb(232, 75, 75);padding: .2rem 0rem;">
+   
+                <a class="btn btn-block " href="/auth/google" role="button" style="color: #fff;">
+                  <i class="fab fa-google"></i>
+                  Sign In with Google
+                </a>
+        </div>
+         
+        <div class="clearfix">
+            <a href="/forgot" class="pull-right">Forgot Password?</a>
+        </div>
+      
+    </form>
+    <p class="text-center text-muted small">Don't have an account? <a href="/signup">Sign up here!</a></p>
+</div>
+<%- include('partial/footer4') -%>
+
