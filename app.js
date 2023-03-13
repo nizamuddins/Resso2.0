@@ -1,7 +1,7 @@
 //jshint esversion:6
 require("dotenv").config()
 const express = require('express');
-const port = process.env.PORT || 3000;
+const port = 5000;
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const flash = require('connect-flash');
